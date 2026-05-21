@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rifasa Executive Auto Ventures Limited | Mombasa, Kenya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{
+  --red:#C1121F;
+  --red-dark:#9a0e18;
+  --red-light:#e8131f;
+  --black:#0a0a0a;
+  --charcoal:#1a1a1a;
+  --white:#ffffff;
+  --off-white:#f8f7f5;
+  --grey-light:#f0eeeb;
+  --grey-mid:#c8c5be;
+  --grey-dark:#6b6660;
+  --text:#1a1a1a;
+  --text-light:#6b6660;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.06);
+  --shadow-md:0 8px 32px rgba(0,0,0,.10);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.14);
+  --shadow-xl:0 40px 80px rgba(0,0,0,.18);
+  --radius:14px;
+  --transition:.3s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+
+/* ===== UTILITY ===== */
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.section-tag{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
+.section-tag::before{content:'';width:24px;height:2px;background:var(--red);}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);line-height:1.0;letter-spacing:.02em;color:var(--black);}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;transition:var(--transition);position:relative;overflow:hidden;}
+.btn-primary::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.15);opacity:0;transition:var(--transition);}
+.btn-primary:hover::after{opacity:1;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(193,18,31,.35);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:transparent;color:var(--black);font-family:'Syne',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;border:1.5px solid var(--black);transition:var(--transition);}
+.btn-outline:hover{background:var(--black);color:#fff;transform:translateY(-2px);}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
+.reveal-left.visible{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
+.reveal-right.visible{opacity:1;transform:none;}
+
+/* ===== NAVBAR — full red background ===== */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--red);
+  padding:0;
+  transition:box-shadow .4s ease;
+}
+#navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.25);}
+.nav-inner{display:flex;align-items:stretch;justify-content:space-between;height:64px;}
+
+/* White logo block on the left */
+.nav-logo-block{
+  display:flex;align-items:center;gap:12px;
+  background:#fff;
+  padding:0 24px;
+  cursor:pointer;user-select:none;text-decoration:none;
+  flex-shrink:0;
+}
+.nav-logo-block img{height:42px;width:auto;object-fit:contain;}
+.nav-logo-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;
+  letter-spacing:.12em;
+  color:var(--red);
+  line-height:1;
+}
+
+.nav-links{display:flex;align-items:center;gap:4px;padding:0 16px;}
+.nav-link{
+  font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.88);
+  transition:color .3s,background .3s;
+  padding:8px 14px;border-radius:3px;
+  position:relative;
+}
+.nav-link:hover,.nav-link.active{color:#fff;background:rgba(0,0,0,.15);}
+
+.nav-wa{
+  display:flex;align-items:center;gap:8px;padding:0 20px;
+  background:rgba(0,0,0,.18);color:#fff;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  transition:var(--transition);border-left:1px solid rgba(255,255,255,.15);
+}
+.nav-wa:hover{background:rgba(0,0,0,.3);}
+
+/* ===== MOBILE NAVBAR ===== */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;margin-right:16px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:#fff;transition:var(--transition);}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--black);z-index:999;flex-direction:column;padding:16px 0 20px;border-top:1px solid rgba(255,255,255,.1);transform:translateY(-10px);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;}
+.mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all;}
+.mobile-menu .mob-nav-row{display:flex;align-items:center;justify-content:space-around;padding:10px 12px;}
+.mobile-menu .nav-link{color:#fff;font-size:.7rem;padding:8px 10px;background:none;letter-spacing:.08em;}
+.mobile-menu .nav-link:hover{background:rgba(255,255,255,.08);}
+.mobile-menu .mob-wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:4px;margin:6px 16px 0;}
+
+.mobile-menu-full{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--black);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);}
+.mobile-menu-full.open{transform:none;}
+.mobile-menu-full .nav-link{color:#fff;font-size:1.1rem;background:none;}
+.mobile-menu-full .nav-link:hover{background:rgba(255,255,255,.08);}
+
+/* ===== HERO ===== */
+#home{display:block;}
+#hero{
+  width:100%;
+  height:100vh;
+  min-height:500px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-img-desktop{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+.hero-img-mobile{display:none;}
+
+@media(max-width:768px){
+  #hero{
+    height:auto;
+    aspect-ratio:unset;
+    min-height:unset;
+  }
+  .hero-img-desktop{display:none;}
+  .hero-img-mobile{
+    display:block;
+    position:relative;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    object-position:center top;
+  }
+}
+
+/* ===== STATS STRIP ===== */
+#stats{background:#fff;padding:40px 0 28px;}
+.stats-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:20px;}
+.stat-item{text-align:center;}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;color:var(--red);line-height:1;}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-dark);margin-top:4px;}
+.stat-divider{width:1px;height:40px;background:var(--grey-light);}
+
+/* Mobile stats — single row */
+@media(max-width:768px){
+  #stats{padding:18px 0 14px;}
+  .stats-inner{flex-wrap:nowrap;gap:0;justify-content:space-between;padding:0 10px;}
+  .stat-item{flex:1;}
+  .stat-number{font-size:1.3rem;}
+  .stat-label{font-size:.5rem;letter-spacing:.06em;white-space:nowrap;}
+  .stat-divider{display:block;width:1px;height:28px;background:var(--grey-light);}
+}
+
+/* ===== SOCIAL FOLLOW STRIP ===== */
+#social-follow{background:#fff;padding:0 0 48px;}
+.social-follow-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.follow-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:var(--transition);}
+.follow-btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;}
+.follow-btn-ig:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(253,29,29,.35);}
+.follow-btn-tt{background:#000;color:#fff;}
+.follow-btn-tt:hover{background:#111;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.follow-btn-wa{background:#25D366;color:#fff;}
+.follow-btn-wa:hover{background:#1ebe5b;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3);}
+.follow-btn svg{width:18px;height:18px;}
+.follow-divider{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--grey-mid);}
+
+/* ===== SEARCH FILTER ===== */
+#search{padding:60px 0;background:var(--off-white);position:relative;}
+#search::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--black));}
+.search-card{background:var(--white);border-radius:var(--radius);padding:36px 40px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
+.search-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--red);}
+.search-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;}
+.search-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;}
+.search-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.filter-group{display:flex;flex-direction:column;gap:6px;}
+.filter-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-dark);}
+.filter-select,.filter-input{width:100%;padding:12px 16px;border:1.5px solid var(--grey-light);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.88rem;background:var(--off-white);color:var(--text);appearance:none;transition:var(--transition);outline:none;}
+.filter-select:focus,.filter-input:focus{border-color:var(--red);background:#fff;box-shadow:0 0 0 3px rgba(193,18,31,.08);}
+.search-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
+.search-results-count{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:600;color:var(--grey-dark);align-self:center;}
+
+/* ===== INVENTORY ===== */
+#inventory{padding:80px 0;background:var(--white);}
+.inventory-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px;}
+.cars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.car-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.06);cursor:pointer;}
+.car-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);}
+.car-card-img{position:relative;height:220px;overflow:hidden;background:#eee;}
+.car-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.2,1);}
+.car-card:hover .car-card-img img{transform:scale(1.07);}
+.car-card-badge{position:absolute;top:14px;left:14px;padding:5px 12px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;}
+.car-card-condition{position:absolute;top:14px;right:14px;padding:5px 12px;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);color:#fff;font-family:'Syne',sans-serif;font-size:.63rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;}
+.car-card-body{padding:22px 24px;}
+.car-card-make{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:3px;}
+.car-card-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--black);margin-bottom:12px;line-height:1.2;}
+.car-card-specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.car-spec-tag{display:flex;align-items:center;gap:5px;padding:5px 10px;background:var(--off-white);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--grey-dark);}
+.car-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--grey-light);}
+.car-card-price{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.03em;color:var(--black);}
+.car-card-price span{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;color:var(--grey-dark);display:block;margin-bottom:-4px;letter-spacing:.05em;}
+.car-card-btn{display:flex;align-items:center;gap:6px;padding:10px 18px;background:var(--black);color:#fff;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;transition:var(--transition);}
+.car-card-btn:hover{background:var(--red);}
+
+/* Skeleton */
+.skeleton{background:linear-gradient(90deg,#f0eeeb 25%,#e8e6e3 50%,#f0eeeb 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.skel-card{border-radius:var(--radius);overflow:hidden;}
+.skel-img{height:220px;}
+.skel-body{padding:22px 24px;}
+.skel-line{height:14px;border-radius:4px;margin-bottom:10px;}
+.skel-line.w60{width:60%;}
+.skel-line.w80{width:80%;}
+.skel-line.w40{width:40%;}
+.empty-state{grid-column:1/-1;text-align:center;padding:80px 20px;}
+.empty-state-icon{width:72px;height:72px;background:var(--grey-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.empty-state h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;}
+.empty-state p{font-size:.9rem;color:var(--text-light);}
+
+/* ===== ABOUT — darker shade of white background ===== */
+#about{padding:36px 0;background:#2a2a2a;position:relative;overflow:hidden;}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.about-left .section-tag{color:var(--red);margin-bottom:8px;}
+.about-left .section-title{color:var(--white);font-size:clamp(1.6rem,3vw,2.4rem);}
+.about-text{font-family:'DM Sans',sans-serif;font-size:.88rem;line-height:1.6;color:rgba(255,255,255,.7);margin-top:10px;max-width:420px;}
+.about-cta{margin-top:16px;}
+.about-right{position:relative;}
+.about-img-wrap{border-radius:10px;overflow:hidden;aspect-ratio:16/7;background:#333;position:relative;}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.about-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.about-feature{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);}
+.about-feature span{font-family:'DM Sans',sans-serif;font-size:.8rem;}
+.about-bg-text{position:absolute;bottom:-10px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:14vw;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;}
+
+/* ===== VIDEOS (Instagram Embeds) ===== */
+#reels{padding:60px 0;background:var(--off-white);overflow:hidden;}
+.reels-header{text-align:center;margin-bottom:40px;}
+.reels-track-wrap{overflow:hidden;position:relative;}
+.reels-track-wrap::before,.reels-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.reels-track-wrap::before{left:0;background:linear-gradient(to right,var(--off-white),transparent);}
+.reels-track-wrap::after{right:0;background:linear-gradient(to left,var(--off-white),transparent);}
+.reels-track{display:flex;gap:20px;padding:10px 80px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+.reels-track::-webkit-scrollbar{height:4px;}
+.reels-track::-webkit-scrollbar-track{background:transparent;}
+.reels-track::-webkit-scrollbar-thumb{background:var(--grey-mid);border-radius:2px;}
+
+/* Instagram embed container */
+.reel-embed-card{
+  flex-shrink:0;
+  width:220px;
+  scroll-snap-align:start;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  background:#fff;
+  position:relative;
+  cursor:pointer;
+  transition:transform .3s;
+  border:1px solid rgba(0,0,0,.08);
+}
+.reel-embed-card:hover{transform:scale(1.03);}
+/* Thumbnail overlay approach — click opens Instagram */
+.reel-thumb-wrap{
+  position:relative;
+  width:220px;
+  height:390px;
+  overflow:hidden;
+  background:#1a1a1a;
+}
+.reel-thumb-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.reel-thumb-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.1) 55%,transparent 100%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  padding:16px;
+}
+.reel-play-btn{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-60%);
+  width:52px;height:52px;
+  background:rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s;
+  border:2px solid rgba(255,255,255,.4);
+}
+.reel-embed-card:hover .reel-play-btn{background:rgba(193,18,31,.75);}
+.reel-play-btn svg{width:20px;height:20px;color:#fff;margin-left:3px;}
+.reel-ig-badge{
+  display:flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+  color:#fff;
+  font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;
+  padding:5px 10px;border-radius:20px;
+  margin-bottom:6px;
+}
+.reel-label-text{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;color:#fff;letter-spacing:.06em;text-align:center;}
+.reel-handle-text{font-family:'DM Sans',sans-serif;font-size:.6rem;color:rgba(255,255,255,.7);text-align:center;margin-top:2px;}
+
+/* Fallback gradient card */
+.reel-fallback-bg{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:10px;
+  padding:20px;
+}
+.reel-ig-icon{
+  width:56px;height:56px;
+  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== REVIEWS — smaller cards ===== */
+#reviews{padding:72px 0;background:var(--white);overflow:hidden;}
+.reviews-header{text-align:center;margin-bottom:40px;}
+.reviews-slider-wrap{overflow:hidden;position:relative;}
+.reviews-slider-wrap::before,.reviews-slider-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none;}
+.reviews-slider-wrap::before{left:0;background:linear-gradient(to right,#fff,transparent);}
+.reviews-slider-wrap::after{right:0;background:linear-gradient(to left,#fff,transparent);}
+.reviews-track{display:flex;gap:14px;animation:reviewsScroll 22s linear infinite;width:max-content;}
+.reviews-track:hover{animation-play-state:paused;}
+@keyframes reviewsScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+/* Smaller review card */
+.review-card{flex-shrink:0;width:260px;background:var(--white);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow-md);border:1px solid var(--grey-light);position:relative;overflow:hidden;}
+.review-card::before{content:'\201C';font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--red);opacity:.08;position:absolute;top:-6px;left:12px;line-height:1;}
+.review-stars{display:flex;gap:2px;margin-bottom:10px;}
+.review-text{font-family:'DM Sans',sans-serif;font-size:.78rem;line-height:1.6;color:var(--grey-dark);margin-bottom:14px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:8px;}
+.review-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--black));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0;}
+.review-name{font-family:'Syne',sans-serif;font-size:.76rem;font-weight:700;color:var(--black);}
+.review-date{font-family:'DM Sans',sans-serif;font-size:.62rem;color:var(--grey-dark);}
+
+/* ===== CONTACT ===== */
+#contact{padding:80px 0;background:var(--off-white);}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:16px;margin-top:32px;}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding:18px;background:var(--white);border-radius:10px;transition:var(--transition);border:1px solid transparent;}
+.contact-item:hover{border-color:rgba(193,18,31,.12);box-shadow:var(--shadow-sm);}
+.contact-item-icon{width:40px;height:40px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-item-icon svg{width:17px;height:17px;color:#fff;}
+.contact-item-label{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-dark);margin-bottom:3px;}
+.contact-item-value{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;color:var(--black);}
+.contact-wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;transition:var(--transition);}
+.contact-wa-btn:hover{background:#1ebe5b;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3);}
+.map-placeholder{height:200px;background:var(--grey-light);border-radius:10px;overflow:hidden;margin-top:8px;}
+.map-placeholder iframe{width:100%;height:100%;border:none;}
+.contact-form-wrap{background:var(--white);border-radius:var(--radius);padding:36px;border:1px solid var(--grey-light);box-shadow:var(--shadow-sm);}
+.form-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;margin-bottom:24px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-dark);}
+.form-input,.form-textarea{width:100%;padding:13px 16px;border:1.5px solid var(--grey-light);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:#fff;color:var(--text);transition:var(--transition);outline:none;resize:none;}
+.form-input:focus,.form-textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(193,18,31,.08);}
+.form-textarea{height:120px;}
+.form-submit{width:100%;margin-top:8px;}
+
+/* ===== FOOTER ===== */
+#footer{background:var(--charcoal);color:#fff;padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
+.footer-logo{margin-bottom:16px;}
+.footer-logo img{height:56px;width:auto;object-fit:contain;filter:brightness(0) invert(1);}
+.footer-tagline{font-family:'DM Sans',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.65;max-width:280px;}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.social-btn{width:38px;height:38px;border:1px solid rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:var(--transition);}
+.social-btn:hover{background:var(--red);border-color:var(--red);}
+.social-btn svg{width:16px;height:16px;}
+.footer-col-title{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;}
+.footer-link{display:block;font-family:'DM Sans',sans-serif;font-size:.85rem;color:rgba(255,255,255,.65);margin-bottom:10px;transition:color .3s;}
+.footer-link:hover{color:var(--red);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-family:'DM Sans',sans-serif;font-size:.78rem;color:rgba(255,255,255,.35);}
+.footer-copy span{color:var(--red);}
+
+/* ===== TOAST ===== */
+.toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;}
+.toast{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:10px;background:var(--black);color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;box-shadow:var(--shadow-lg);transform:translateX(120%);transition:transform .4s cubic-bezier(.4,0,.2,1);max-width:340px;}
+.toast.show{transform:none;}
+.toast-success{border-left:3px solid #22c55e;}
+.toast-error{border-left:3px solid var(--red);}
+.toast-info{border-left:3px solid #3b82f6;}
+
+/* ===== CAR DETAIL MODAL ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:#fff;border-radius:20px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.95) translateY(20px);transition:transform .4s cubic-bezier(.4,0,.2,1);}
+.modal-overlay.open .modal{transform:none;}
+.modal-close{position:absolute;top:20px;right:20px;width:36px;height:36px;background:var(--off-white);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;transition:var(--transition);}
+.modal-close:hover{background:var(--red);color:#fff;}
+.modal-gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px;height:340px;border-radius:20px 20px 0 0;overflow:hidden;}
+.modal-gallery-main{grid-row:1/3;position:relative;overflow:hidden;background:#eee;}
+.modal-gallery-main img{width:100%;height:100%;object-fit:cover;}
+.modal-gallery-thumb{overflow:hidden;background:#eee;}
+.modal-gallery-thumb img{width:100%;height:100%;object-fit:cover;}
+.modal-body{padding:32px 36px;}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;margin-bottom:4px;}
+.modal-subtitle{font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--grey-dark);margin-bottom:24px;}
+.modal-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.modal-spec{background:var(--off-white);border-radius:8px;padding:14px 16px;}
+.modal-spec-label{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-dark);margin-bottom:4px;}
+.modal-spec-value{font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;color:var(--black);}
+.modal-desc{font-family:'DM Sans',sans-serif;font-size:.9rem;line-height:1.7;color:var(--text-light);margin-bottom:24px;}
+.modal-footer{display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--grey-light);flex-wrap:wrap;gap:12px;}
+.modal-price{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--black);}
+.modal-actions{display:flex;gap:10px;}
+
+/* DB Status indicator */
+.db-status{position:fixed;bottom:24px;left:24px;z-index:9998;display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(0,0,0,.8);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(255,255,255,.7);}
+.db-dot{width:8px;height:8px;border-radius:50%;background:#6b7280;flex-shrink:0;}
+.db-dot.connected{background:#22c55e;}
+.db-dot.error{background:var(--red);}
+
+/* ===== ADMIN ===== */
+#admin-login{display:none;position:fixed;inset:0;background:var(--black);z-index:9999;align-items:center;justify-content:center;}
+#admin-login.visible{display:flex;}
+.admin-login-card{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;max-width:420px;width:100%;position:relative;}
+.admin-login-logo{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.admin-login-logo img{height:48px;width:auto;filter:brightness(0) invert(1);}
+.admin-login-logo-text{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.1em;color:#fff;}
+.admin-login-sub{font-family:'DM Sans',sans-serif;font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:36px;letter-spacing:.1em;text-transform:uppercase;}
+.admin-login-close{position:absolute;top:20px;right:20px;color:rgba(255,255,255,.4);transition:color .3s;}
+.admin-login-close:hover{color:#fff;}
+.admin-form-group{margin-bottom:18px;}
+.admin-form-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;display:block;}
+.admin-form-input{width:100%;padding:13px 16px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:var(--transition);}
+.admin-form-input:focus{border-color:var(--red);background:rgba(193,18,31,.05);}
+.admin-remember{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.admin-remember input{width:16px;height:16px;accent-color:var(--red);cursor:pointer;}
+.admin-remember label{font-family:'DM Sans',sans-serif;font-size:.82rem;color:rgba(255,255,255,.55);cursor:pointer;}
+.admin-login-btn{width:100%;padding:14px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;margin-top:8px;transition:var(--transition);}
+.admin-login-btn:hover{background:var(--red-dark);}
+.admin-token-note{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.2);margin-top:10px;text-align:center;line-height:1.5;}
+
+/* ADMIN DASHBOARD */
+#admin-dash{display:none;position:fixed;inset:0;background:#0d0d0d;z-index:9998;overflow-y:auto;}
+#admin-dash.visible{display:block;}
+.dash-header{background:#111;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;}
+.dash-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:#fff;}
+.dash-logo span{color:var(--red);}
+.dash-nav{display:flex;gap:4px;flex-wrap:wrap;}
+.dash-nav-btn{padding:7px 14px;border-radius:6px;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);transition:var(--transition);}
+.dash-nav-btn:hover,.dash-nav-btn.active{background:rgba(255,255,255,.07);color:#fff;}
+.dash-exit{display:flex;align-items:center;gap:6px;padding:7px 14px;background:rgba(193,18,31,.15);color:var(--red);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;transition:var(--transition);}
+.dash-exit:hover{background:var(--red);color:#fff;}
+.dash-body{padding:24px;}
+.dash-section{display:none;}
+.dash-section.active{display:block;}
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.dash-stat{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;}
+.dash-stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--red);}
+.dash-stat-label{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.4);margin-top:2px;letter-spacing:.08em;text-transform:uppercase;}
+.dash-cars-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+.dash-cars-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;}
+.dash-car-list{display:flex;flex-direction:column;gap:10px;}
+.dash-car-item{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;transition:var(--transition);}
+.dash-car-item:hover{border-color:rgba(255,255,255,.12);}
+.dash-car-thumb{width:60px;height:44px;border-radius:6px;object-fit:cover;background:#1a1a1a;flex-shrink:0;}
+.dash-car-info{flex:1;min-width:0;}
+.dash-car-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:#fff;}
+.dash-car-meta{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.4);}
+.dash-car-price{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--red);white-space:nowrap;}
+.dash-car-actions{display:flex;gap:6px;}
+.dash-action-btn{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:var(--transition);}
+.dash-edit{background:rgba(59,130,246,.15);color:#3b82f6;}
+.dash-edit:hover{background:#3b82f6;color:#fff;}
+.dash-delete{background:rgba(193,18,31,.15);color:var(--red);}
+.dash-delete:hover{background:var(--red);color:#fff;}
+.dash-action-btn svg{width:13px;height:13px;}
+
+/* ADD CAR FORM */
+.add-car-form{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;}
+.add-car-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;margin-bottom:20px;}
+.add-car-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.add-car-group{display:flex;flex-direction:column;gap:5px;}
+.add-car-group.full{grid-column:1/-1;}
+.add-car-label{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);}
+.add-car-input,.add-car-select,.add-car-textarea{width:100%;padding:10px 12px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.86rem;outline:none;transition:var(--transition);appearance:none;resize:none;}
+.add-car-input:focus,.add-car-select:focus,.add-car-textarea:focus{border-color:var(--red);background:rgba(193,18,31,.04);}
+.add-car-textarea{height:80px;}
+.add-car-input option,.add-car-select option{background:#1a1a1a;color:#fff;}
+.autocomplete-wrap{position:relative;}
+.autocomplete-list{position:absolute;top:100%;left:0;right:0;background:#1a1a1a;border:1.5px solid rgba(255,255,255,.1);border-top:none;border-radius:0 0 8px 8px;z-index:100;max-height:140px;overflow-y:auto;}
+.autocomplete-item{padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:.84rem;color:rgba(255,255,255,.8);cursor:pointer;transition:background .2s;}
+.autocomplete-item:hover{background:rgba(193,18,31,.15);color:#fff;}
+
+.img-upload-zone{grid-column:1/-1;border:2px dashed rgba(255,255,255,.1);border-radius:10px;padding:24px;text-align:center;cursor:pointer;transition:var(--transition);}
+.img-upload-zone:hover,.img-upload-zone.drag-over{border-color:var(--red);background:rgba(193,18,31,.04);}
+.img-upload-zone svg{width:26px;height:26px;color:rgba(255,255,255,.2);margin:0 auto 8px;}
+.img-upload-text{font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(255,255,255,.35);}
+.img-upload-text strong{color:rgba(255,255,255,.6);}
+.img-preview-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.img-preview-item{width:64px;height:48px;border-radius:6px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.1);}
+.img-preview-item img{width:100%;height:100%;object-fit:cover;}
+.img-preview-remove{position:absolute;top:2px;right:2px;width:16px;height:16px;background:rgba(0,0,0,.8);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:9px;line-height:1;}
+.add-car-submit{margin-top:16px;width:100%;padding:13px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
+.add-car-submit:hover{background:var(--red-dark);}
+.checkbox-wrap{display:flex;align-items:center;gap:10px;}
+.checkbox-wrap input{width:16px;height:16px;accent-color:var(--red);}
+.checkbox-wrap label{font-family:'DM Sans',sans-serif;font-size:.86rem;color:rgba(255,255,255,.7);cursor:pointer;}
+
+.change-pw-form{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;margin-top:24px;}
+.change-pw-form h3{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;margin-bottom:18px;}
+.pw-group{margin-bottom:14px;}
+.pw-label{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;display:block;}
+.pw-input{width:100%;padding:10px 12px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.86rem;outline:none;transition:var(--transition);}
+.pw-input:focus{border-color:var(--red);}
+.pw-submit{padding:12px 28px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
+.pw-submit:hover{background:var(--red-dark);}
+
+/* Supabase setup panel */
+.supabase-panel{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;margin-bottom:24px;}
+.supabase-panel h3{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;margin-bottom:6px;}
+.supabase-panel p{font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.55;}
+.supabase-panel .sb-input{width:100%;padding:10px 12px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.84rem;outline:none;transition:var(--transition);margin-bottom:10px;}
+.supabase-panel .sb-input:focus{border-color:var(--red);}
+.sb-connect-btn{padding:10px 24px;background:#3ecf8e;color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
+.sb-connect-btn:hover{background:#34b87a;}
+.sb-status-row{display:flex;align-items:center;gap:10px;margin-top:12px;font-family:'DM Sans',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .cars-grid{grid-template-columns:repeat(2,1fr);}
+  .about-inner{grid-template-columns:1fr;gap:24px;}
+  .about-right{max-width:100%;}
+  .about-img-wrap{aspect-ratio:16/6;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .search-grid{grid-template-columns:repeat(2,1fr);}
+  .dash-stats{grid-template-columns:repeat(2,1fr);}
+  .add-car-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .container{padding:0 16px;}
+  .nav-links,.nav-wa{display:none;}
+  .nav-hamburger{display:flex;}
+  .nav-logo-block{padding:0 16px;}
+  .nav-logo-text{font-size:1.2rem;}
+  .cars-grid{grid-template-columns:1fr;}
+  .contact-inner{grid-template-columns:1fr;}
+  .modal-gallery{grid-template-columns:1fr;height:200px;}
+  .modal-gallery-main{grid-row:auto;}
+  .modal-gallery-thumb{display:none;}
+  .modal-specs{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .search-grid{grid-template-columns:1fr;}
+  .add-car-grid{grid-template-columns:1fr;}
+  .dash-stats{grid-template-columns:1fr 1fr;}
+  .dash-body{padding:12px;}
+  .dash-header{padding:10px 14px;}
+  .dash-car-price{display:none;}
+  .review-card{width:230px;}
+  .follow-btn{padding:12px 18px;font-size:.72rem;}
+  /* About mobile */
+  #about{padding:24px 0;}
+  .about-features{gap:6px;}
+  .about-img-wrap{aspect-ratio:16/7;}
+  /* Social follow mobile — one row no wrapping */
+  #social-follow{padding:0 0 28px;}
+  .social-follow-inner{flex-wrap:nowrap;gap:6px;overflow-x:auto;padding:0 12px;justify-content:flex-start;}
+  .social-follow-inner > span{display:none;}
+  .follow-divider{display:none;}
+  .follow-btn{padding:9px 12px;font-size:.66rem;gap:6px;white-space:nowrap;flex-shrink:0;}
+  .follow-btn svg,.follow-btn i{width:14px;height:14px;}
+}
+@media(max-width:480px){
+  .section-title{font-size:1.9rem;}
+  .modal-body{padding:18px;}
+  .dash-car-item{flex-wrap:wrap;}
+  .add-car-grid{grid-template-columns:1fr;}
+  .nav-logo-text{display:none;}
+  .review-card{width:210px;}
+}
+
+/* Shake animation */
+@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-6px);}40%,80%{transform:translateX(6px);}}
+</style>
+</head>
+<body>
+
+<!-- DB STATUS -->
+<div class="db-status" id="dbStatus">
+  <div class="db-dot" id="dbDot"></div>
+  <span id="dbStatusText">Connecting...</span>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- MOBILE MENU — compact strip below navbar -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-nav-row">
+    <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
+    <a href="#inventory" class="nav-link" onclick="closeMobileMenu()">Inventory</a>
+    <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
+    <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a>
+  </div>
+  <a href="https://wa.me/254727238801" target="_blank" class="mob-wa-btn">
+    <i data-lucide="message-circle" style="width:15px;height:15px;"></i> WhatsApp Us
+  </a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container" style="padding:0 0 0 0;max-width:100%;">
+    <div class="nav-inner">
+      <!-- White logo block -->
+      <a href="#home" class="nav-logo-block" id="navLogo">
+        <img src="images/logo3.png" alt="Rifasa" onerror="this.style.display='none'"/>
+        <span class="nav-logo-text">RIFASA</span>
+      </a>
+      <div class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#inventory" class="nav-link">Inventory</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <a href="https://wa.me/254727238801" target="_blank" class="nav-wa">
+        <i data-lucide="message-circle" style="width:15px;height:15px;"></i> WhatsApp
+      </a>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" style="padding-top:64px;">
+  <div id="hero">
+    <!-- Desktop banner -->
+    <img class="hero-img-desktop" src="images/bannerr.png" alt="Rifasa Executive Auto Ventures"
+      onerror="this.style.background='#C1121F';"/>
+    <!-- Mobile banner -->
+    <img class="hero-img-mobile" src="images/bannermobile.png" alt="Rifasa Executive Auto Ventures"
+      onerror="this.src='images/bannerr.png';"/>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number" data-target="200">0</div>
+        <div class="stat-label">Cars Sold</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Years of Trust</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="150">0</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">Satisfaction %</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOLLOW US -->
+<section id="social-follow">
+  <div class="container">
+    <div class="social-follow-inner">
+      <span style="font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-dark);">Follow Us On</span>
+      <a href="https://www.instagram.com/rifasa_magari/" target="_blank" class="follow-btn follow-btn-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <div class="follow-divider">•</div>
+      <a href="https://www.tiktok.com/@rifasaventures" target="_blank" class="follow-btn follow-btn-tt">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.09a4.85 4.85 0 0 1-1-.4z"/></svg>
+        TikTok
+      </a>
+      <div class="follow-divider">•</div>
+      <a href="https://wa.me/254727238801" target="_blank" class="follow-btn follow-btn-wa">
+        <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH FILTER -->
+<section id="search">
+  <div class="container">
+    <div class="search-card reveal">
+      <div class="search-header">
+        <div>
+          <div class="section-tag">Find Your Car</div>
+          <div class="search-title">Search Inventory</div>
+        </div>
+        <div class="search-results-count" id="searchCount"></div>
+      </div>
+      <div class="search-grid">
+        <div class="filter-group">
+          <div class="filter-label">Make</div>
+          <select class="filter-select" id="filterMake" onchange="applyFilters()">
+            <option value="">All Makes</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Model</div>
+          <select class="filter-select" id="filterModel" onchange="applyFilters()">
+            <option value="">All Models</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Year</div>
+          <select class="filter-select" id="filterYear" onchange="applyFilters()">
+            <option value="">All Years</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Max Price (KES)</div>
+          <select class="filter-select" id="filterPrice" onchange="applyFilters()">
+            <option value="">Any Price</option>
+            <option value="1000000">Under 1M</option>
+            <option value="2000000">Under 2M</option>
+            <option value="3000000">Under 3M</option>
+            <option value="5000000">Under 5M</option>
+            <option value="8000000">Under 8M</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Transmission</div>
+          <select class="filter-select" id="filterTransmission" onchange="applyFilters()">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">Fuel Type</div>
+          <select class="filter-select" id="filterFuel" onchange="applyFilters()">
+            <option value="">All</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-actions">
+        <button class="btn-primary" onclick="applyFilters()">
+          <i data-lucide="search" style="width:15px;height:15px;"></i> Search
+        </button>
+        <button class="btn-outline" onclick="clearFilters()">
+          <i data-lucide="x" style="width:15px;height:15px;"></i> Clear
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVENTORY -->
+<section id="inventory">
+  <div class="container">
+    <div class="inventory-header">
+      <div>
+        <div class="section-tag reveal-left">Our Inventory</div>
+        <div class="section-title reveal-left" style="transition-delay:.1s">Available Vehicles</div>
+      </div>
+      <div class="reveal-right" style="transition-delay:.2s">
+        <p style="font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text-light);max-width:300px;text-align:right;">Quality locally used and imported vehicles, ready for you in Mombasa.</p>
+      </div>
+    </div>
+    <div class="cars-grid" id="carsGrid"></div>
+  </div>
+</section>
+
+<!-- ABOUT — darker shade of white (off-dark grey) -->
+<section id="about">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="about-inner">
+      <div class="about-left reveal-left">
+        <div class="section-tag">Who We Are</div>
+        <div class="section-title">Trusted Auto<br>Dealers in Mombasa</div>
+        <p class="about-text">Rifasa Executive Auto Ventures Limited — your trusted Mombasa dealership for quality locally used and imported vehicles. Professional service, honest pricing.</p>
+        <div class="about-features">
+          <div class="about-feature"><i data-lucide="shield-check" style="width:14px;height:14px;color:var(--red);flex-shrink:0;"></i><span>Verified &amp; inspected vehicles</span></div>
+          <div class="about-feature"><i data-lucide="thumbs-up" style="width:14px;height:14px;color:var(--red);flex-shrink:0;"></i><span>No hidden fees</span></div>
+          <div class="about-feature"><i data-lucide="map-pin" style="width:14px;height:14px;color:var(--red);flex-shrink:0;"></i><span>Based in Mombasa, Kenya</span></div>
+        </div>
+        <div class="about-cta">
+          <a href="#contact" class="btn-primary" style="margin-top:14px;">Get In Touch <i data-lucide="arrow-right" style="width:15px;height:15px;"></i></a>
+        </div>
+      </div>
+      <div class="about-right reveal-right" style="transition-delay:.15s;">
+        <div class="about-img-wrap">
+          <img src="images/boss.png" alt="Rifasa Team" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#2a2a2a,#3a1012)'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-bg-text">RIFASA</div>
+</section>
+
+<!-- VIDEOS (Instagram — direct embed with thumbnail+link) -->
+<section id="reels">
+  <div class="reels-header container">
+    <div class="section-tag reveal" style="justify-content:center;">Our Videos</div>
+    <div class="section-title reveal" style="text-align:center;transition-delay:.1s;">Watch Our Latest Rides</div>
+    <p style="text-align:center;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-light);margin-top:8px;" class="reveal">Tap any video to watch on Instagram</p>
+  </div>
+  <div class="reels-track-wrap">
+    <div class="reels-track" id="reelsTrack"></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container reviews-header">
+    <div class="section-tag reveal" style="justify-content:center;">What Clients Say</div>
+    <div class="section-title reveal" style="text-align:center;transition-delay:.1s;">Customer Reviews</div>
+  </div>
+  <div class="reviews-slider-wrap">
+    <div class="reviews-track" id="reviewsTrack"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div style="margin-bottom:48px;">
+      <div class="section-tag reveal">Contact Us</div>
+      <div class="section-title reveal" style="transition-delay:.1s;">Get In Touch</div>
+    </div>
+    <div class="contact-inner">
+      <div class="reveal-left">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-item-icon"><i data-lucide="phone" style="width:17px;height:17px;color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">+254 727 238 801</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i data-lucide="clock" style="width:17px;height:17px;color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">Business Hours</div>
+              <div class="contact-item-value">Mon – Sat: 8:00 AM – 6:00 PM</div>
+            </div>
+          </div>
+          <a href="https://wa.me/254727238801" target="_blank" class="contact-wa-btn">
+            <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+            Chat on WhatsApp
+          </a>
+          <div class="map-placeholder">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127820.04!2d39.6682!3d-4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012e8c2c9aa45%3A0x7bb06cf97d6f4a5!2sMombasa%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right" style="transition-delay:.15s;">
+        <div class="contact-form-wrap">
+          <div class="form-title">Send a Message</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <div class="form-label">Full Name</div>
+              <input type="text" class="form-input" id="cfName" placeholder="Your name"/>
+            </div>
+            <div class="form-group">
+              <div class="form-label">Phone</div>
+              <input type="tel" class="form-input" id="cfPhone" placeholder="+254..."/>
+            </div>
+            <div class="form-group full">
+              <div class="form-label">Email (optional)</div>
+              <input type="email" class="form-input" id="cfEmail" placeholder="you@email.com"/>
+            </div>
+            <div class="form-group full">
+              <div class="form-label">Message</div>
+              <textarea class="form-textarea" id="cfMessage" placeholder="Tell us what you're looking for..."></textarea>
+            </div>
+          </div>
+          <button class="btn-primary form-submit" onclick="submitContactForm()">
+            <i data-lucide="send" style="width:15px;height:15px;"></i> Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo3.png" alt="Rifasa" onerror="this.style.display='none'"/>
+        </div>
+        <p class="footer-tagline">Your trusted automotive partner in Mombasa, Kenya. Quality vehicles, honest deals, professional service.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/254727238801" target="_blank" class="social-btn" title="WhatsApp">
+            <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+          </a>
+          <a href="https://www.instagram.com/rifasa_magari/" target="_blank" class="social-btn" title="Instagram">
+            <i data-lucide="instagram" style="width:16px;height:16px;"></i>
+          </a>
+          <a href="https://www.tiktok.com/@rifasaventures" target="_blank" class="social-btn" title="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.09a4.85 4.85 0 0 1-1-.4z"/></svg>
+          </a>
+          <a href="tel:+254727238801" class="social-btn" title="Call">
+            <i data-lucide="phone" style="width:16px;height:16px;"></i>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <a href="#home" class="footer-link">Home</a>
+        <a href="#inventory" class="footer-link">Inventory</a>
+        <a href="#about" class="footer-link">About Us</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Inventory</div>
+        <a href="#inventory" class="footer-link">All Vehicles</a>
+        <a href="#inventory" class="footer-link">Sedans</a>
+        <a href="#inventory" class="footer-link">SUVs</a>
+        <a href="#inventory" class="footer-link">Trucks</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <a href="tel:+254727238801" class="footer-link">+254 727 238 801</a>
+        <a href="https://wa.me/254727238801" target="_blank" class="footer-link">WhatsApp Us</a>
+        <a href="https://www.instagram.com/rifasa_magari/" target="_blank" class="footer-link">@rifasa_magari</a>
+        <a href="https://www.tiktok.com/@rifasaventures" target="_blank" class="footer-link">@rifasaventures</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 <span>Rifasa Executive Auto Ventures Limited</span>. All rights reserved.</div>
+      <div class="footer-copy">Mombasa, Kenya</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CAR DETAIL MODAL -->
+<div class="modal-overlay" id="carModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+    <div class="modal-gallery" id="modalGallery"></div>
+    <div class="modal-body">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-subtitle" id="modalSubtitle"></div>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-footer">
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-actions">
+          <a href="#" id="modalWa" target="_blank" class="btn-primary">
+            <i data-lucide="message-circle" style="width:15px;height:15px;"></i> Inquire on WhatsApp
+          </a>
+          <a href="tel:+254727238801" class="btn-outline">
+            <i data-lucide="phone" style="width:15px;height:15px;"></i> Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div id="admin-login" style="display:none;">
+  <div class="admin-login-card">
+    <div class="admin-login-logo">
+      <img src="images/logo3.png" alt="Rifasa" onerror="this.style.display='none'"/>
+      <span class="admin-login-logo-text">RIFASA</span>
+    </div>
+    <div class="admin-login-sub">Secure Admin Access</div>
+    <button class="admin-login-close" onclick="closeAdminLogin()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+    <div class="admin-form-group">
+      <label class="admin-form-label">Username</label>
+      <input type="text" class="admin-form-input" id="adminUser" placeholder="Enter username" autocomplete="username"/>
+    </div>
+    <div class="admin-form-group">
+      <label class="admin-form-label">Password</label>
+      <input type="password" class="admin-form-input" id="adminPass" placeholder="Enter password" autocomplete="current-password"/>
+    </div>
+    <div class="admin-remember">
+      <input type="checkbox" id="adminRemember"/>
+      <label for="adminRemember">Remember me on this device</label>
+    </div>
+    <button class="admin-login-btn" onclick="doAdminLogin()">Access Dashboard</button>
+    <p class="admin-token-note">Credentials saved with device-level encryption. Never share your password.</p>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="admin-dash">
+  <div class="dash-header">
+    <div class="dash-logo">RIFASA <span>ADMIN</span></div>
+    <div class="dash-nav">
+      <button class="dash-nav-btn active" onclick="dashTab('overview',this)">Overview</button>
+      <button class="dash-nav-btn" onclick="dashTab('cars',this)">Cars</button>
+      <button class="dash-nav-btn" onclick="dashTab('add',this)">Add Car</button>
+      <button class="dash-nav-btn" onclick="dashTab('settings',this)">Settings</button>
+    </div>
+    <button class="dash-exit" onclick="exitDash()"><i data-lucide="log-out" style="width:14px;height:14px;"></i> Exit</button>
+  </div>
+  <div class="dash-body">
+    <!-- Overview -->
+    <div class="dash-section active" id="dash-overview">
+      <div class="dash-stats">
+        <div class="dash-stat"><div class="dash-stat-num" id="dsTotalCars">0</div><div class="dash-stat-label">Total Vehicles</div></div>
+        <div class="dash-stat"><div class="dash-stat-num" id="dsFeatured">0</div><div class="dash-stat-label">Featured</div></div>
+        <div class="dash-stat"><div class="dash-stat-num" id="dsAvailable">0</div><div class="dash-stat-label">Available</div></div>
+        <div class="dash-stat"><div class="dash-stat-num" id="dsMakes">0</div><div class="dash-stat-label">Brands</div></div>
+      </div>
+      <div style="background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:22px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;margin-bottom:14px;">Recent Listings</div>
+        <div id="dsRecentList"></div>
+      </div>
+    </div>
+    <!-- Manage Cars -->
+    <div class="dash-section" id="dash-cars">
+      <div class="dash-cars-header">
+        <div class="dash-cars-title">All Vehicles</div>
+        <button class="btn-primary" style="font-size:.72rem;padding:9px 18px;" onclick="dashTab('add',document.querySelectorAll('.dash-nav-btn')[2])">
+          <i data-lucide="plus" style="width:13px;height:13px;"></i> Add New
+        </button>
+      </div>
+      <div class="dash-car-list" id="dashCarList"></div>
+    </div>
+    <!-- Add/Edit Car -->
+    <div class="dash-section" id="dash-add">
+      <div class="add-car-form">
+        <div class="add-car-title" id="addCarFormTitle">Add New Vehicle</div>
+        <input type="hidden" id="editCarId"/>
+        <div class="add-car-grid">
+          <div class="add-car-group">
+            <div class="add-car-label">Make</div>
+            <div class="autocomplete-wrap">
+              <input type="text" class="add-car-input" id="acMake" placeholder="e.g. Toyota" autocomplete="off" oninput="autoMake(this)"/>
+              <div class="autocomplete-list" id="acMakeList" style="display:none;"></div>
+            </div>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Model</div>
+            <input type="text" class="add-car-input" id="acModel" placeholder="e.g. Land Cruiser"/>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Year</div>
+            <input type="number" class="add-car-input" id="acYear" placeholder="2020" min="1990" max="2030"/>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Price (KES)</div>
+            <input type="number" class="add-car-input" id="acPrice" placeholder="3500000"/>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Mileage (km)</div>
+            <input type="text" class="add-car-input" id="acMileage" placeholder="45,000 km"/>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Transmission</div>
+            <select class="add-car-select" id="acTransmission">
+              <option value="">Select</option>
+              <option>Automatic</option><option>Manual</option><option>CVT</option><option>Semi-Automatic</option>
+            </select>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Fuel Type</div>
+            <select class="add-car-select" id="acFuel">
+              <option value="">Select</option>
+              <option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option>
+            </select>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Engine</div>
+            <input type="text" class="add-car-input" id="acEngine" placeholder="2.0L Turbo"/>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Drivetrain</div>
+            <select class="add-car-select" id="acDrivetrain">
+              <option value="">Select</option>
+              <option>2WD</option><option>4WD</option><option>AWD</option><option>RWD</option>
+            </select>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Condition</div>
+            <select class="add-car-select" id="acCondition">
+              <option value="">Select</option>
+              <option>Locally Used</option><option>Foreign Used</option><option>Brand New</option>
+            </select>
+          </div>
+          <div class="add-car-group">
+            <div class="add-car-label">Availability</div>
+            <select class="add-car-select" id="acAvailability">
+              <option value="Available">Available</option>
+              <option value="Sold">Sold</option>
+              <option value="Reserved">Reserved</option>
+            </select>
+          </div>
+          <div class="add-car-group full">
+            <div class="add-car-label">Description</div>
+            <textarea class="add-car-textarea" id="acDesc" placeholder="Describe the vehicle..."></textarea>
+          </div>
+          <div class="add-car-group full">
+            <div class="checkbox-wrap">
+              <input type="checkbox" id="acFeatured"/>
+              <label for="acFeatured">Mark as Featured</label>
+            </div>
+          </div>
+          <div class="add-car-group full">
+            <div class="add-car-label">Images</div>
+            <div class="img-upload-zone" id="imgUploadZone" onclick="document.getElementById('imgFileInput').click()" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+              <i data-lucide="upload-cloud" style="width:26px;height:26px;color:rgba(255,255,255,.2);margin:0 auto 8px;display:block;"></i>
+              <div class="img-upload-text"><strong>Click to upload</strong> or drag &amp; drop images here<br>Any size supported • JPG, PNG, WEBP, GIF</div>
+              <div class="img-preview-list" id="imgPreviewList"></div>
+            </div>
+            <input type="file" id="imgFileInput" accept="image/*" multiple style="display:none;" onchange="handleFileSelect(this)"/>
+            <div style="margin-top:10px;">
+              <div class="add-car-label" style="margin-bottom:6px;">Or paste image URLs (one per line)</div>
+              <textarea class="add-car-textarea" id="acImages" placeholder="https://example.com/car1.jpg" style="height:55px;"></textarea>
+            </div>
+          </div>
+        </div>
+        <button class="add-car-submit" onclick="saveCar()" id="addCarBtn">Add Vehicle</button>
+        <button id="cancelEditBtn" style="display:none;width:100%;margin-top:10px;padding:11px;background:transparent;border:1.5px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;cursor:pointer;" onclick="cancelEdit()">Cancel Edit</button>
+      </div>
+    </div>
+    <!-- Settings -->
+    <div class="dash-section" id="dash-settings">
+     
+        </div>
+      </div>
+      <div class="change-pw-form">
+        <h3>Change Password</h3>
+        <div class="pw-group">
+          <label class="pw-label">Current Password</label>
+          <input type="password" class="pw-input" id="pwCurrent" placeholder="Enter current password" autocomplete="current-password"/>
+        </div>
+        <div class="pw-group">
+          <label class="pw-label">New Password</label>
+          <input type="password" class="pw-input" id="pwNew" placeholder="Min 8 characters" autocomplete="new-password"/>
+        </div>
+        <div class="pw-group">
+          <label class="pw-label">Confirm New Password</label>
+          <input type="password" class="pw-input" id="pwConfirm" placeholder="Repeat new password" autocomplete="new-password"/>
+        </div>
+        <button class="pw-submit" onclick="changePassword()">Update Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// SECURITY: SHA-256 password hashing
+// ============================================================
+async function hashPassword(pw){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+const ADMIN_USERNAME = 'rifasa';
+const DEFAULT_PW = 'rifasa@2026';
+
+async function getStoredPwHash(){
+  let h = localStorage.getItem('rifasa_pw_hash');
+  if(!h){ h = await hashPassword(DEFAULT_PW); localStorage.setItem('rifasa_pw_hash', h); }
+  return h;
+}
+
+// ============================================================
+// REMEMBER ME
+// ============================================================
+const REMEMBER_SALT = 'rifasa_salt_2026_v1';
+const REMEMBER_KEY = 'rifasa_session_token';
+const REMEMBER_EXPIRY_KEY = 'rifasa_session_expiry';
+const REMEMBER_DAYS = 30;
+
+async function generateSessionToken(username, pw){
+  return await hashPassword(username + pw + REMEMBER_SALT);
+}
+async function saveRememberToken(username, pw){
+  const token = await generateSessionToken(username, pw);
+  const expiry = Date.now() + (REMEMBER_DAYS * 24 * 60 * 60 * 1000);
+  localStorage.setItem(REMEMBER_KEY, token);
+  localStorage.setItem(REMEMBER_EXPIRY_KEY, expiry.toString());
+  localStorage.setItem('rifasa_remembered_user', username);
+}
+function clearRememberToken(){
+  localStorage.removeItem(REMEMBER_KEY);
+  localStorage.removeItem(REMEMBER_EXPIRY_KEY);
+  localStorage.removeItem('rifasa_remembered_user');
+}
+async function isSessionValid(){
+  const token = localStorage.getItem(REMEMBER_KEY);
+  const expiry = parseInt(localStorage.getItem(REMEMBER_EXPIRY_KEY)||'0');
+  if(!token || Date.now() > expiry) return false;
+  return true;
+}
+
+// ============================================================
+// LOCAL STORAGE ONLY
+// ============================================================
+
+// ============================================================
+// LOCAL STORAGE
+// ============================================================
+function getLocalInventory(){ try{ return JSON.parse(localStorage.getItem('rifasaInventory'))||[]; }catch{ return []; } }
+function saveLocalInventory(arr){ localStorage.setItem('rifasaInventory', JSON.stringify(arr)); }
+function getInventory(){ return window._inventory || getLocalInventory(); }
+function saveInventory(arr){ window._inventory = arr; saveLocalInventory(arr); }
+
+// ============================================================
+// SEED DATA
+// ============================================================
+(function seedIfEmpty(){
+  if(getLocalInventory().length > 0) return;
+  const seed = [
+    {id:'car_1',make:'Toyota',model:'Land Cruiser V8',year:2019,price:7800000,mileage:'62,000 km',transmission:'Automatic',fuelType:'Diesel',engine:'4.5L V8',drivetrain:'4WD',condition:'Foreign Used',availability:'Available',description:'Stunning Land Cruiser V8 in excellent condition. Full-time 4WD, leather interior, sunroof, and all service records available.',featured:true,images:['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80']},
+    {id:'car_2',make:'Mercedes-Benz',model:'GLE 400',year:2020,price:9200000,mileage:'38,000 km',transmission:'Automatic',fuelType:'Petrol',engine:'3.0L V6 Turbo',drivetrain:'AWD',condition:'Foreign Used',availability:'Available',description:'Immaculate GLE 400 with panoramic sunroof, Burmester sound system, and AMG sports package.',featured:true,images:['https://images.unsplash.com/photo-1618843479619-f3d0d81e4d10?w=800&q=80']},
+    {id:'car_3',make:'BMW',model:'X5 xDrive40i',year:2021,price:10500000,mileage:'25,000 km',transmission:'Automatic',fuelType:'Petrol',engine:'3.0L TwinPower Turbo',drivetrain:'AWD',condition:'Foreign Used',availability:'Available',description:'Near-new BMW X5 with M Sport package, Head-Up Display, and Parking Assistant Plus.',featured:true,images:['https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80']},
+    {id:'car_4',make:'Subaru',model:'Forester XT',year:2018,price:2100000,mileage:'78,000 km',transmission:'CVT',fuelType:'Petrol',engine:'2.0L Turbo',drivetrain:'AWD',condition:'Locally Used',availability:'Available',description:'Well-maintained Forester XT, sporty turbo variant with Eye-Sight safety system.',featured:false,images:['https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800&q=80']},
+    {id:'car_5',make:'Toyota',model:'Prado TX',year:2017,price:3400000,mileage:'95,000 km',transmission:'Automatic',fuelType:'Diesel',engine:'3.0L D-4D',drivetrain:'4WD',condition:'Locally Used',availability:'Available',description:'Clean Prado TX with third row seating, regular servicing, new tyres.',featured:false,images:['https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80']},
+    {id:'car_6',make:'Range Rover',model:'Sport HSE',year:2019,price:8900000,mileage:'44,000 km',transmission:'Automatic',fuelType:'Diesel',engine:'3.0L SDV6',drivetrain:'AWD',condition:'Foreign Used',availability:'Available',description:'Prestige Range Rover Sport with Meridian sound, cooled seats, 360-degree camera.',featured:true,images:['https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80']},
+  ];
+  saveLocalInventory(seed);
+})();
+
+// ============================================================
+// IMAGE UPLOAD
+// ============================================================
+let uploadedImagesBase64 = [];
+function handleFileSelect(input){
+  Array.from(input.files).forEach(file=>{
+    if(!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => { uploadedImagesBase64.push(e.target.result); renderImgPreviews(); };
+    reader.readAsDataURL(file);
+  });
+  input.value='';
+}
+function handleDragOver(e){ e.preventDefault(); document.getElementById('imgUploadZone').classList.add('drag-over'); }
+function handleDrop(e){
+  e.preventDefault(); document.getElementById('imgUploadZone').classList.remove('drag-over');
+  Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')).forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ev => { uploadedImagesBase64.push(ev.target.result); renderImgPreviews(); };
+    reader.readAsDataURL(file);
+  });
+}
+function renderImgPreviews(){
+  document.getElementById('imgPreviewList').innerHTML = uploadedImagesBase64.map((src,i)=>`
+    <div class="img-preview-item"><img src="${src}"/><div class="img-preview-remove" onclick="removeUploadedImg(${i})">✕</div></div>`).join('');
+}
+function removeUploadedImg(idx){ uploadedImagesBase64.splice(idx,1); renderImgPreviews(); }
+
+// ============================================================
+// NAVBAR
+// ============================================================
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  updateActiveNavLink();
+});
+function updateActiveNavLink(){
+  const sections=['home','inventory','about','contact'];
+  let current='home';
+  sections.forEach(s=>{ const el=document.getElementById(s); if(el&&window.scrollY>=el.offsetTop-120) current=s; });
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+current));
+}
+
+// Logo triple-click → admin
+let logoClicks=0, logoTimer=null;
+document.getElementById('navLogo').addEventListener('click',()=>{
+  logoClicks++;
+  clearTimeout(logoTimer);
+  logoTimer = setTimeout(()=>{ logoClicks=0; },700);
+  if(logoClicks>=3){ logoClicks=0; openAdminLogin(); }
+});
+
+function toggleMobileMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const ham=document.getElementById('hamburger');
+  const isOpen = menu.classList.contains('open');
+  if(isOpen){
+    menu.classList.remove('open');
+    ham.classList.remove('open');
+    setTimeout(()=>{ if(!menu.classList.contains('open')) menu.style.display='none'; }, 300);
+  } else {
+    menu.style.display='flex';
+    requestAnimationFrame(()=>{ menu.classList.add('open'); ham.classList.add('open'); });
+  }
+}
+function closeMobileMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const ham=document.getElementById('hamburger');
+  menu.classList.remove('open');
+  ham.classList.remove('open');
+  setTimeout(()=>{ menu.style.display='none'; }, 300);
+}
+
+// Close mobile menu on outside click
+document.addEventListener('click', e=>{
+  const menu=document.getElementById('mobileMenu');
+  const ham=document.getElementById('hamburger');
+  if(menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)){
+    closeMobileMenu();
+  }
+});
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+const revealObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revealObserver.observe(el));
+
+// ============================================================
+// COUNTER
+// ============================================================
+const counterObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting && !e.target.dataset.counted){
+      e.target.dataset.counted='true';
+      const target=parseInt(e.target.dataset.target);
+      let current=0;
+      const step=Math.ceil(target/60);
+      const timer=setInterval(()=>{
+        current=Math.min(current+step,target);
+        e.target.textContent=current+(e.target.dataset.target==='100'?'%':'+');
+        if(current>=target) clearInterval(timer);
+      },25);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-number[data-target]').forEach(el=>counterObserver.observe(el));
+
+// ============================================================
+// INSTAGRAM REELS — thumbnail cards linking to Instagram
+// Instagram blocks cross-origin thumbnail loading, so we use
+// local images saved in the images/ folder.
+// Tapping opens Instagram directly where the video plays.
+// ============================================================
+const REELS = [
+  { url:'https://www.instagram.com/p/DYliHC9I-aJ/', imgPath:'images/reel1.png', label:'Executive Fleet' },
+  { url:'https://www.instagram.com/p/DYiJpF-ISBg/', imgPath:'images/reel2.png', label:'Latest Arrival' },
+  { url:'https://www.instagram.com/p/DX_xgNxITbJ/', imgPath:'images/reel3.png', label:'Fresh Stock' },
+  { url:'https://www.instagram.com/p/DXLk8ekiIKR/', imgPath:'images/reel4.png', label:'Premium Ride' },
+  { url:'https://www.instagram.com/p/DWgUxvAiDbr/', imgPath:'images/reel5.png', label:'Quality Cars' },
+];
+
+function buildReels(){
+  const track = document.getElementById('reelsTrack');
+  const gradients = [
+    'linear-gradient(160deg,#1a0a2e 0%,#3a1060 100%)',
+    'linear-gradient(160deg,#0d1b2a 0%,#1a4060 100%)',
+    'linear-gradient(160deg,#1a0000 0%,#5a0a10 100%)',
+    'linear-gradient(160deg,#0a1a0d 0%,#1a4020 100%)',
+    'linear-gradient(160deg,#1a1400 0%,#504000 100%)',
+  ];
+
+  track.innerHTML = REELS.map((r, i) => `
+    <a href="${r.url}" target="_blank" rel="noopener" class="reel-embed-card">
+      <div class="reel-thumb-wrap" style="background:${gradients[i % gradients.length]};">
+        <img
+          src="${r.imgPath}"
+          alt="${r.label}"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
+        />
+        <div class="reel-thumb-overlay">
+          <div class="reel-play-btn">
+            <svg viewBox="0 0 24 24" fill="#fff" width="20" height="20"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div>
+            <div class="reel-ig-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @rifasa_magari
+            </div>
+            <div class="reel-label-text">${r.label}</div>
+            <div class="reel-handle-text">Tap to watch on Instagram</div>
+          </div>
+        </div>
+      </div>
+    </a>`).join('');
+}
+
+// ============================================================
+// REVIEWS
+// ============================================================
+const REVIEWS_DATA=[
+  {initials:'HM',name:'Hassan M.',date:'Mombasa · March 2025',text:'"Bought my Toyota Prado from Rifasa and the experience was seamless. Clean car, honest pricing, and great service. I will definitely refer friends and family."'},
+  {initials:'BK',name:'Brian K.',date:'Nairobi · January 2025',text:'"Professional team, very transparent about the car history. Got my Mercedes-Benz C200 at a fair market price. Highly recommend Rifasa."'},
+  {initials:'AS',name:'Ali S.',date:'Mombasa · April 2025',text:'"Fast, reliable, and genuine. Rifasa delivered exactly what they promised. The Range Rover I got was in perfect condition."'},
+];
+function buildReviews(){
+  const track = document.getElementById('reviewsTrack');
+  const tripled = [...REVIEWS_DATA,...REVIEWS_DATA,...REVIEWS_DATA];
+  track.innerHTML = tripled.map(r=>`
+    <div class="review-card">
+      <div class="review-stars">${'<svg viewBox="0 0 24 24" fill="var(--red)" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'.repeat(5)}</div>
+      <p class="review-text">${r.text}</p>
+      <div class="review-author">
+        <div class="review-avatar">${r.initials}</div>
+        <div><div class="review-name">${r.name}</div><div class="review-date">${r.date}</div></div>
+      </div>
+    </div>`).join('');
+}
+// ============================================================
+// FILTERS
+// ============================================================
+function buildFilters(){
+  const cars=getInventory();
+  populateSelect('filterMake',[...new Set(cars.map(c=>c.make).filter(Boolean))].sort());
+  populateSelect('filterYear',[...new Set(cars.map(c=>c.year).filter(Boolean))].sort((a,b)=>b-a));
+  populateSelect('filterTransmission',[...new Set(cars.map(c=>c.transmission).filter(Boolean))].sort());
+  populateSelect('filterFuel',[...new Set(cars.map(c=>c.fuelType).filter(Boolean))].sort());
+}
+function populateSelect(id,options){
+  const sel=document.getElementById(id);
+  const first=sel.options[0];
+  sel.innerHTML=''; sel.appendChild(first);
+  options.forEach(o=>{ const opt=document.createElement('option'); opt.value=o; opt.textContent=o; sel.appendChild(opt); });
+}
+function updateModelFilter(){
+  const make=document.getElementById('filterMake').value;
+  const cars=getInventory();
+  populateSelect('filterModel',[...new Set(cars.filter(c=>!make||c.make===make).map(c=>c.model).filter(Boolean))].sort());
+}
+document.getElementById('filterMake').addEventListener('change',updateModelFilter);
+
+function applyFilters(){
+  const make=document.getElementById('filterMake').value;
+  const model=document.getElementById('filterModel').value;
+  const year=document.getElementById('filterYear').value;
+  const price=document.getElementById('filterPrice').value;
+  const trans=document.getElementById('filterTransmission').value;
+  const fuel=document.getElementById('filterFuel').value;
+  let cars=getInventory();
+  if(make) cars=cars.filter(c=>c.make===make);
+  if(model) cars=cars.filter(c=>c.model===model);
+  if(year) cars=cars.filter(c=>String(c.year)===String(year));
+  if(price) cars=cars.filter(c=>c.price<=parseInt(price));
+  if(trans) cars=cars.filter(c=>c.transmission===trans);
+  if(fuel) cars=cars.filter(c=>c.fuelType===fuel);
+  renderCars(cars);
+  document.getElementById('searchCount').textContent=cars.length+' vehicle'+(cars.length!==1?'s':'')+' found';
+  document.getElementById('inventory').scrollIntoView({behavior:'smooth'});
+}
+function clearFilters(){
+  ['filterMake','filterModel','filterYear','filterPrice','filterTransmission','filterFuel'].forEach(id=>{ document.getElementById(id).selectedIndex=0; });
+  document.getElementById('searchCount').textContent='';
+  renderCars(getInventory());
+  updateModelFilter();
+}
+
+// ============================================================
+// RENDER CARS
+// ============================================================
+function renderCars(cars){
+  const grid=document.getElementById('carsGrid');
+  if(!cars||cars.length===0){
+    grid.innerHTML=`<div class="empty-state"><div class="empty-state-icon"><i data-lucide="car" style="width:28px;height:28px;color:var(--grey-mid);"></i></div><h3>No vehicles found</h3><p>Try adjusting your search filters.</p></div>`;
+    lucide.createIcons(); return;
+  }
+  grid.innerHTML=cars.map((c,i)=>`
+    <div class="car-card reveal" style="transition-delay:${(i%3)*0.08}s;" onclick="openModal('${c.id}')">
+      <div class="car-card-img">
+        ${c.featured?'<div class="car-card-badge"><i data-lucide="star" style="width:10px;height:10px;display:inline-block;vertical-align:middle;"></i> Featured</div>':''}
+        <div class="car-card-condition">${c.condition||'Used'}</div>
+        <img src="${(c.images&&c.images[0])||'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'}" alt="${c.make} ${c.model}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'"/>
+      </div>
+      <div class="car-card-body">
+        <div class="car-card-make">${c.make}</div>
+        <div class="car-card-name">${c.model} <span style="color:var(--grey-dark);font-weight:500;">${c.year}</span></div>
+        <div class="car-card-specs">
+          ${c.mileage?`<div class="car-spec-tag"><i data-lucide="gauge" style="width:11px;height:11px;color:var(--red);"></i>${c.mileage}</div>`:''}
+          ${c.transmission?`<div class="car-spec-tag"><i data-lucide="settings" style="width:11px;height:11px;color:var(--red);"></i>${c.transmission}</div>`:''}
+          ${c.fuelType?`<div class="car-spec-tag"><i data-lucide="droplets" style="width:11px;height:11px;color:var(--red);"></i>${c.fuelType}</div>`:''}
+          ${c.drivetrain?`<div class="car-spec-tag"><i data-lucide="circle-dot" style="width:11px;height:11px;color:var(--red);"></i>${c.drivetrain}</div>`:''}
+        </div>
+        <div class="car-card-footer">
+          <div class="car-card-price"><span>Price</span>KES ${formatPrice(c.price)}</div>
+          <div class="car-card-btn">View <i data-lucide="arrow-right" style="width:13px;height:13px;"></i></div>
+        </div>
+      </div>
+    </div>`).join('');
+  lucide.createIcons();
+  document.querySelectorAll('.car-card.reveal').forEach(el=>revealObserver.observe(el));
+}
+
+function showSkeletons(){
+  document.getElementById('carsGrid').innerHTML=Array(6).fill(0).map(()=>`
+    <div class="skel-card"><div class="skel-img skeleton"></div><div class="skel-body">
+      <div class="skel-line w40 skeleton"></div><div class="skel-line w80 skeleton"></div>
+      <div class="skel-line w60 skeleton" style="margin-top:14px;"></div></div></div>`).join('');
+}
+
+function formatPrice(n){ if(!n) return '—'; return Number(n).toLocaleString('en-KE'); }
+
+// ============================================================
+// MODAL
+// ============================================================
+function openModal(id){
+  const car=getInventory().find(c=>c.id===id);
+  if(!car) return;
+  const imgs=car.images&&car.images.length>0?car.images:['https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'];
+  document.getElementById('modalGallery').innerHTML=`
+    <div class="modal-gallery-main"><img src="${imgs[0]}" alt="${car.make} ${car.model}" onerror="this.src='https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'"/></div>
+    ${imgs[1]?`<div class="modal-gallery-thumb"><img src="${imgs[1]}"/></div>`:''}
+    ${imgs[2]?`<div class="modal-gallery-thumb"><img src="${imgs[2]}"/></div>`:''}`;
+  document.getElementById('modalTitle').textContent=`${car.make} ${car.model}`;
+  document.getElementById('modalSubtitle').textContent=`${car.year} • ${car.condition||'Used'}`;
+  const specs=[{label:'Year',value:car.year},{label:'Mileage',value:car.mileage||'—'},{label:'Transmission',value:car.transmission||'—'},{label:'Fuel Type',value:car.fuelType||'—'},{label:'Engine',value:car.engine||'—'},{label:'Drivetrain',value:car.drivetrain||'—'},{label:'Availability',value:car.availability||'Available'},{label:'Condition',value:car.condition||'—'}];
+  document.getElementById('modalSpecs').innerHTML=specs.map(s=>`<div class="modal-spec"><div class="modal-spec-label">${s.label}</div><div class="modal-spec-value">${s.value}</div></div>`).join('');
+  document.getElementById('modalDesc').textContent=car.description||'Contact us for more details.';
+  document.getElementById('modalPrice').textContent=`KES ${formatPrice(car.price)}`;
+  const msg=encodeURIComponent(`Hello Rifasa, I'm interested in the ${car.year} ${car.make} ${car.model} listed for KES ${formatPrice(car.price)}. Please provide more details.`);
+  document.getElementById('modalWa').href=`https://wa.me/254727238801?text=${msg}`;
+  document.getElementById('carModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  lucide.createIcons();
+}
+function closeModal(){ document.getElementById('carModal').classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('carModal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+
+// ============================================================
+// CONTACT FORM
+// ============================================================
+function submitContactForm(){
+  const name=document.getElementById('cfName').value.trim();
+  const phone=document.getElementById('cfPhone').value.trim();
+  const msg=document.getElementById('cfMessage').value.trim();
+  if(!name||!phone){ showToast('Please enter your name and phone number.','error'); return; }
+  window.open(`https://wa.me/254727238801?text=${encodeURIComponent(`Hello Rifasa!\nName: ${name}\nPhone: ${phone}\n${msg?'Message: '+msg:''}`)}`, '_blank');
+  showToast('Redirecting to WhatsApp...','success');
+  ['cfName','cfPhone','cfEmail','cfMessage'].forEach(id=>{ document.getElementById(id).value=''; });
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function showToast(msg,type='info'){
+  const container=document.getElementById('toastContainer');
+  const toast=document.createElement('div');
+  const icons={success:'check-circle',error:'x-circle',info:'info'};
+  toast.className=`toast toast-${type}`;
+  toast.innerHTML=`<i data-lucide="${icons[type]||'info'}" style="width:16px;height:16px;flex-shrink:0;"></i>${msg}`;
+  container.appendChild(toast);
+  lucide.createIcons();
+  requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ toast.classList.add('show'); }); });
+  setTimeout(()=>{ toast.classList.remove('show'); setTimeout(()=>toast.remove(),400); },3500);
+}
+
+// ============================================================
+// ADMIN LOGIN
+// ============================================================
+async function openAdminLogin(){
+  if(await isSessionValid()){
+    openDash();
+    showToast('Welcome back, Admin.','success');
+    return;
+  }
+  const rememberedUser = localStorage.getItem('rifasa_remembered_user');
+  if(rememberedUser){
+    document.getElementById('adminUser').value = rememberedUser;
+    document.getElementById('adminRemember').checked = true;
+  }
+  const el=document.getElementById('admin-login');
+  el.style.display='flex';
+  lucide.createIcons();
+}
+function closeAdminLogin(){ document.getElementById('admin-login').style.display='none'; }
+
+async function doAdminLogin(){
+  const u=document.getElementById('adminUser').value;
+  const p=document.getElementById('adminPass').value;
+  const remember=document.getElementById('adminRemember').checked;
+  if(!u||!p){ showToast('Please enter credentials.','error'); return; }
+  if(u!==ADMIN_USERNAME){ showToast('Invalid credentials.','error'); shakeInputs(); return; }
+  const inputHash=await hashPassword(p);
+  const storedHash=await getStoredPwHash();
+  if(inputHash===storedHash){
+    if(remember){ await saveRememberToken(u, p); } else { clearRememberToken(); }
+    closeAdminLogin();
+    openDash();
+    showToast('Welcome back, Admin.','success');
+  } else {
+    showToast('Invalid credentials.','error');
+    shakeInputs();
+  }
+}
+function shakeInputs(){
+  ['adminUser','adminPass'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.style.borderColor='var(--red)';
+    el.style.animation='shake .4s ease';
+    setTimeout(()=>{ el.style.borderColor=''; el.style.animation=''; },1500);
+  });
+}
+async function changePassword(){
+  const curr=document.getElementById('pwCurrent').value;
+  const nw=document.getElementById('pwNew').value;
+  const conf=document.getElementById('pwConfirm').value;
+  if(!curr||!nw||!conf){ showToast('All fields required.','error'); return; }
+  if(nw.length<8){ showToast('Min 8 characters required.','error'); return; }
+  if(nw!==conf){ showToast('Passwords do not match.','error'); return; }
+  const currHash=await hashPassword(curr);
+  const storedHash=await getStoredPwHash();
+  if(currHash!==storedHash){ showToast('Current password incorrect.','error'); return; }
+  localStorage.setItem('rifasa_pw_hash', await hashPassword(nw));
+  clearRememberToken();
+  showToast('Password updated. Please log in again.','success');
+  ['pwCurrent','pwNew','pwConfirm'].forEach(id=>{ document.getElementById(id).value=''; });
+}
+
+// ============================================================
+// ADMIN DASHBOARD
+// ============================================================
+function openDash(){
+  document.getElementById('admin-dash').style.display='block';
+  document.body.style.overflow='hidden';
+  refreshDash();
+  lucide.createIcons();
+  // Local storage only - no Supabase
+  setDbStatus('disconnected');
+}
+function exitDash(){
+  document.getElementById('admin-dash').style.display='none';
+  document.body.style.overflow='';
+  renderCars(getInventory());
+  buildFilters(); updateModelFilter();
+  showToast('Exited admin dashboard.','info');
+}
+function dashTab(name,btn){
+  document.querySelectorAll('.dash-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.dash-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('dash-'+name).classList.add('active');
+  btn.classList.add('active');
+  if(name==='cars') renderDashCars();
+  if(name==='overview') refreshDashOverview();
+  // Settings tab - no Supabase config needed
+  lucide.createIcons();
+}
+function refreshDash(){ refreshDashOverview(); renderDashCars(); }
+function refreshDashOverview(){
+  const cars=getInventory();
+  document.getElementById('dsTotalCars').textContent=cars.length;
+  document.getElementById('dsFeatured').textContent=cars.filter(c=>c.featured).length;
+  document.getElementById('dsAvailable').textContent=cars.filter(c=>c.availability==='Available').length;
+  document.getElementById('dsMakes').textContent=[...new Set(cars.map(c=>c.make))].length;
+  const recent=cars.slice(-5).reverse();
+  document.getElementById('dsRecentList').innerHTML=recent.length===0?
+    '<p style="color:rgba(255,255,255,.3);font-size:.82rem;font-family:DM Sans,sans-serif;">No vehicles yet.</p>':
+    recent.map(c=>`
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+        <img src="${(c.images&&c.images[0])||''}" style="width:48px;height:36px;border-radius:6px;object-fit:cover;background:#1a1a1a;flex-shrink:0;" onerror="this.style.background='#222';this.removeAttribute('src')"/>
+        <div style="flex:1;min-width:0;">
+          <div style="font-family:'Syne',sans-serif;font-size:.84rem;font-weight:700;color:#fff;">${c.make} ${c.model}</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.35);">${c.year} • ${c.condition||'Used'}</div>
+        </div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--red);">KES ${formatPrice(c.price)}</div>
+      </div>`).join('');
+}
+function renderDashCars(){
+  const cars=getInventory();
+  const list=document.getElementById('dashCarList');
+  if(!cars.length){ list.innerHTML='<p style="color:rgba(255,255,255,.3);font-size:.85rem;font-family:DM Sans,sans-serif;text-align:center;padding:40px;">No vehicles added yet.</p>'; return; }
+  list.innerHTML=cars.map(c=>`
+    <div class="dash-car-item">
+      <img class="dash-car-thumb" src="${(c.images&&c.images[0])||''}" onerror="this.style.background='#222';this.removeAttribute('src')"/>
+      <div class="dash-car-info">
+        <div class="dash-car-name">${c.make} ${c.model} <span style="color:rgba(255,255,255,.35);font-weight:400;">${c.year}</span></div>
+        <div class="dash-car-meta">${c.condition||''} · ${c.availability||'Available'}${c.featured?' · <span style="color:var(--red);">Featured</span>':''}</div>
+      </div>
+      <div class="dash-car-price">KES ${formatPrice(c.price)}</div>
+      <div class="dash-car-actions">
+        <button class="dash-action-btn dash-edit" onclick="editCar('${c.id}')"><i data-lucide="pencil" style="width:13px;height:13px;"></i></button>
+        <button class="dash-action-btn dash-delete" onclick="deleteCar('${c.id}')"><i data-lucide="trash-2" style="width:13px;height:13px;"></i></button>
+      </div>
+    </div>`).join('');
+  lucide.createIcons();
+}
+
+// ============================================================
+// AUTOCOMPLETE
+// ============================================================
+const CAR_MAKES=['Toyota','Mercedes-Benz','BMW','Audi','Range Rover','Land Rover','Subaru','Honda','Nissan','Mazda','Mitsubishi','Volkswagen','Porsche','Lexus','Infiniti','Jeep','Ford','Volvo','Hyundai','Kia','Peugeot','Renault','Suzuki','Isuzu','Bentley','Tesla','Jaguar','Chevrolet','Dodge','Cadillac'];
+function autoMake(input){
+  const val=input.value.toLowerCase();
+  const list=document.getElementById('acMakeList');
+  if(!val){ list.style.display='none'; return; }
+  const matches=CAR_MAKES.filter(m=>m.toLowerCase().startsWith(val));
+  if(!matches.length){ list.style.display='none'; return; }
+  list.innerHTML=matches.map(m=>`<div class="autocomplete-item" onclick="selectMake('${m}')">${m}</div>`).join('');
+  list.style.display='block';
+}
+function selectMake(val){ document.getElementById('acMake').value=val; document.getElementById('acMakeList').style.display='none'; }
+document.addEventListener('click',e=>{ if(!e.target.closest('.autocomplete-wrap')) document.getElementById('acMakeList').style.display='none'; });
+
+// ============================================================
+// CRUD
+// ============================================================
+async function saveCar(){
+  const make=document.getElementById('acMake').value.trim();
+  const model=document.getElementById('acModel').value.trim();
+  const year=document.getElementById('acYear').value;
+  const price=document.getElementById('acPrice').value;
+  if(!make||!model||!year||!price){ showToast('Make, Model, Year and Price are required.','error'); return; }
+  const urlRaw=document.getElementById('acImages').value.trim();
+  const urlImgs=urlRaw?urlRaw.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean):[];
+  const images=[...uploadedImagesBase64,...urlImgs];
+  const editId=document.getElementById('editCarId').value;
+  const carData={
+    make,model,year:parseInt(year),price:parseInt(price),
+    mileage:document.getElementById('acMileage').value.trim(),
+    transmission:document.getElementById('acTransmission').value,
+    fuelType:document.getElementById('acFuel').value,
+    engine:document.getElementById('acEngine').value.trim(),
+    drivetrain:document.getElementById('acDrivetrain').value,
+    condition:document.getElementById('acCondition').value,
+    availability:document.getElementById('acAvailability').value,
+    description:document.getElementById('acDesc').value.trim(),
+    featured:document.getElementById('acFeatured').checked,
+    images
+  };
+  const cars=getInventory();
+  if(editId){
+    const idx=cars.findIndex(c=>c.id===editId);
+    if(idx>-1) cars[idx]={...cars[idx],...carData};
+    saveInventory(cars);
+    if(supabaseConnected){ try{ await sbUpdateVehicle(cars[idx]); }catch(e){ showToast('Local saved. Supabase sync failed.','error'); } }
+    showToast('Vehicle updated.','success');
+  } else {
+    carData.id='car_'+Date.now();
+    cars.push(carData);
+    saveInventory(cars);
+    if(supabaseConnected){ try{ await sbInsertVehicle(carData); }catch(e){ showToast('Local saved. Supabase sync failed.','error'); } }
+    showToast('Vehicle added.','success');
+  }
+  resetCarForm();
+  renderDashCars(); refreshDashOverview();
+  dashTab('cars',document.querySelectorAll('.dash-nav-btn')[1]);
+}
+async function deleteCar(id){
+  const car=getInventory().find(c=>c.id===id);
+  if(!car) return;
+  if(!confirm(`Delete ${car.make} ${car.model}? This cannot be undone.`)) return;
+  const cars=getInventory().filter(c=>c.id!==id);
+  saveInventory(cars);
+  if(supabaseConnected){ try{ await sbDeleteVehicle(id); }catch(e){ showToast('Local deleted. Supabase sync failed.','error'); } }
+  renderDashCars(); refreshDashOverview();
+  showToast('Vehicle deleted.','info');
+}
+function editCar(id){
+  const car=getInventory().find(c=>c.id===id);
+  if(!car) return;
+  uploadedImagesBase64=[];
+  document.getElementById('editCarId').value=id;
+  document.getElementById('acMake').value=car.make||'';
+  document.getElementById('acModel').value=car.model||'';
+  document.getElementById('acYear').value=car.year||'';
+  document.getElementById('acPrice').value=car.price||'';
+  document.getElementById('acMileage').value=car.mileage||'';
+  document.getElementById('acTransmission').value=car.transmission||'';
+  document.getElementById('acFuel').value=car.fuelType||'';
+  document.getElementById('acEngine').value=car.engine||'';
+  document.getElementById('acDrivetrain').value=car.drivetrain||'';
+  document.getElementById('acCondition').value=car.condition||'';
+  document.getElementById('acAvailability').value=car.availability||'Available';
+  document.getElementById('acDesc').value=car.description||'';
+  document.getElementById('acFeatured').checked=!!car.featured;
+  const imgs=car.images||[];
+  uploadedImagesBase64=imgs.filter(i=>i.startsWith('data:'));
+  document.getElementById('acImages').value=imgs.filter(i=>!i.startsWith('data:')).join('\n');
+  renderImgPreviews();
+  document.getElementById('addCarFormTitle').textContent='Edit Vehicle';
+  document.getElementById('addCarBtn').textContent='Update Vehicle';
+  document.getElementById('cancelEditBtn').style.display='block';
+  dashTab('add',document.querySelectorAll('.dash-nav-btn')[2]);
+}
+function cancelEdit(){ resetCarForm(); }
+function resetCarForm(){
+  ['acMake','acModel','acYear','acPrice','acMileage','acEngine','acDesc','acImages'].forEach(id=>{ document.getElementById(id).value=''; });
+  ['acTransmission','acFuel','acDrivetrain','acCondition'].forEach(id=>{ document.getElementById(id).selectedIndex=0; });
+  document.getElementById('acAvailability').value='Available';
+  document.getElementById('acFeatured').checked=false;
+  document.getElementById('editCarId').value='';
+  document.getElementById('addCarFormTitle').textContent='Add New Vehicle';
+  document.getElementById('addCarBtn').textContent='Add Vehicle';
+  document.getElementById('cancelEditBtn').style.display='none';
+  uploadedImagesBase64=[]; renderImgPreviews();
+}
+
+// ============================================================
+// INIT
+// ============================================================
+(async function init(){
+  window._inventory = getLocalInventory();
+  showSkeletons();
+  buildReels();
+  buildReviews();
+  renderCars(getInventory());
+  buildFilters();
+  updateModelFilter();
+  lucide.createIcons();
+})();
+
+document.getElementById('adminPass').addEventListener('keydown',e=>{ if(e.key==='Enter') doAdminLogin(); });
+document.getElementById('adminUser').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('adminPass').focus(); });
+</script>
+</body>
+</html>
