@@ -7,6 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<!-- ✅ SUPABASE SDK — loaded via CDN, no npm required -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 :root{
   --red:#C1121F;
@@ -55,60 +59,23 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
 .reveal-right.visible{opacity:1;transform:none;}
 
-/* ===== NAVBAR — full red background ===== */
-#navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:var(--red);
-  padding:0;
-  transition:box-shadow .4s ease;
-}
+/* ===== NAVBAR ===== */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--red);padding:0;transition:box-shadow .4s ease;}
 #navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.25);}
 .nav-inner{display:flex;align-items:stretch;justify-content:space-between;height:64px;}
-
-/* White logo block on the left */
-.nav-logo-block{
-  display:flex;align-items:center;gap:12px;
-  background:#fff;
-  padding:0 24px;
-  cursor:pointer;user-select:none;text-decoration:none;
-  flex-shrink:0;
-}
+.nav-logo-block{display:flex;align-items:center;gap:12px;background:#fff;padding:0 24px;cursor:pointer;user-select:none;text-decoration:none;flex-shrink:0;}
 .nav-logo-block img{height:42px;width:auto;object-fit:contain;}
-.nav-logo-text{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.5rem;
-  letter-spacing:.12em;
-  color:var(--red);
-  line-height:1;
-}
-
+.nav-logo-text{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.12em;color:var(--red);line-height:1;}
 .nav-links{display:flex;align-items:center;gap:4px;padding:0 16px;}
-.nav-link{
-  font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.88);
-  transition:color .3s,background .3s;
-  padding:8px 14px;border-radius:3px;
-  position:relative;
-}
+.nav-link{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.88);transition:color .3s,background .3s;padding:8px 14px;border-radius:3px;position:relative;}
 .nav-link:hover,.nav-link.active{color:#fff;background:rgba(0,0,0,.15);}
-
-.nav-wa{
-  display:flex;align-items:center;gap:8px;padding:0 20px;
-  background:rgba(0,0,0,.18);color:#fff;
-  font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;
-  letter-spacing:.08em;text-transform:uppercase;
-  transition:var(--transition);border-left:1px solid rgba(255,255,255,.15);
-}
+.nav-wa{display:flex;align-items:center;gap:8px;padding:0 20px;background:rgba(0,0,0,.18);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;transition:var(--transition);border-left:1px solid rgba(255,255,255,.15);}
 .nav-wa:hover{background:rgba(0,0,0,.3);}
-
-/* ===== MOBILE NAVBAR ===== */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;margin-right:16px;}
 .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;transition:var(--transition);}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .nav-hamburger.open span:nth-child(2){opacity:0;}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
 .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--black);z-index:999;flex-direction:column;padding:16px 0 20px;border-top:1px solid rgba(255,255,255,.1);transform:translateY(-10px);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;}
 .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all;}
 .mobile-menu .mob-nav-row{display:flex;align-items:center;justify-content:space-around;padding:10px 12px;}
@@ -116,54 +83,24 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .mobile-menu .nav-link:hover{background:rgba(255,255,255,.08);}
 .mobile-menu .mob-wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:4px;margin:6px 16px 0;}
 
-.mobile-menu-full{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--black);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);}
-.mobile-menu-full.open{transform:none;}
-.mobile-menu-full .nav-link{color:#fff;font-size:1.1rem;background:none;}
-.mobile-menu-full .nav-link:hover{background:rgba(255,255,255,.08);}
-
 /* ===== HERO ===== */
 #home{display:block;}
-#hero{
-  width:100%;
-  height:100vh;
-  min-height:500px;
-  position:relative;
-  overflow:hidden;
-}
-.hero-img-desktop{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;
-  object-position:center center;
-  display:block;
-}
+#hero{width:100%;height:100vh;min-height:500px;position:relative;overflow:hidden;}
+.hero-img-desktop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
 .hero-img-mobile{display:none;}
-
 @media(max-width:768px){
-  #hero{
-    height:auto;
-    aspect-ratio:unset;
-    min-height:unset;
-  }
+  #hero{height:auto;aspect-ratio:unset;min-height:unset;}
   .hero-img-desktop{display:none;}
-  .hero-img-mobile{
-    display:block;
-    position:relative;
-    width:100%;
-    height:auto;
-    object-fit:contain;
-    object-position:center top;
-  }
+  .hero-img-mobile{display:block;position:relative;width:100%;height:auto;object-fit:contain;object-position:center top;}
 }
 
-/* ===== STATS STRIP ===== */
+/* ===== STATS ===== */
 #stats{background:#fff;padding:40px 0 28px;}
 .stats-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:20px;}
 .stat-item{text-align:center;}
 .stat-number{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;color:var(--red);line-height:1;}
 .stat-label{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-dark);margin-top:4px;}
 .stat-divider{width:1px;height:40px;background:var(--grey-light);}
-
-/* Mobile stats — single row */
 @media(max-width:768px){
   #stats{padding:18px 0 14px;}
   .stats-inner{flex-wrap:nowrap;gap:0;justify-content:space-between;padding:0 10px;}
@@ -173,7 +110,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .stat-divider{display:block;width:1px;height:28px;background:var(--grey-light);}
 }
 
-/* ===== SOCIAL FOLLOW STRIP ===== */
+/* ===== SOCIAL FOLLOW ===== */
 #social-follow{background:#fff;padding:0 0 48px;}
 .social-follow-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
 .follow-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:var(--transition);}
@@ -186,7 +123,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .follow-btn svg{width:18px;height:18px;}
 .follow-divider{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--grey-mid);}
 
-/* ===== SEARCH FILTER ===== */
+/* ===== SEARCH ===== */
 #search{padding:60px 0;background:var(--off-white);position:relative;}
 #search::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--black));}
 .search-card{background:var(--white);border-radius:var(--radius);padding:36px 40px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
@@ -222,8 +159,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .car-card-price span{font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;color:var(--grey-dark);display:block;margin-bottom:-4px;letter-spacing:.05em;}
 .car-card-btn{display:flex;align-items:center;gap:6px;padding:10px 18px;background:var(--black);color:#fff;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;transition:var(--transition);}
 .car-card-btn:hover{background:var(--red);}
-
-/* Skeleton */
 .skeleton{background:linear-gradient(90deg,#f0eeeb 25%,#e8e6e3 50%,#f0eeeb 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;}
 @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
 .skel-card{border-radius:var(--radius);overflow:hidden;}
@@ -238,7 +173,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .empty-state h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;}
 .empty-state p{font-size:.9rem;color:var(--text-light);}
 
-/* ===== ABOUT — darker shade of white background ===== */
+/* ===== ABOUT ===== */
 #about{padding:36px 0;background:#2a2a2a;position:relative;overflow:hidden;}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
 .about-left .section-tag{color:var(--red);margin-bottom:8px;}
@@ -253,38 +188,65 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .about-feature span{font-family:'DM Sans',sans-serif;font-size:.8rem;}
 .about-bg-text{position:absolute;bottom:-10px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:14vw;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;}
 
-/* ===== VIDEOS (Instagram Embeds) ===== */
+/* ===== REELS — AUTO-SLIDING ANIMATION ===== */
 #reels{padding:60px 0;background:var(--off-white);overflow:hidden;}
 .reels-header{text-align:center;margin-bottom:40px;}
-.reels-track-wrap{overflow:hidden;position:relative;}
-.reels-track-wrap::before,.reels-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
-.reels-track-wrap::before{left:0;background:linear-gradient(to right,var(--off-white),transparent);}
-.reels-track-wrap::after{right:0;background:linear-gradient(to left,var(--off-white),transparent);}
-.reels-track{display:flex;gap:20px;padding:10px 80px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
-.reels-track::-webkit-scrollbar{height:4px;}
-.reels-track::-webkit-scrollbar-track{background:transparent;}
-.reels-track::-webkit-scrollbar-thumb{background:var(--grey-mid);border-radius:2px;}
 
-/* Instagram embed container */
+/* Two-row marquee carousel */
+.reels-carousel{position:relative;}
+.reels-carousel::before,
+.reels-carousel::after{
+  content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
+}
+.reels-carousel::before{left:0;background:linear-gradient(to right,var(--off-white) 0%,transparent 100%);}
+.reels-carousel::after{right:0;background:linear-gradient(to left,var(--off-white) 0%,transparent 100%);}
+
+.reels-track-outer{overflow:hidden;width:100%;}
+
+/* The continuous scroll belt — duplicated items for seamless loop */
+.reels-track{
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation:reelsSlide 28s linear infinite;
+  padding:8px 0 16px;
+}
+.reels-track:hover{animation-play-state:paused;}
+
+@keyframes reelsSlide{
+  0%  { transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+/* Reverse direction second row — hidden on mobile for perf */
+.reels-track.reverse{
+  animation-direction:reverse;
+  margin-top:16px;
+}
+
+/* Individual reel card */
 .reel-embed-card{
   flex-shrink:0;
-  width:220px;
-  scroll-snap-align:start;
+  width:200px;
   border-radius:16px;
   overflow:hidden;
   box-shadow:var(--shadow-md);
   background:#fff;
   position:relative;
   cursor:pointer;
-  transition:transform .3s;
+  transition:transform .3s, box-shadow .3s;
   border:1px solid rgba(0,0,0,.08);
+  text-decoration:none;
+  display:block;
 }
-.reel-embed-card:hover{transform:scale(1.03);}
-/* Thumbnail overlay approach — click opens Instagram */
+.reel-embed-card:hover{
+  transform:scale(1.05) translateY(-4px);
+  box-shadow:0 24px 48px rgba(0,0,0,.22);
+}
 .reel-thumb-wrap{
   position:relative;
-  width:220px;
-  height:390px;
+  width:200px;
+  height:355px;
   overflow:hidden;
   background:#1a1a1a;
 }
@@ -292,58 +254,47 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
 }
 .reel-thumb-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.1) 55%,transparent 100%);
+  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.08) 55%,transparent 100%);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-end;
-  padding:16px;
+  padding:14px;
 }
 .reel-play-btn{
   position:absolute;
   top:50%;left:50%;
   transform:translate(-50%,-60%);
-  width:52px;height:52px;
-  background:rgba(255,255,255,.2);
+  width:48px;height:48px;
+  background:rgba(255,255,255,.18);
   backdrop-filter:blur(8px);
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  transition:background .3s;
-  border:2px solid rgba(255,255,255,.4);
+  transition:background .3s,transform .3s;
+  border:2px solid rgba(255,255,255,.35);
 }
-.reel-embed-card:hover .reel-play-btn{background:rgba(193,18,31,.75);}
-.reel-play-btn svg{width:20px;height:20px;color:#fff;margin-left:3px;}
+.reel-embed-card:hover .reel-play-btn{
+  background:rgba(193,18,31,.8);
+  transform:translate(-50%,-60%) scale(1.12);
+}
+.reel-play-btn svg{width:18px;height:18px;color:#fff;margin-left:3px;}
 .reel-ig-badge{
-  display:flex;align-items:center;gap:6px;
+  display:flex;align-items:center;gap:5px;
   background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
   color:#fff;
-  font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;
-  padding:5px 10px;border-radius:20px;
-  margin-bottom:6px;
+  font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;
+  padding:4px 9px;border-radius:20px;
+  margin-bottom:5px;
 }
-.reel-label-text{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;color:#fff;letter-spacing:.06em;text-align:center;}
-.reel-handle-text{font-family:'DM Sans',sans-serif;font-size:.6rem;color:rgba(255,255,255,.7);text-align:center;margin-top:2px;}
+.reel-label-text{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;color:#fff;letter-spacing:.06em;text-align:center;}
+.reel-handle-text{font-family:'DM Sans',sans-serif;font-size:.57rem;color:rgba(255,255,255,.65);text-align:center;margin-top:2px;}
 
-/* Fallback gradient card */
-.reel-fallback-bg{
-  width:100%;height:100%;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  gap:10px;
-  padding:20px;
-}
-.reel-ig-icon{
-  width:56px;height:56px;
-  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
-  border-radius:14px;
-  display:flex;align-items:center;justify-content:center;
-}
-
-/* ===== REVIEWS — smaller cards ===== */
+/* ===== REVIEWS ===== */
 #reviews{padding:72px 0;background:var(--white);overflow:hidden;}
 .reviews-header{text-align:center;margin-bottom:40px;}
 .reviews-slider-wrap{overflow:hidden;position:relative;}
@@ -353,7 +304,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .reviews-track{display:flex;gap:14px;animation:reviewsScroll 22s linear infinite;width:max-content;}
 .reviews-track:hover{animation-play-state:paused;}
 @keyframes reviewsScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-/* Smaller review card */
 .review-card{flex-shrink:0;width:260px;background:var(--white);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow-md);border:1px solid var(--grey-light);position:relative;overflow:hidden;}
 .review-card::before{content:'\201C';font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--red);opacity:.08;position:absolute;top:-6px;left:12px;line-height:1;}
 .review-stars{display:flex;gap:2px;margin-bottom:10px;}
@@ -437,13 +387,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .modal-price{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--black);}
 .modal-actions{display:flex;gap:10px;}
 
-/* DB Status indicator */
+/* DB Status */
 .db-status{position:fixed;bottom:24px;left:24px;z-index:9998;display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(0,0,0,.8);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(255,255,255,.7);}
 .db-dot{width:8px;height:8px;border-radius:50%;background:#6b7280;flex-shrink:0;}
 .db-dot.connected{background:#22c55e;}
 .db-dot.error{background:var(--red);}
 
-/* ===== ADMIN ===== */
+/* ===== ADMIN LOGIN ===== */
 #admin-login{display:none;position:fixed;inset:0;background:var(--black);z-index:9999;align-items:center;justify-content:center;}
 #admin-login.visible{display:flex;}
 .admin-login-card{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;max-width:420px;width:100%;position:relative;}
@@ -464,7 +414,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .admin-login-btn:hover{background:var(--red-dark);}
 .admin-token-note{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.2);margin-top:10px;text-align:center;line-height:1.5;}
 
-/* ADMIN DASHBOARD */
+/* ===== ADMIN DASHBOARD ===== */
 #admin-dash{display:none;position:fixed;inset:0;background:#0d0d0d;z-index:9998;overflow-y:auto;}
 #admin-dash.visible{display:block;}
 .dash-header{background:#111;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;}
@@ -516,17 +466,25 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .autocomplete-item{padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:.84rem;color:rgba(255,255,255,.8);cursor:pointer;transition:background .2s;}
 .autocomplete-item:hover{background:rgba(193,18,31,.15);color:#fff;}
 
+/* Image upload */
 .img-upload-zone{grid-column:1/-1;border:2px dashed rgba(255,255,255,.1);border-radius:10px;padding:24px;text-align:center;cursor:pointer;transition:var(--transition);}
 .img-upload-zone:hover,.img-upload-zone.drag-over{border-color:var(--red);background:rgba(193,18,31,.04);}
-.img-upload-zone svg{width:26px;height:26px;color:rgba(255,255,255,.2);margin:0 auto 8px;}
-.img-upload-text{font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(255,255,255,.35);}
+.img-upload-text{font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(255,255,255,.35);margin-top:8px;}
 .img-upload-text strong{color:rgba(255,255,255,.6);}
-.img-preview-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.img-preview-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;justify-content:center;}
 .img-preview-item{width:64px;height:48px;border-radius:6px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.1);}
 .img-preview-item img{width:100%;height:100%;object-fit:cover;}
 .img-preview-remove{position:absolute;top:2px;right:2px;width:16px;height:16px;background:rgba(0,0,0,.8);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:9px;line-height:1;}
+
+/* Upload progress */
+.upload-progress-wrap{grid-column:1/-1;display:none;}
+.upload-progress-bar-bg{width:100%;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-top:8px;}
+.upload-progress-bar{height:100%;background:var(--red);border-radius:3px;width:0%;transition:width .3s ease;}
+.upload-progress-label{font-family:'DM Sans',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:4px;}
+
 .add-car-submit{margin-top:16px;width:100%;padding:13px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
 .add-car-submit:hover{background:var(--red-dark);}
+.add-car-submit:disabled{background:#555;cursor:not-allowed;transform:none;}
 .checkbox-wrap{display:flex;align-items:center;gap:10px;}
 .checkbox-wrap input{width:16px;height:16px;accent-color:var(--red);}
 .checkbox-wrap label{font-family:'DM Sans',sans-serif;font-size:.86rem;color:rgba(255,255,255,.7);cursor:pointer;}
@@ -539,16 +497,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .pw-input:focus{border-color:var(--red);}
 .pw-submit{padding:12px 28px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
 .pw-submit:hover{background:var(--red-dark);}
-
-/* Supabase setup panel */
-.supabase-panel{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;margin-bottom:24px;}
-.supabase-panel h3{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#fff;margin-bottom:6px;}
-.supabase-panel p{font-family:'DM Sans',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.55;}
-.supabase-panel .sb-input{width:100%;padding:10px 12px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:8px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.84rem;outline:none;transition:var(--transition);margin-bottom:10px;}
-.supabase-panel .sb-input:focus{border-color:var(--red);}
-.sb-connect-btn{padding:10px 24px;background:#3ecf8e;color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
-.sb-connect-btn:hover{background:#34b87a;}
-.sb-status-row{display:flex;align-items:center;gap:10px;margin-top:12px;font-family:'DM Sans',sans-serif;font-size:.78rem;color:rgba(255,255,255,.5);}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
@@ -583,34 +531,34 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .dash-car-price{display:none;}
   .review-card{width:230px;}
   .follow-btn{padding:12px 18px;font-size:.72rem;}
-  /* About mobile */
   #about{padding:24px 0;}
   .about-features{gap:6px;}
   .about-img-wrap{aspect-ratio:16/7;}
-  /* Social follow mobile — one row no wrapping */
   #social-follow{padding:0 0 28px;}
   .social-follow-inner{flex-wrap:nowrap;gap:6px;overflow-x:auto;padding:0 12px;justify-content:flex-start;}
   .social-follow-inner > span{display:none;}
   .follow-divider{display:none;}
   .follow-btn{padding:9px 12px;font-size:.66rem;gap:6px;white-space:nowrap;flex-shrink:0;}
   .follow-btn svg,.follow-btn i{width:14px;height:14px;}
+  /* Reels mobile: single row, reduce card size */
+  .reel-embed-card{width:160px;}
+  .reel-thumb-wrap{width:160px;height:284px;}
+  .reels-track.reverse{display:none;}
 }
 @media(max-width:480px){
   .section-title{font-size:1.9rem;}
   .modal-body{padding:18px;}
   .dash-car-item{flex-wrap:wrap;}
-  .add-car-grid{grid-template-columns:1fr;}
+  .add-car-grid{grid-column:1fr;}
   .nav-logo-text{display:none;}
   .review-card{width:210px;}
 }
-
-/* Shake animation */
 @keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-6px);}40%,80%{transform:translateX(6px);}}
 </style>
 </head>
 <body>
 
-<!-- DB STATUS -->
+<!-- DB STATUS INDICATOR -->
 <div class="db-status" id="dbStatus">
   <div class="db-dot" id="dbDot"></div>
   <span id="dbStatusText">Connecting...</span>
@@ -619,7 +567,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <!-- TOAST CONTAINER -->
 <div class="toast-container" id="toastContainer"></div>
 
-<!-- MOBILE MENU — compact strip below navbar -->
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mob-nav-row">
     <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
@@ -634,9 +582,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <div class="container" style="padding:0 0 0 0;max-width:100%;">
+  <div class="container" style="padding:0;max-width:100%;">
     <div class="nav-inner">
-      <!-- White logo block -->
       <a href="#home" class="nav-logo-block" id="navLogo">
         <img src="images/logo3.png" alt="Rifasa" onerror="this.style.display='none'"/>
         <span class="nav-logo-text">RIFASA</span>
@@ -660,12 +607,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <!-- HERO -->
 <section id="home" style="padding-top:64px;">
   <div id="hero">
-    <!-- Desktop banner -->
-    <img class="hero-img-desktop" src="images/bannerr.png" alt="Rifasa Executive Auto Ventures"
-      onerror="this.style.background='#C1121F';"/>
-    <!-- Mobile banner -->
-    <img class="hero-img-mobile" src="images/bannermobile.png" alt="Rifasa Executive Auto Ventures"
-      onerror="this.src='images/bannerr.png';"/>
+    <img class="hero-img-desktop" src="images/bannerr.png" alt="Rifasa Executive Auto Ventures" onerror="this.style.background='#C1121F';"/>
+    <img class="hero-img-mobile" src="images/bannermobile.png" alt="Rifasa Executive Auto Ventures" onerror="this.src='images/bannerr.png';"/>
   </div>
 </section>
 
@@ -696,7 +639,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   </div>
 </section>
 
-<!-- FOLLOW US -->
+<!-- SOCIAL FOLLOW -->
 <section id="social-follow">
   <div class="container">
     <div class="social-follow-inner">
@@ -801,7 +744,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   </div>
 </section>
 
-<!-- ABOUT — darker shade of white (off-dark grey) -->
+<!-- ABOUT -->
 <section id="about">
   <div class="container" style="position:relative;z-index:1;">
     <div class="about-inner">
@@ -828,15 +771,22 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   <div class="about-bg-text">RIFASA</div>
 </section>
 
-<!-- VIDEOS (Instagram — direct embed with thumbnail+link) -->
+<!-- REELS — Auto-sliding marquee carousel -->
 <section id="reels">
   <div class="reels-header container">
     <div class="section-tag reveal" style="justify-content:center;">Our Videos</div>
     <div class="section-title reveal" style="text-align:center;transition-delay:.1s;">Watch Our Latest Rides</div>
     <p style="text-align:center;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-light);margin-top:8px;" class="reveal">Tap any video to watch on Instagram</p>
   </div>
-  <div class="reels-track-wrap">
-    <div class="reels-track" id="reelsTrack"></div>
+  <div class="reels-carousel">
+    <!-- Row 1: left-to-right -->
+    <div class="reels-track-outer">
+      <div class="reels-track" id="reelsTrack"></div>
+    </div>
+    <!-- Row 2: right-to-left (decorative second row, same cards) -->
+    <div class="reels-track-outer" style="margin-top:16px;">
+      <div class="reels-track reverse" id="reelsTrack2"></div>
+    </div>
   </div>
 </section>
 
@@ -1031,7 +981,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     <button class="dash-exit" onclick="exitDash()"><i data-lucide="log-out" style="width:14px;height:14px;"></i> Exit</button>
   </div>
   <div class="dash-body">
-    <!-- Overview -->
+
+    <!-- OVERVIEW -->
     <div class="dash-section active" id="dash-overview">
       <div class="dash-stats">
         <div class="dash-stat"><div class="dash-stat-num" id="dsTotalCars">0</div><div class="dash-stat-label">Total Vehicles</div></div>
@@ -1044,7 +995,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
         <div id="dsRecentList"></div>
       </div>
     </div>
-    <!-- Manage Cars -->
+
+    <!-- MANAGE CARS -->
     <div class="dash-section" id="dash-cars">
       <div class="dash-cars-header">
         <div class="dash-cars-title">All Vehicles</div>
@@ -1054,108 +1006,151 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       </div>
       <div class="dash-car-list" id="dashCarList"></div>
     </div>
-    <!-- Add/Edit Car -->
+
+    <!-- ADD / EDIT CAR -->
     <div class="dash-section" id="dash-add">
       <div class="add-car-form">
         <div class="add-car-title" id="addCarFormTitle">Add New Vehicle</div>
         <input type="hidden" id="editCarId"/>
         <div class="add-car-grid">
+
+          <!-- make -->
           <div class="add-car-group">
             <div class="add-car-label">Make</div>
             <div class="autocomplete-wrap">
-              <input type="text" class="add-car-input" id="acMake" placeholder="e.g. Toyota" autocomplete="off" oninput="autoMake(this)"/>
+              <input type="text" class="add-car-input" id="ac_make" placeholder="e.g. Toyota" autocomplete="off" oninput="autoMake(this)"/>
               <div class="autocomplete-list" id="acMakeList" style="display:none;"></div>
             </div>
           </div>
+
+          <!-- model -->
           <div class="add-car-group">
             <div class="add-car-label">Model</div>
-            <input type="text" class="add-car-input" id="acModel" placeholder="e.g. Land Cruiser"/>
+            <input type="text" class="add-car-input" id="ac_model" placeholder="e.g. Land Cruiser"/>
           </div>
+
+          <!-- year -->
           <div class="add-car-group">
             <div class="add-car-label">Year</div>
-            <input type="number" class="add-car-input" id="acYear" placeholder="2020" min="1990" max="2030"/>
+            <input type="number" class="add-car-input" id="ac_year" placeholder="2020" min="1990" max="2030"/>
           </div>
+
+          <!-- price -->
           <div class="add-car-group">
             <div class="add-car-label">Price (KES)</div>
-            <input type="number" class="add-car-input" id="acPrice" placeholder="3500000"/>
+            <input type="text" class="add-car-input" id="ac_price" placeholder="3,500,000"/>
           </div>
+
+          <!-- mileage -->
           <div class="add-car-group">
             <div class="add-car-label">Mileage (km)</div>
-            <input type="text" class="add-car-input" id="acMileage" placeholder="45,000 km"/>
+            <input type="text" class="add-car-input" id="ac_mileage" placeholder="45,000"/>
           </div>
+
+          <!-- transmission -->
           <div class="add-car-group">
             <div class="add-car-label">Transmission</div>
-            <select class="add-car-select" id="acTransmission">
+            <select class="add-car-select" id="ac_transmission">
               <option value="">Select</option>
               <option>Automatic</option><option>Manual</option><option>CVT</option><option>Semi-Automatic</option>
             </select>
           </div>
+
+          <!-- fuel_type -->
           <div class="add-car-group">
             <div class="add-car-label">Fuel Type</div>
-            <select class="add-car-select" id="acFuel">
+            <select class="add-car-select" id="ac_fuel_type">
               <option value="">Select</option>
               <option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option>
             </select>
           </div>
+
+          <!-- engine -->
           <div class="add-car-group">
             <div class="add-car-label">Engine</div>
-            <input type="text" class="add-car-input" id="acEngine" placeholder="2.0L Turbo"/>
+            <input type="text" class="add-car-input" id="ac_engine" placeholder="2.0L Turbo"/>
           </div>
+
+          <!-- drivetrain -->
           <div class="add-car-group">
             <div class="add-car-label">Drivetrain</div>
-            <select class="add-car-select" id="acDrivetrain">
+            <select class="add-car-select" id="ac_drivetrain">
               <option value="">Select</option>
               <option>2WD</option><option>4WD</option><option>AWD</option><option>RWD</option>
             </select>
           </div>
+
+          <!-- condition -->
           <div class="add-car-group">
             <div class="add-car-label">Condition</div>
-            <select class="add-car-select" id="acCondition">
+            <select class="add-car-select" id="ac_condition">
               <option value="">Select</option>
               <option>Locally Used</option><option>Foreign Used</option><option>Brand New</option>
             </select>
           </div>
+
+          <!-- availability -->
           <div class="add-car-group">
             <div class="add-car-label">Availability</div>
-            <select class="add-car-select" id="acAvailability">
+            <select class="add-car-select" id="ac_availability">
               <option value="Available">Available</option>
               <option value="Sold">Sold</option>
               <option value="Reserved">Reserved</option>
             </select>
           </div>
+
+          <!-- description -->
           <div class="add-car-group full">
             <div class="add-car-label">Description</div>
-            <textarea class="add-car-textarea" id="acDesc" placeholder="Describe the vehicle..."></textarea>
+            <textarea class="add-car-textarea" id="ac_description" placeholder="Describe the vehicle..."></textarea>
           </div>
+
+          <!-- is_featured -->
           <div class="add-car-group full">
             <div class="checkbox-wrap">
-              <input type="checkbox" id="acFeatured"/>
-              <label for="acFeatured">Mark as Featured</label>
+              <input type="checkbox" id="ac_is_featured"/>
+              <label for="ac_is_featured">Mark as Featured</label>
             </div>
           </div>
+
+          <!-- images upload -->
           <div class="add-car-group full">
-            <div class="add-car-label">Images</div>
-            <div class="img-upload-zone" id="imgUploadZone" onclick="document.getElementById('imgFileInput').click()" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
-              <i data-lucide="upload-cloud" style="width:26px;height:26px;color:rgba(255,255,255,.2);margin:0 auto 8px;display:block;"></i>
-              <div class="img-upload-text"><strong>Click to upload</strong> or drag &amp; drop images here<br>Any size supported • JPG, PNG, WEBP, GIF</div>
+            <div class="add-car-label">Images (select multiple files)</div>
+            <!--
+              ✅ Standard file input — id="carImages" — supports multiple PNG/JPG selection.
+              Files are uploaded to Supabase Storage bucket "car-images" on form submit.
+            -->
+            <div class="img-upload-zone" id="imgUploadZone"
+              onclick="document.getElementById('carImages').click()"
+              ondragover="handleDragOver(event)"
+              ondrop="handleDrop(event)">
+              <i data-lucide="upload-cloud" style="width:28px;height:28px;color:rgba(255,255,255,.2);margin:0 auto 8px;display:block;"></i>
+              <div class="img-upload-text"><strong>Click to select images</strong> or drag &amp; drop here<br>JPG, PNG, WEBP supported • Multiple files allowed</div>
               <div class="img-preview-list" id="imgPreviewList"></div>
             </div>
-            <input type="file" id="imgFileInput" accept="image/*" multiple style="display:none;" onchange="handleFileSelect(this)"/>
-            <div style="margin-top:10px;">
-              <div class="add-car-label" style="margin-bottom:6px;">Or paste image URLs (one per line)</div>
-              <textarea class="add-car-textarea" id="acImages" placeholder="https://example.com/car1.jpg" style="height:55px;"></textarea>
+            <!--
+              ✅ FILE INPUT — id="carImages" — wired to Supabase Storage upload logic.
+              DO NOT rename this id without updating uploadImagesToSupabase() below.
+            -->
+            <input type="file" id="carImages" accept="image/*" multiple style="display:none;" onchange="handleFileSelect(this)"/>
+            <!-- Upload progress bar -->
+            <div class="upload-progress-wrap" id="uploadProgressWrap">
+              <div class="upload-progress-label" id="uploadProgressLabel">Uploading images...</div>
+              <div class="upload-progress-bar-bg">
+                <div class="upload-progress-bar" id="uploadProgressBar"></div>
+              </div>
             </div>
           </div>
-        </div>
+
+        </div><!-- /add-car-grid -->
+
         <button class="add-car-submit" onclick="saveCar()" id="addCarBtn">Add Vehicle</button>
         <button id="cancelEditBtn" style="display:none;width:100%;margin-top:10px;padding:11px;background:transparent;border:1.5px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;cursor:pointer;" onclick="cancelEdit()">Cancel Edit</button>
       </div>
     </div>
-    <!-- Settings -->
+
+    <!-- SETTINGS -->
     <div class="dash-section" id="dash-settings">
-     
-        </div>
-      </div>
       <div class="change-pw-form">
         <h3>Change Password</h3>
         <div class="pw-group">
@@ -1173,199 +1168,468 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
         <button class="pw-submit" onclick="changePassword()">Update Password</button>
       </div>
     </div>
-  </div>
-</div>
+
+  </div><!-- /dash-body -->
+</div><!-- /admin-dash -->
+
 
 <script>
 // ============================================================
+// ✅ SUPABASE INITIALISATION
+// SUPABASE_URL and SUPABASE_KEY are baked in here.
+// To update credentials, change these two constants only.
+// ============================================================
+const SUPABASE_URL = 'https://baxefjtopjuuuxrzvgbx.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJheGVmanRvcGp1dXV4cnp2Z2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNjY5MTQsImV4cCI6MjA5NDk0MjkxNH0.6TvS1KopPXlGMkLQPqv8bAkVjE6ZItM1vjBL55vohj4';
+const STORAGE_BUCKET = 'car-images'; // Must match your Supabase Storage bucket name exactly
+
+// supabase is the global object injected by the CDN script above
+const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// In-memory inventory cache — populated by fetchInventory()
+window._inventory = [];
+
+// ============================================================
+// ✅ DB STATUS INDICATOR
+// ============================================================
+function setDbStatus(state, msg) {
+  const dot = document.getElementById('dbDot');
+  const txt = document.getElementById('dbStatusText');
+  dot.className = 'db-dot' + (state === 'connected' ? ' connected' : state === 'error' ? ' error' : '');
+  txt.textContent = msg || (state === 'connected' ? 'Supabase Connected' : state === 'error' ? 'Connection Error' : 'Connecting...');
+}
+
+// ============================================================
+// ✅ FETCH INVENTORY FROM SUPABASE
+// Replaces the old localStorage.getItem() loop entirely.
+// Pulls live data from the `cars` table on every page load.
+// ============================================================
+async function fetchInventory() {
+  try {
+    const { data, error } = await _sb.from('cars').select('*').order('created_at', { ascending: false });
+    if (error) throw error;
+    // Normalize Supabase column names → internal field names used by the UI
+    window._inventory = (data || []).map(normaliseRow);
+    setDbStatus('connected');
+    return window._inventory;
+  } catch (err) {
+    console.error('Supabase fetch error:', err);
+    setDbStatus('error', 'DB Error');
+    showToast('Could not load inventory from database.', 'error');
+    return [];
+  }
+}
+
+// Maps Supabase snake_case columns to the JS camelCase keys the UI already uses.
+function normaliseRow(row) {
+  return {
+    id: row.id,
+    make: row.make || '',
+    model: row.model || '',
+    year: row.year || '',
+    price: row.price || 0,
+    mileage: row.mileage ? String(row.mileage).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' km' : '',
+    transmission: row.transmission || '',
+    fuelType: row.fuel_type || '',
+    engine: row.engine || '',
+    drivetrain: row.drivetrain || '',
+    condition: row.condition || '',
+    availability: row.availability || 'Available',
+    description: row.description || '',
+    featured: !!row.is_featured,
+    // ✅ images is a text[] array in Supabase.
+    // images[0] is used as the main card thumbnail throughout the UI.
+    images: Array.isArray(row.images) ? row.images : (row.images ? [row.images] : []),
+    _raw: row,
+  };
+}
+
+function getInventory() { return window._inventory; }
+
+// ============================================================
+// ✅ IMAGE UPLOAD: Client file → Supabase Storage → public URL
+//
+// How it works step-by-step:
+//  1. Admin selects files via <input type="file" id="carImages">
+//  2. On form submit, uploadImagesToSupabase() is called
+//  3. Each file is uploaded to the "car-images" bucket with a
+//     unique timestamped filename (timestamp_randomhex_original.ext)
+//     to guarantee no name collisions even if the same file is
+//     re-uploaded later.
+//  4. _sb.storage.from(bucket).upload() returns a path.
+//  5. _sb.storage.from(bucket).getPublicUrl(path) returns a
+//     permanent public HTTPS URL.
+//  6. All URLs are collected into an array and saved to the
+//     `images` (text[]) column in the `cars` table.
+//  7. That URL array is later fetched by fetchInventory() and
+//     images[0] is used as the card thumbnail everywhere.
+// ============================================================
+let _pendingFiles = []; // Files staged for upload before form submit
+
+function handleFileSelect(input) {
+  Array.from(input.files).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    _pendingFiles.push(file);
+    const reader = new FileReader();
+    reader.onload = e => addPreview(e.target.result, _pendingFiles.length - 1);
+    reader.readAsDataURL(file);
+  });
+  input.value = ''; // Reset so same file can be re-selected if needed
+}
+
+function handleDragOver(e) {
+  e.preventDefault();
+  document.getElementById('imgUploadZone').classList.add('drag-over');
+}
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('imgUploadZone').classList.remove('drag-over');
+  Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')).forEach(file => {
+    _pendingFiles.push(file);
+    const reader = new FileReader();
+    reader.onload = ev => addPreview(ev.target.result, _pendingFiles.length - 1);
+    reader.readAsDataURL(file);
+  });
+}
+
+function addPreview(src, idx) {
+  const list = document.getElementById('imgPreviewList');
+  const item = document.createElement('div');
+  item.className = 'img-preview-item';
+  item.dataset.idx = idx;
+  item.innerHTML = `<img src="${src}"/><div class="img-preview-remove" onclick="removePreview(${idx})">✕</div>`;
+  list.appendChild(item);
+}
+function removePreview(idx) {
+  _pendingFiles[idx] = null; // Mark as removed (keep index intact for siblings)
+  const item = document.querySelector(`.img-preview-item[data-idx="${idx}"]`);
+  if (item) item.remove();
+}
+
+// ✅ Core upload function — called during saveCar()
+async function uploadImagesToSupabase() {
+  const filesToUpload = _pendingFiles.filter(f => f !== null);
+  if (filesToUpload.length === 0) return [];
+
+  const progressWrap = document.getElementById('uploadProgressWrap');
+  const progressBar  = document.getElementById('uploadProgressBar');
+  const progressLbl  = document.getElementById('uploadProgressLabel');
+  progressWrap.style.display = 'block';
+
+  const publicUrls = [];
+  for (let i = 0; i < filesToUpload.length; i++) {
+    const file = filesToUpload[i];
+    // Build a unique filename: timestamp_randomhex_originalname
+    const ext = file.name.split('.').pop().toLowerCase();
+    const rand = Math.random().toString(16).slice(2, 10);
+    const filename = `${Date.now()}_${rand}.${ext}`;
+
+    progressLbl.textContent = `Uploading image ${i + 1} of ${filesToUpload.length}...`;
+    progressBar.style.width = ((i / filesToUpload.length) * 100) + '%';
+
+    const { data, error } = await _sb.storage.from(STORAGE_BUCKET).upload(filename, file, {
+      cacheControl: '3600',
+      upsert: false,
+    });
+
+    if (error) {
+      console.error('Image upload error:', error);
+      showToast(`Image ${i + 1} failed to upload: ${error.message}`, 'error');
+      continue; // Skip failed image, continue with rest
+    }
+
+    // Get the permanent public URL for this uploaded file
+    const { data: urlData } = _sb.storage.from(STORAGE_BUCKET).getPublicUrl(data.path);
+    publicUrls.push(urlData.publicUrl);
+  }
+
+  progressBar.style.width = '100%';
+  setTimeout(() => { progressWrap.style.display = 'none'; progressBar.style.width = '0%'; }, 800);
+  return publicUrls;
+}
+
+// ============================================================
+// ✅ SAVE CAR — Insert or Update in Supabase `cars` table
+// ============================================================
+async function saveCar() {
+  const make  = document.getElementById('ac_make').value.trim();
+  const model = document.getElementById('ac_model').value.trim();
+  const year  = document.getElementById('ac_year').value;
+  const price = document.getElementById('ac_price').value;
+
+  if (!make || !model || !year || !price) {
+    showToast('Make, Model, Year and Price are required.', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('addCarBtn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  // ✅ Upload images first — get back array of public URLs
+  const imageUrls = await uploadImagesToSupabase();
+
+  // ✅ Parse price and mileage: strip commas, spaces, letters, keep integers only
+  const priceInt   = parseInt(String(price).replace(/[^0-9]/g, ''), 10) || 0;
+  const mileageRaw = document.getElementById('ac_mileage').value;
+  const mileageInt = parseInt(String(mileageRaw).replace(/[^0-9]/g, ''), 10) || null;
+
+  // ✅ Build payload matching Supabase column names exactly
+  const payload = {
+    make:         make,
+    model:        model,
+    year:         parseInt(year, 10),
+    price:        priceInt,
+    mileage:      mileageInt,
+    transmission: document.getElementById('ac_transmission').value || null,
+    fuel_type:    document.getElementById('ac_fuel_type').value || null,
+    engine:       document.getElementById('ac_engine').value.trim() || null,
+    drivetrain:   document.getElementById('ac_drivetrain').value || null,
+    condition:    document.getElementById('ac_condition').value || null,
+    availability: document.getElementById('ac_availability').value || 'Available',
+    description:  document.getElementById('ac_description').value.trim() || null,
+    is_featured:  document.getElementById('ac_is_featured').checked,
+    images:       imageUrls, // text[] array of public URLs
+  };
+
+  const editId = document.getElementById('editCarId').value;
+
+  try {
+    let dbError;
+    if (editId) {
+      // ✅ UPDATE existing row — match by primary key `id`
+      const { error } = await _sb.from('cars').update(payload).eq('id', editId);
+      dbError = error;
+    } else {
+      // ✅ INSERT new row
+      const { error } = await _sb.from('cars').insert([payload]);
+      dbError = error;
+    }
+
+    if (dbError) throw dbError;
+
+    showToast(editId ? 'Vehicle updated successfully.' : 'Vehicle added successfully.', 'success');
+    resetCarForm();
+    // Re-fetch from Supabase so UI is always in sync with DB
+    await fetchInventory();
+    renderCars(getInventory());
+    buildFilters();
+    refreshDash();
+    dashTab('cars', document.querySelectorAll('.dash-nav-btn')[1]);
+
+  } catch (err) {
+    console.error('Save error:', err);
+    showToast('Database error: ' + (err.message || 'Unknown error'), 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = editId ? 'Update Vehicle' : 'Add Vehicle';
+  }
+}
+
+// ============================================================
+// ✅ DELETE CAR from Supabase
+// ============================================================
+async function deleteCar(id) {
+  const car = getInventory().find(c => String(c.id) === String(id));
+  if (!car) return;
+  if (!confirm(`Delete ${car.make} ${car.model}? This cannot be undone.`)) return;
+
+  const { error } = await _sb.from('cars').delete().eq('id', id);
+  if (error) {
+    showToast('Delete failed: ' + error.message, 'error');
+    return;
+  }
+  showToast('Vehicle deleted.', 'info');
+  await fetchInventory();
+  renderCars(getInventory());
+  buildFilters();
+  renderDashCars();
+  refreshDashOverview();
+}
+
+// ============================================================
+// EDIT CAR — fills form from local cache, no extra DB call
+// ============================================================
+function editCar(id) {
+  const car = getInventory().find(c => String(c.id) === String(id));
+  if (!car) return;
+  _pendingFiles = [];
+  document.getElementById('editCarId').value = id;
+  document.getElementById('ac_make').value        = car.make || '';
+  document.getElementById('ac_model').value       = car.model || '';
+  document.getElementById('ac_year').value        = car.year || '';
+  document.getElementById('ac_price').value       = car.price || '';
+  document.getElementById('ac_mileage').value     = String(car.mileage || '').replace(/[^0-9]/g, '');
+  document.getElementById('ac_transmission').value = car.transmission || '';
+  document.getElementById('ac_fuel_type').value   = car.fuelType || '';
+  document.getElementById('ac_engine').value      = car.engine || '';
+  document.getElementById('ac_drivetrain').value  = car.drivetrain || '';
+  document.getElementById('ac_condition').value   = car.condition || '';
+  document.getElementById('ac_availability').value = car.availability || 'Available';
+  document.getElementById('ac_description').value = car.description || '';
+  document.getElementById('ac_is_featured').checked = !!car.featured;
+
+  // Show existing image thumbnails (read-only previews from URLs already in DB)
+  const list = document.getElementById('imgPreviewList');
+  list.innerHTML = (car.images || []).map((url, i) =>
+    `<div class="img-preview-item" data-idx="existing-${i}">
+       <img src="${url}" onerror="this.style.background='#333';this.removeAttribute('src')"/>
+       <div class="img-preview-remove" title="Note: existing images cannot be removed here">—</div>
+     </div>`
+  ).join('');
+
+  document.getElementById('addCarFormTitle').textContent = 'Edit Vehicle';
+  document.getElementById('addCarBtn').textContent = 'Update Vehicle';
+  document.getElementById('cancelEditBtn').style.display = 'block';
+  dashTab('add', document.querySelectorAll('.dash-nav-btn')[2]);
+}
+
+function cancelEdit() { resetCarForm(); }
+
+function resetCarForm() {
+  ['ac_make','ac_model','ac_year','ac_price','ac_mileage','ac_engine','ac_description'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  ['ac_transmission','ac_fuel_type','ac_drivetrain','ac_condition'].forEach(id => {
+    document.getElementById(id).selectedIndex = 0;
+  });
+  document.getElementById('ac_availability').value = 'Available';
+  document.getElementById('ac_is_featured').checked = false;
+  document.getElementById('editCarId').value = '';
+  document.getElementById('addCarFormTitle').textContent = 'Add New Vehicle';
+  document.getElementById('addCarBtn').textContent = 'Add Vehicle';
+  document.getElementById('addCarBtn').disabled = false;
+  document.getElementById('cancelEditBtn').style.display = 'none';
+  _pendingFiles = [];
+  document.getElementById('imgPreviewList').innerHTML = '';
+}
+
+// ============================================================
 // SECURITY: SHA-256 password hashing
 // ============================================================
-async function hashPassword(pw){
+async function hashPassword(pw) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 const ADMIN_USERNAME = 'rifasa';
 const DEFAULT_PW = 'rifasa@2026';
 
-async function getStoredPwHash(){
+async function getStoredPwHash() {
   let h = localStorage.getItem('rifasa_pw_hash');
-  if(!h){ h = await hashPassword(DEFAULT_PW); localStorage.setItem('rifasa_pw_hash', h); }
+  if (!h) { h = await hashPassword(DEFAULT_PW); localStorage.setItem('rifasa_pw_hash', h); }
   return h;
 }
 
-// ============================================================
 // REMEMBER ME
-// ============================================================
-const REMEMBER_SALT = 'rifasa_salt_2026_v1';
-const REMEMBER_KEY = 'rifasa_session_token';
-const REMEMBER_EXPIRY_KEY = 'rifasa_session_expiry';
-const REMEMBER_DAYS = 30;
+const REMEMBER_SALT   = 'rifasa_salt_2026_v1';
+const REMEMBER_KEY    = 'rifasa_session_token';
+const REMEMBER_EXPIRY = 'rifasa_session_expiry';
+const REMEMBER_DAYS   = 30;
 
-async function generateSessionToken(username, pw){
-  return await hashPassword(username + pw + REMEMBER_SALT);
-}
-async function saveRememberToken(username, pw){
-  const token = await generateSessionToken(username, pw);
-  const expiry = Date.now() + (REMEMBER_DAYS * 24 * 60 * 60 * 1000);
+async function saveRememberToken(u, p) {
+  const token  = await hashPassword(u + p + REMEMBER_SALT);
+  const expiry = Date.now() + (REMEMBER_DAYS * 86400000);
   localStorage.setItem(REMEMBER_KEY, token);
-  localStorage.setItem(REMEMBER_EXPIRY_KEY, expiry.toString());
-  localStorage.setItem('rifasa_remembered_user', username);
+  localStorage.setItem(REMEMBER_EXPIRY, expiry.toString());
+  localStorage.setItem('rifasa_remembered_user', u);
 }
-function clearRememberToken(){
+function clearRememberToken() {
   localStorage.removeItem(REMEMBER_KEY);
-  localStorage.removeItem(REMEMBER_EXPIRY_KEY);
+  localStorage.removeItem(REMEMBER_EXPIRY);
   localStorage.removeItem('rifasa_remembered_user');
 }
-async function isSessionValid(){
-  const token = localStorage.getItem(REMEMBER_KEY);
-  const expiry = parseInt(localStorage.getItem(REMEMBER_EXPIRY_KEY)||'0');
-  if(!token || Date.now() > expiry) return false;
-  return true;
+async function isSessionValid() {
+  const token  = localStorage.getItem(REMEMBER_KEY);
+  const expiry = parseInt(localStorage.getItem(REMEMBER_EXPIRY) || '0');
+  return !!(token && Date.now() < expiry);
 }
-
-// ============================================================
-// LOCAL STORAGE ONLY
-// ============================================================
-
-// ============================================================
-// LOCAL STORAGE
-// ============================================================
-function getLocalInventory(){ try{ return JSON.parse(localStorage.getItem('rifasaInventory'))||[]; }catch{ return []; } }
-function saveLocalInventory(arr){ localStorage.setItem('rifasaInventory', JSON.stringify(arr)); }
-function getInventory(){ return window._inventory || getLocalInventory(); }
-function saveInventory(arr){ window._inventory = arr; saveLocalInventory(arr); }
-
-// ============================================================
-// SEED DATA
-// ============================================================
-(function seedIfEmpty(){
-  if(getLocalInventory().length > 0) return;
-  const seed = [
-    {id:'car_1',make:'Toyota',model:'Land Cruiser V8',year:2019,price:7800000,mileage:'62,000 km',transmission:'Automatic',fuelType:'Diesel',engine:'4.5L V8',drivetrain:'4WD',condition:'Foreign Used',availability:'Available',description:'Stunning Land Cruiser V8 in excellent condition. Full-time 4WD, leather interior, sunroof, and all service records available.',featured:true,images:['https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80']},
-    {id:'car_2',make:'Mercedes-Benz',model:'GLE 400',year:2020,price:9200000,mileage:'38,000 km',transmission:'Automatic',fuelType:'Petrol',engine:'3.0L V6 Turbo',drivetrain:'AWD',condition:'Foreign Used',availability:'Available',description:'Immaculate GLE 400 with panoramic sunroof, Burmester sound system, and AMG sports package.',featured:true,images:['https://images.unsplash.com/photo-1618843479619-f3d0d81e4d10?w=800&q=80']},
-    {id:'car_3',make:'BMW',model:'X5 xDrive40i',year:2021,price:10500000,mileage:'25,000 km',transmission:'Automatic',fuelType:'Petrol',engine:'3.0L TwinPower Turbo',drivetrain:'AWD',condition:'Foreign Used',availability:'Available',description:'Near-new BMW X5 with M Sport package, Head-Up Display, and Parking Assistant Plus.',featured:true,images:['https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=80']},
-    {id:'car_4',make:'Subaru',model:'Forester XT',year:2018,price:2100000,mileage:'78,000 km',transmission:'CVT',fuelType:'Petrol',engine:'2.0L Turbo',drivetrain:'AWD',condition:'Locally Used',availability:'Available',description:'Well-maintained Forester XT, sporty turbo variant with Eye-Sight safety system.',featured:false,images:['https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=800&q=80']},
-    {id:'car_5',make:'Toyota',model:'Prado TX',year:2017,price:3400000,mileage:'95,000 km',transmission:'Automatic',fuelType:'Diesel',engine:'3.0L D-4D',drivetrain:'4WD',condition:'Locally Used',availability:'Available',description:'Clean Prado TX with third row seating, regular servicing, new tyres.',featured:false,images:['https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&q=80']},
-    {id:'car_6',make:'Range Rover',model:'Sport HSE',year:2019,price:8900000,mileage:'44,000 km',transmission:'Automatic',fuelType:'Diesel',engine:'3.0L SDV6',drivetrain:'AWD',condition:'Foreign Used',availability:'Available',description:'Prestige Range Rover Sport with Meridian sound, cooled seats, 360-degree camera.',featured:true,images:['https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80']},
-  ];
-  saveLocalInventory(seed);
-})();
-
-// ============================================================
-// IMAGE UPLOAD
-// ============================================================
-let uploadedImagesBase64 = [];
-function handleFileSelect(input){
-  Array.from(input.files).forEach(file=>{
-    if(!file.type.startsWith('image/')) return;
-    const reader = new FileReader();
-    reader.onload = e => { uploadedImagesBase64.push(e.target.result); renderImgPreviews(); };
-    reader.readAsDataURL(file);
-  });
-  input.value='';
-}
-function handleDragOver(e){ e.preventDefault(); document.getElementById('imgUploadZone').classList.add('drag-over'); }
-function handleDrop(e){
-  e.preventDefault(); document.getElementById('imgUploadZone').classList.remove('drag-over');
-  Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')).forEach(file=>{
-    const reader = new FileReader();
-    reader.onload = ev => { uploadedImagesBase64.push(ev.target.result); renderImgPreviews(); };
-    reader.readAsDataURL(file);
-  });
-}
-function renderImgPreviews(){
-  document.getElementById('imgPreviewList').innerHTML = uploadedImagesBase64.map((src,i)=>`
-    <div class="img-preview-item"><img src="${src}"/><div class="img-preview-remove" onclick="removeUploadedImg(${i})">✕</div></div>`).join('');
-}
-function removeUploadedImg(idx){ uploadedImagesBase64.splice(idx,1); renderImgPreviews(); }
 
 // ============================================================
 // NAVBAR
 // ============================================================
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll',()=>{
+window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
   updateActiveNavLink();
 });
-function updateActiveNavLink(){
-  const sections=['home','inventory','about','contact'];
-  let current='home';
-  sections.forEach(s=>{ const el=document.getElementById(s); if(el&&window.scrollY>=el.offsetTop-120) current=s; });
-  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+current));
+function updateActiveNavLink() {
+  const sections = ['home','inventory','about','contact'];
+  let current = 'home';
+  sections.forEach(s => {
+    const el = document.getElementById(s);
+    if (el && window.scrollY >= el.offsetTop - 120) current = s;
+  });
+  document.querySelectorAll('.nav-link').forEach(l =>
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current));
 }
 
-// Logo triple-click → admin
-let logoClicks=0, logoTimer=null;
-document.getElementById('navLogo').addEventListener('click',()=>{
+// Logo triple-click → admin login
+let logoClicks = 0, logoTimer = null;
+document.getElementById('navLogo').addEventListener('click', () => {
   logoClicks++;
   clearTimeout(logoTimer);
-  logoTimer = setTimeout(()=>{ logoClicks=0; },700);
-  if(logoClicks>=3){ logoClicks=0; openAdminLogin(); }
+  logoTimer = setTimeout(() => { logoClicks = 0; }, 700);
+  if (logoClicks >= 3) { logoClicks = 0; openAdminLogin(); }
 });
 
-function toggleMobileMenu(){
-  const menu=document.getElementById('mobileMenu');
-  const ham=document.getElementById('hamburger');
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const ham  = document.getElementById('hamburger');
   const isOpen = menu.classList.contains('open');
-  if(isOpen){
-    menu.classList.remove('open');
-    ham.classList.remove('open');
-    setTimeout(()=>{ if(!menu.classList.contains('open')) menu.style.display='none'; }, 300);
+  if (isOpen) {
+    menu.classList.remove('open'); ham.classList.remove('open');
+    setTimeout(() => { if (!menu.classList.contains('open')) menu.style.display = 'none'; }, 300);
   } else {
-    menu.style.display='flex';
-    requestAnimationFrame(()=>{ menu.classList.add('open'); ham.classList.add('open'); });
+    menu.style.display = 'flex';
+    requestAnimationFrame(() => { menu.classList.add('open'); ham.classList.add('open'); });
   }
 }
-function closeMobileMenu(){
-  const menu=document.getElementById('mobileMenu');
-  const ham=document.getElementById('hamburger');
-  menu.classList.remove('open');
-  ham.classList.remove('open');
-  setTimeout(()=>{ menu.style.display='none'; }, 300);
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  setTimeout(() => { document.getElementById('mobileMenu').style.display = 'none'; }, 300);
 }
-
-// Close mobile menu on outside click
-document.addEventListener('click', e=>{
-  const menu=document.getElementById('mobileMenu');
-  const ham=document.getElementById('hamburger');
-  if(menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)){
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const ham  = document.getElementById('hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target))
     closeMobileMenu();
-  }
 });
 
 // ============================================================
 // SCROLL REVEAL
 // ============================================================
-const revealObserver = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>revealObserver.observe(el));
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
 
 // ============================================================
-// COUNTER
+// COUNTER ANIMATION
 // ============================================================
-const counterObserver = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting && !e.target.dataset.counted){
-      e.target.dataset.counted='true';
-      const target=parseInt(e.target.dataset.target);
-      let current=0;
-      const step=Math.ceil(target/60);
-      const timer=setInterval(()=>{
-        current=Math.min(current+step,target);
-        e.target.textContent=current+(e.target.dataset.target==='100'?'%':'+');
-        if(current>=target) clearInterval(timer);
-      },25);
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = 'true';
+      const target = parseInt(e.target.dataset.target);
+      let current = 0;
+      const step = Math.ceil(target / 60);
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        e.target.textContent = current + (e.target.dataset.target === '100' ? '%' : '+');
+        if (current >= target) clearInterval(timer);
+      }, 25);
     }
   });
-},{threshold:.5});
-document.querySelectorAll('.stat-number[data-target]').forEach(el=>counterObserver.observe(el));
+}, { threshold: .5 });
+document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
 
 // ============================================================
-// INSTAGRAM REELS — thumbnail cards linking to Instagram
-// Instagram blocks cross-origin thumbnail loading, so we use
-// local images saved in the images/ folder.
-// Tapping opens Instagram directly where the video plays.
+// ✅ REELS — Auto-sliding two-row marquee carousel
+// Cards link directly to Instagram where the video plays.
+// Thumbnails are served from your local images/ folder.
+// The CSS keyframe `reelsSlide` drives the continuous scroll;
+// we simply duplicate the card list so it loops seamlessly.
 // ============================================================
 const REELS = [
   { url:'https://www.instagram.com/p/DYliHC9I-aJ/', imgPath:'images/reel1.png', label:'Executive Fleet' },
@@ -1375,31 +1639,26 @@ const REELS = [
   { url:'https://www.instagram.com/p/DWgUxvAiDbr/', imgPath:'images/reel5.png', label:'Quality Cars' },
 ];
 
-function buildReels(){
-  const track = document.getElementById('reelsTrack');
-  const gradients = [
-    'linear-gradient(160deg,#1a0a2e 0%,#3a1060 100%)',
-    'linear-gradient(160deg,#0d1b2a 0%,#1a4060 100%)',
-    'linear-gradient(160deg,#1a0000 0%,#5a0a10 100%)',
-    'linear-gradient(160deg,#0a1a0d 0%,#1a4020 100%)',
-    'linear-gradient(160deg,#1a1400 0%,#504000 100%)',
-  ];
+const REEL_GRADIENTS = [
+  'linear-gradient(160deg,#1a0a2e 0%,#3a1060 100%)',
+  'linear-gradient(160deg,#0d1b2a 0%,#1a4060 100%)',
+  'linear-gradient(160deg,#1a0000 0%,#5a0a10 100%)',
+  'linear-gradient(160deg,#0a1a0d 0%,#1a4020 100%)',
+  'linear-gradient(160deg,#1a1400 0%,#504000 100%)',
+];
 
-  track.innerHTML = REELS.map((r, i) => `
+function reelCardHTML(r, i) {
+  return `
     <a href="${r.url}" target="_blank" rel="noopener" class="reel-embed-card">
-      <div class="reel-thumb-wrap" style="background:${gradients[i % gradients.length]};">
-        <img
-          src="${r.imgPath}"
-          alt="${r.label}"
-          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-        />
+      <div class="reel-thumb-wrap" style="background:${REEL_GRADIENTS[i % REEL_GRADIENTS.length]};">
+        <img src="${r.imgPath}" alt="${r.label}" loading="lazy"/>
         <div class="reel-thumb-overlay">
           <div class="reel-play-btn">
-            <svg viewBox="0 0 24 24" fill="#fff" width="20" height="20"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </div>
           <div>
             <div class="reel-ig-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
               @rifasa_magari
             </div>
             <div class="reel-label-text">${r.label}</div>
@@ -1407,23 +1666,34 @@ function buildReels(){
           </div>
         </div>
       </div>
-    </a>`).join('');
+    </a>`;
+}
+
+function buildReels() {
+  // Duplicate the list to enable seamless CSS loop (CSS animation shifts by -50%)
+  const singleRow = REELS.map((r, i) => reelCardHTML(r, i)).join('');
+  const doubledRow = singleRow + singleRow;
+
+  document.getElementById('reelsTrack').innerHTML  = doubledRow;
+  document.getElementById('reelsTrack2').innerHTML = doubledRow;
 }
 
 // ============================================================
 // REVIEWS
 // ============================================================
-const REVIEWS_DATA=[
-  {initials:'HM',name:'Hassan M.',date:'Mombasa · March 2025',text:'"Bought my Toyota Prado from Rifasa and the experience was seamless. Clean car, honest pricing, and great service. I will definitely refer friends and family."'},
-  {initials:'BK',name:'Brian K.',date:'Nairobi · January 2025',text:'"Professional team, very transparent about the car history. Got my Mercedes-Benz C200 at a fair market price. Highly recommend Rifasa."'},
-  {initials:'AS',name:'Ali S.',date:'Mombasa · April 2025',text:'"Fast, reliable, and genuine. Rifasa delivered exactly what they promised. The Range Rover I got was in perfect condition."'},
+const REVIEWS_DATA = [
+  { initials:'HM', name:'Hassan M.', date:'Mombasa · March 2025', text:'"Bought my Toyota Prado from Rifasa and the experience was seamless. Clean car, honest pricing, and great service. I will definitely refer friends and family."' },
+  { initials:'BK', name:'Brian K.',  date:'Nairobi · January 2025', text:'"Professional team, very transparent about the car history. Got my Mercedes-Benz C200 at a fair market price. Highly recommend Rifasa."' },
+  { initials:'AS', name:'Ali S.',    date:'Mombasa · April 2025', text:'"Fast, reliable, and genuine. Rifasa delivered exactly what they promised. The Range Rover I got was in perfect condition."' },
 ];
-function buildReviews(){
-  const track = document.getElementById('reviewsTrack');
-  const tripled = [...REVIEWS_DATA,...REVIEWS_DATA,...REVIEWS_DATA];
-  track.innerHTML = tripled.map(r=>`
+
+function buildReviews() {
+  const track   = document.getElementById('reviewsTrack');
+  const tripled = [...REVIEWS_DATA, ...REVIEWS_DATA, ...REVIEWS_DATA];
+  const starSVG = `<svg viewBox="0 0 24 24" fill="var(--red)" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`.repeat(5);
+  track.innerHTML = tripled.map(r => `
     <div class="review-card">
-      <div class="review-stars">${'<svg viewBox="0 0 24 24" fill="var(--red)" width="12" height="12"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'.repeat(5)}</div>
+      <div class="review-stars">${starSVG}</div>
       <p class="review-text">${r.text}</p>
       <div class="review-author">
         <div class="review-avatar">${r.initials}</div>
@@ -1431,276 +1701,318 @@ function buildReviews(){
       </div>
     </div>`).join('');
 }
-// ============================================================
-// FILTERS
-// ============================================================
-function buildFilters(){
-  const cars=getInventory();
-  populateSelect('filterMake',[...new Set(cars.map(c=>c.make).filter(Boolean))].sort());
-  populateSelect('filterYear',[...new Set(cars.map(c=>c.year).filter(Boolean))].sort((a,b)=>b-a));
-  populateSelect('filterTransmission',[...new Set(cars.map(c=>c.transmission).filter(Boolean))].sort());
-  populateSelect('filterFuel',[...new Set(cars.map(c=>c.fuelType).filter(Boolean))].sort());
-}
-function populateSelect(id,options){
-  const sel=document.getElementById(id);
-  const first=sel.options[0];
-  sel.innerHTML=''; sel.appendChild(first);
-  options.forEach(o=>{ const opt=document.createElement('option'); opt.value=o; opt.textContent=o; sel.appendChild(opt); });
-}
-function updateModelFilter(){
-  const make=document.getElementById('filterMake').value;
-  const cars=getInventory();
-  populateSelect('filterModel',[...new Set(cars.filter(c=>!make||c.make===make).map(c=>c.model).filter(Boolean))].sort());
-}
-document.getElementById('filterMake').addEventListener('change',updateModelFilter);
 
-function applyFilters(){
-  const make=document.getElementById('filterMake').value;
-  const model=document.getElementById('filterModel').value;
-  const year=document.getElementById('filterYear').value;
-  const price=document.getElementById('filterPrice').value;
-  const trans=document.getElementById('filterTransmission').value;
-  const fuel=document.getElementById('filterFuel').value;
-  let cars=getInventory();
-  if(make) cars=cars.filter(c=>c.make===make);
-  if(model) cars=cars.filter(c=>c.model===model);
-  if(year) cars=cars.filter(c=>String(c.year)===String(year));
-  if(price) cars=cars.filter(c=>c.price<=parseInt(price));
-  if(trans) cars=cars.filter(c=>c.transmission===trans);
-  if(fuel) cars=cars.filter(c=>c.fuelType===fuel);
-  renderCars(cars);
-  document.getElementById('searchCount').textContent=cars.length+' vehicle'+(cars.length!==1?'s':'')+' found';
-  document.getElementById('inventory').scrollIntoView({behavior:'smooth'});
+// ============================================================
+// ✅ FILTERS — populated from live Supabase data
+// ============================================================
+function buildFilters() {
+  const cars = getInventory();
+  populateSelect('filterMake',         [...new Set(cars.map(c => c.make).filter(Boolean))].sort());
+  populateSelect('filterYear',         [...new Set(cars.map(c => c.year).filter(Boolean))].sort((a,b) => b - a));
+  populateSelect('filterTransmission', [...new Set(cars.map(c => c.transmission).filter(Boolean))].sort());
+  populateSelect('filterFuel',         [...new Set(cars.map(c => c.fuelType).filter(Boolean))].sort());
 }
-function clearFilters(){
-  ['filterMake','filterModel','filterYear','filterPrice','filterTransmission','filterFuel'].forEach(id=>{ document.getElementById(id).selectedIndex=0; });
-  document.getElementById('searchCount').textContent='';
+
+function populateSelect(id, options) {
+  const sel   = document.getElementById(id);
+  const first = sel.options[0];
+  sel.innerHTML = '';
+  sel.appendChild(first);
+  options.forEach(o => {
+    const opt = document.createElement('option');
+    opt.value = o; opt.textContent = o;
+    sel.appendChild(opt);
+  });
+}
+function updateModelFilter() {
+  const make = document.getElementById('filterMake').value;
+  const cars = getInventory();
+  populateSelect('filterModel', [...new Set(cars.filter(c => !make || c.make === make).map(c => c.model).filter(Boolean))].sort());
+}
+document.getElementById('filterMake').addEventListener('change', updateModelFilter);
+
+function applyFilters() {
+  const make  = document.getElementById('filterMake').value;
+  const model = document.getElementById('filterModel').value;
+  const year  = document.getElementById('filterYear').value;
+  const price = document.getElementById('filterPrice').value;
+  const trans = document.getElementById('filterTransmission').value;
+  const fuel  = document.getElementById('filterFuel').value;
+  let cars = getInventory();
+  if (make)  cars = cars.filter(c => c.make === make);
+  if (model) cars = cars.filter(c => c.model === model);
+  if (year)  cars = cars.filter(c => String(c.year) === String(year));
+  if (price) cars = cars.filter(c => c.price <= parseInt(price));
+  if (trans) cars = cars.filter(c => c.transmission === trans);
+  if (fuel)  cars = cars.filter(c => c.fuelType === fuel);
+  renderCars(cars);
+  document.getElementById('searchCount').textContent = cars.length + ' vehicle' + (cars.length !== 1 ? 's' : '') + ' found';
+  document.getElementById('inventory').scrollIntoView({ behavior: 'smooth' });
+}
+function clearFilters() {
+  ['filterMake','filterModel','filterYear','filterPrice','filterTransmission','filterFuel']
+    .forEach(id => { document.getElementById(id).selectedIndex = 0; });
+  document.getElementById('searchCount').textContent = '';
   renderCars(getInventory());
   updateModelFilter();
 }
 
 // ============================================================
-// RENDER CARS
+// ✅ RENDER CARS — uses images[0] as thumbnail
 // ============================================================
-function renderCars(cars){
-  const grid=document.getElementById('carsGrid');
-  if(!cars||cars.length===0){
-    grid.innerHTML=`<div class="empty-state"><div class="empty-state-icon"><i data-lucide="car" style="width:28px;height:28px;color:var(--grey-mid);"></i></div><h3>No vehicles found</h3><p>Try adjusting your search filters.</p></div>`;
+function renderCars(cars) {
+  const grid = document.getElementById('carsGrid');
+  if (!cars || cars.length === 0) {
+    grid.innerHTML = `<div class="empty-state">
+      <div class="empty-state-icon"><i data-lucide="car" style="width:28px;height:28px;color:var(--grey-mid);"></i></div>
+      <h3>No vehicles found</h3>
+      <p>Try adjusting your search filters.</p>
+    </div>`;
     lucide.createIcons(); return;
   }
-  grid.innerHTML=cars.map((c,i)=>`
-    <div class="car-card reveal" style="transition-delay:${(i%3)*0.08}s;" onclick="openModal('${c.id}')">
-      <div class="car-card-img">
-        ${c.featured?'<div class="car-card-badge"><i data-lucide="star" style="width:10px;height:10px;display:inline-block;vertical-align:middle;"></i> Featured</div>':''}
-        <div class="car-card-condition">${c.condition||'Used'}</div>
-        <img src="${(c.images&&c.images[0])||'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'}" alt="${c.make} ${c.model}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'"/>
-      </div>
-      <div class="car-card-body">
-        <div class="car-card-make">${c.make}</div>
-        <div class="car-card-name">${c.model} <span style="color:var(--grey-dark);font-weight:500;">${c.year}</span></div>
-        <div class="car-card-specs">
-          ${c.mileage?`<div class="car-spec-tag"><i data-lucide="gauge" style="width:11px;height:11px;color:var(--red);"></i>${c.mileage}</div>`:''}
-          ${c.transmission?`<div class="car-spec-tag"><i data-lucide="settings" style="width:11px;height:11px;color:var(--red);"></i>${c.transmission}</div>`:''}
-          ${c.fuelType?`<div class="car-spec-tag"><i data-lucide="droplets" style="width:11px;height:11px;color:var(--red);"></i>${c.fuelType}</div>`:''}
-          ${c.drivetrain?`<div class="car-spec-tag"><i data-lucide="circle-dot" style="width:11px;height:11px;color:var(--red);"></i>${c.drivetrain}</div>`:''}
+  const FALLBACK = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80';
+  grid.innerHTML = cars.map((c, i) => {
+    // ✅ images[0] is the main thumbnail; images is the text[] array from Supabase
+    const thumb = (c.images && c.images[0]) ? c.images[0] : FALLBACK;
+    return `
+      <div class="car-card reveal" style="transition-delay:${(i % 3) * 0.08}s;" onclick="openModal('${c.id}')">
+        <div class="car-card-img">
+          ${c.featured ? '<div class="car-card-badge"><i data-lucide="star" style="width:10px;height:10px;display:inline-block;vertical-align:middle;"></i> Featured</div>' : ''}
+          <div class="car-card-condition">${c.condition || 'Used'}</div>
+          <img src="${thumb}" alt="${c.make} ${c.model}" loading="lazy" onerror="this.src='${FALLBACK}'"/>
         </div>
-        <div class="car-card-footer">
-          <div class="car-card-price"><span>Price</span>KES ${formatPrice(c.price)}</div>
-          <div class="car-card-btn">View <i data-lucide="arrow-right" style="width:13px;height:13px;"></i></div>
+        <div class="car-card-body">
+          <div class="car-card-make">${c.make}</div>
+          <div class="car-card-name">${c.model} <span style="color:var(--grey-dark);font-weight:500;">${c.year}</span></div>
+          <div class="car-card-specs">
+            ${c.mileage     ? `<div class="car-spec-tag"><i data-lucide="gauge" style="width:11px;height:11px;color:var(--red);"></i>${c.mileage}</div>` : ''}
+            ${c.transmission? `<div class="car-spec-tag"><i data-lucide="settings" style="width:11px;height:11px;color:var(--red);"></i>${c.transmission}</div>` : ''}
+            ${c.fuelType    ? `<div class="car-spec-tag"><i data-lucide="droplets" style="width:11px;height:11px;color:var(--red);"></i>${c.fuelType}</div>` : ''}
+            ${c.drivetrain  ? `<div class="car-spec-tag"><i data-lucide="circle-dot" style="width:11px;height:11px;color:var(--red);"></i>${c.drivetrain}</div>` : ''}
+          </div>
+          <div class="car-card-footer">
+            <div class="car-card-price"><span>Price</span>KES ${formatPrice(c.price)}</div>
+            <div class="car-card-btn">View <i data-lucide="arrow-right" style="width:13px;height:13px;"></i></div>
+          </div>
         </div>
-      </div>
-    </div>`).join('');
+      </div>`;
+  }).join('');
   lucide.createIcons();
-  document.querySelectorAll('.car-card.reveal').forEach(el=>revealObserver.observe(el));
+  document.querySelectorAll('.car-card.reveal').forEach(el => revealObserver.observe(el));
 }
 
-function showSkeletons(){
-  document.getElementById('carsGrid').innerHTML=Array(6).fill(0).map(()=>`
+function showSkeletons() {
+  document.getElementById('carsGrid').innerHTML = Array(6).fill(0).map(() => `
     <div class="skel-card"><div class="skel-img skeleton"></div><div class="skel-body">
       <div class="skel-line w40 skeleton"></div><div class="skel-line w80 skeleton"></div>
       <div class="skel-line w60 skeleton" style="margin-top:14px;"></div></div></div>`).join('');
 }
 
-function formatPrice(n){ if(!n) return '—'; return Number(n).toLocaleString('en-KE'); }
+function formatPrice(n) {
+  if (!n) return '—';
+  return Number(n).toLocaleString('en-KE');
+}
 
 // ============================================================
 // MODAL
 // ============================================================
-function openModal(id){
-  const car=getInventory().find(c=>c.id===id);
-  if(!car) return;
-  const imgs=car.images&&car.images.length>0?car.images:['https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'];
-  document.getElementById('modalGallery').innerHTML=`
-    <div class="modal-gallery-main"><img src="${imgs[0]}" alt="${car.make} ${car.model}" onerror="this.src='https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80'"/></div>
-    ${imgs[1]?`<div class="modal-gallery-thumb"><img src="${imgs[1]}"/></div>`:''}
-    ${imgs[2]?`<div class="modal-gallery-thumb"><img src="${imgs[2]}"/></div>`:''}`;
-  document.getElementById('modalTitle').textContent=`${car.make} ${car.model}`;
-  document.getElementById('modalSubtitle').textContent=`${car.year} • ${car.condition||'Used'}`;
-  const specs=[{label:'Year',value:car.year},{label:'Mileage',value:car.mileage||'—'},{label:'Transmission',value:car.transmission||'—'},{label:'Fuel Type',value:car.fuelType||'—'},{label:'Engine',value:car.engine||'—'},{label:'Drivetrain',value:car.drivetrain||'—'},{label:'Availability',value:car.availability||'Available'},{label:'Condition',value:car.condition||'—'}];
-  document.getElementById('modalSpecs').innerHTML=specs.map(s=>`<div class="modal-spec"><div class="modal-spec-label">${s.label}</div><div class="modal-spec-value">${s.value}</div></div>`).join('');
-  document.getElementById('modalDesc').textContent=car.description||'Contact us for more details.';
-  document.getElementById('modalPrice').textContent=`KES ${formatPrice(car.price)}`;
-  const msg=encodeURIComponent(`Hello Rifasa, I'm interested in the ${car.year} ${car.make} ${car.model} listed for KES ${formatPrice(car.price)}. Please provide more details.`);
-  document.getElementById('modalWa').href=`https://wa.me/254727238801?text=${msg}`;
+function openModal(id) {
+  const car = getInventory().find(c => String(c.id) === String(id));
+  if (!car) return;
+  const FALLBACK = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80';
+  const imgs = (car.images && car.images.length > 0) ? car.images : [FALLBACK];
+
+  document.getElementById('modalGallery').innerHTML = `
+    <div class="modal-gallery-main"><img src="${imgs[0]}" alt="${car.make} ${car.model}" onerror="this.src='${FALLBACK}'"/></div>
+    ${imgs[1] ? `<div class="modal-gallery-thumb"><img src="${imgs[1]}" onerror="this.src='${FALLBACK}'"/></div>` : ''}
+    ${imgs[2] ? `<div class="modal-gallery-thumb"><img src="${imgs[2]}" onerror="this.src='${FALLBACK}'"/></div>` : ''}`;
+
+  document.getElementById('modalTitle').textContent    = `${car.make} ${car.model}`;
+  document.getElementById('modalSubtitle').textContent = `${car.year} • ${car.condition || 'Used'}`;
+
+  const specs = [
+    { label:'Year',         value: car.year },
+    { label:'Mileage',      value: car.mileage || '—' },
+    { label:'Transmission', value: car.transmission || '—' },
+    { label:'Fuel Type',    value: car.fuelType || '—' },
+    { label:'Engine',       value: car.engine || '—' },
+    { label:'Drivetrain',   value: car.drivetrain || '—' },
+    { label:'Availability', value: car.availability || 'Available' },
+    { label:'Condition',    value: car.condition || '—' },
+  ];
+  document.getElementById('modalSpecs').innerHTML = specs.map(s =>
+    `<div class="modal-spec"><div class="modal-spec-label">${s.label}</div><div class="modal-spec-value">${s.value}</div></div>`
+  ).join('');
+
+  document.getElementById('modalDesc').textContent  = car.description || 'Contact us for more details.';
+  document.getElementById('modalPrice').textContent = `KES ${formatPrice(car.price)}`;
+
+  const msg = encodeURIComponent(`Hello Rifasa, I'm interested in the ${car.year} ${car.make} ${car.model} listed for KES ${formatPrice(car.price)}. Please provide more details.`);
+  document.getElementById('modalWa').href = `https://wa.me/254727238801?text=${msg}`;
+
   document.getElementById('carModal').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
   lucide.createIcons();
 }
-function closeModal(){ document.getElementById('carModal').classList.remove('open'); document.body.style.overflow=''; }
-document.getElementById('carModal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+function closeModal() {
+  document.getElementById('carModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('carModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
 
 // ============================================================
 // CONTACT FORM
 // ============================================================
-function submitContactForm(){
-  const name=document.getElementById('cfName').value.trim();
-  const phone=document.getElementById('cfPhone').value.trim();
-  const msg=document.getElementById('cfMessage').value.trim();
-  if(!name||!phone){ showToast('Please enter your name and phone number.','error'); return; }
-  window.open(`https://wa.me/254727238801?text=${encodeURIComponent(`Hello Rifasa!\nName: ${name}\nPhone: ${phone}\n${msg?'Message: '+msg:''}`)}`, '_blank');
-  showToast('Redirecting to WhatsApp...','success');
-  ['cfName','cfPhone','cfEmail','cfMessage'].forEach(id=>{ document.getElementById(id).value=''; });
+function submitContactForm() {
+  const name  = document.getElementById('cfName').value.trim();
+  const phone = document.getElementById('cfPhone').value.trim();
+  const msg   = document.getElementById('cfMessage').value.trim();
+  if (!name || !phone) { showToast('Please enter your name and phone number.', 'error'); return; }
+  window.open(`https://wa.me/254727238801?text=${encodeURIComponent(`Hello Rifasa!\nName: ${name}\nPhone: ${phone}\n${msg ? 'Message: ' + msg : ''}`)}`, '_blank');
+  showToast('Redirecting to WhatsApp...', 'success');
+  ['cfName','cfPhone','cfEmail','cfMessage'].forEach(id => { document.getElementById(id).value = ''; });
 }
 
 // ============================================================
 // TOAST
 // ============================================================
-function showToast(msg,type='info'){
-  const container=document.getElementById('toastContainer');
-  const toast=document.createElement('div');
-  const icons={success:'check-circle',error:'x-circle',info:'info'};
-  toast.className=`toast toast-${type}`;
-  toast.innerHTML=`<i data-lucide="${icons[type]||'info'}" style="width:16px;height:16px;flex-shrink:0;"></i>${msg}`;
+function showToast(msg, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  const icons = { success:'check-circle', error:'x-circle', info:'info' };
+  toast.className = `toast toast-${type}`;
+  toast.innerHTML = `<i data-lucide="${icons[type] || 'info'}" style="width:16px;height:16px;flex-shrink:0;"></i>${msg}`;
   container.appendChild(toast);
   lucide.createIcons();
-  requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ toast.classList.add('show'); }); });
-  setTimeout(()=>{ toast.classList.remove('show'); setTimeout(()=>toast.remove(),400); },3500);
+  requestAnimationFrame(() => { requestAnimationFrame(() => { toast.classList.add('show'); }); });
+  setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 3500);
 }
 
 // ============================================================
-// ADMIN LOGIN
+// ADMIN LOGIN / SESSION
 // ============================================================
-async function openAdminLogin(){
-  if(await isSessionValid()){
-    openDash();
-    showToast('Welcome back, Admin.','success');
-    return;
-  }
-  const rememberedUser = localStorage.getItem('rifasa_remembered_user');
-  if(rememberedUser){
-    document.getElementById('adminUser').value = rememberedUser;
+async function openAdminLogin() {
+  if (await isSessionValid()) { openDash(); showToast('Welcome back, Admin.', 'success'); return; }
+  const remembered = localStorage.getItem('rifasa_remembered_user');
+  if (remembered) {
+    document.getElementById('adminUser').value = remembered;
     document.getElementById('adminRemember').checked = true;
   }
-  const el=document.getElementById('admin-login');
-  el.style.display='flex';
+  document.getElementById('admin-login').style.display = 'flex';
   lucide.createIcons();
 }
-function closeAdminLogin(){ document.getElementById('admin-login').style.display='none'; }
+function closeAdminLogin() { document.getElementById('admin-login').style.display = 'none'; }
 
-async function doAdminLogin(){
-  const u=document.getElementById('adminUser').value;
-  const p=document.getElementById('adminPass').value;
-  const remember=document.getElementById('adminRemember').checked;
-  if(!u||!p){ showToast('Please enter credentials.','error'); return; }
-  if(u!==ADMIN_USERNAME){ showToast('Invalid credentials.','error'); shakeInputs(); return; }
-  const inputHash=await hashPassword(p);
-  const storedHash=await getStoredPwHash();
-  if(inputHash===storedHash){
-    if(remember){ await saveRememberToken(u, p); } else { clearRememberToken(); }
+async function doAdminLogin() {
+  const u = document.getElementById('adminUser').value;
+  const p = document.getElementById('adminPass').value;
+  const remember = document.getElementById('adminRemember').checked;
+  if (!u || !p) { showToast('Please enter credentials.', 'error'); return; }
+  if (u !== ADMIN_USERNAME) { showToast('Invalid credentials.', 'error'); shakeInputs(); return; }
+  const inputHash  = await hashPassword(p);
+  const storedHash = await getStoredPwHash();
+  if (inputHash === storedHash) {
+    if (remember) { await saveRememberToken(u, p); } else { clearRememberToken(); }
     closeAdminLogin();
     openDash();
-    showToast('Welcome back, Admin.','success');
+    showToast('Welcome back, Admin.', 'success');
   } else {
-    showToast('Invalid credentials.','error');
+    showToast('Invalid credentials.', 'error');
     shakeInputs();
   }
 }
-function shakeInputs(){
-  ['adminUser','adminPass'].forEach(id=>{
-    const el=document.getElementById(id);
-    el.style.borderColor='var(--red)';
-    el.style.animation='shake .4s ease';
-    setTimeout(()=>{ el.style.borderColor=''; el.style.animation=''; },1500);
+function shakeInputs() {
+  ['adminUser','adminPass'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.borderColor = 'var(--red)';
+    el.style.animation   = 'shake .4s ease';
+    setTimeout(() => { el.style.borderColor = ''; el.style.animation = ''; }, 1500);
   });
 }
-async function changePassword(){
-  const curr=document.getElementById('pwCurrent').value;
-  const nw=document.getElementById('pwNew').value;
-  const conf=document.getElementById('pwConfirm').value;
-  if(!curr||!nw||!conf){ showToast('All fields required.','error'); return; }
-  if(nw.length<8){ showToast('Min 8 characters required.','error'); return; }
-  if(nw!==conf){ showToast('Passwords do not match.','error'); return; }
-  const currHash=await hashPassword(curr);
-  const storedHash=await getStoredPwHash();
-  if(currHash!==storedHash){ showToast('Current password incorrect.','error'); return; }
+async function changePassword() {
+  const curr  = document.getElementById('pwCurrent').value;
+  const nw    = document.getElementById('pwNew').value;
+  const conf  = document.getElementById('pwConfirm').value;
+  if (!curr || !nw || !conf) { showToast('All fields required.', 'error'); return; }
+  if (nw.length < 8) { showToast('Min 8 characters required.', 'error'); return; }
+  if (nw !== conf) { showToast('Passwords do not match.', 'error'); return; }
+  const currHash   = await hashPassword(curr);
+  const storedHash = await getStoredPwHash();
+  if (currHash !== storedHash) { showToast('Current password incorrect.', 'error'); return; }
   localStorage.setItem('rifasa_pw_hash', await hashPassword(nw));
   clearRememberToken();
-  showToast('Password updated. Please log in again.','success');
-  ['pwCurrent','pwNew','pwConfirm'].forEach(id=>{ document.getElementById(id).value=''; });
+  showToast('Password updated. Please log in again.', 'success');
+  ['pwCurrent','pwNew','pwConfirm'].forEach(id => { document.getElementById(id).value = ''; });
 }
 
 // ============================================================
 // ADMIN DASHBOARD
 // ============================================================
-function openDash(){
-  document.getElementById('admin-dash').style.display='block';
-  document.body.style.overflow='hidden';
+async function openDash() {
+  document.getElementById('admin-dash').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  await fetchInventory(); // Always fresh from Supabase when opening dashboard
   refreshDash();
   lucide.createIcons();
-  // Local storage only - no Supabase
-  setDbStatus('disconnected');
 }
-function exitDash(){
-  document.getElementById('admin-dash').style.display='none';
-  document.body.style.overflow='';
+function exitDash() {
+  document.getElementById('admin-dash').style.display = 'none';
+  document.body.style.overflow = '';
   renderCars(getInventory());
   buildFilters(); updateModelFilter();
-  showToast('Exited admin dashboard.','info');
+  showToast('Exited admin dashboard.', 'info');
 }
-function dashTab(name,btn){
-  document.querySelectorAll('.dash-section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.dash-nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('dash-'+name).classList.add('active');
-  btn.classList.add('active');
-  if(name==='cars') renderDashCars();
-  if(name==='overview') refreshDashOverview();
-  // Settings tab - no Supabase config needed
+function dashTab(name, btn) {
+  document.querySelectorAll('.dash-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.dash-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('dash-' + name).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (name === 'cars') renderDashCars();
+  if (name === 'overview') refreshDashOverview();
   lucide.createIcons();
 }
-function refreshDash(){ refreshDashOverview(); renderDashCars(); }
-function refreshDashOverview(){
-  const cars=getInventory();
-  document.getElementById('dsTotalCars').textContent=cars.length;
-  document.getElementById('dsFeatured').textContent=cars.filter(c=>c.featured).length;
-  document.getElementById('dsAvailable').textContent=cars.filter(c=>c.availability==='Available').length;
-  document.getElementById('dsMakes').textContent=[...new Set(cars.map(c=>c.make))].length;
-  const recent=cars.slice(-5).reverse();
-  document.getElementById('dsRecentList').innerHTML=recent.length===0?
-    '<p style="color:rgba(255,255,255,.3);font-size:.82rem;font-family:DM Sans,sans-serif;">No vehicles yet.</p>':
-    recent.map(c=>`
+function refreshDash() { refreshDashOverview(); renderDashCars(); }
+
+function refreshDashOverview() {
+  const cars = getInventory();
+  document.getElementById('dsTotalCars').textContent = cars.length;
+  document.getElementById('dsFeatured').textContent  = cars.filter(c => c.featured).length;
+  document.getElementById('dsAvailable').textContent = cars.filter(c => c.availability === 'Available').length;
+  document.getElementById('dsMakes').textContent     = [...new Set(cars.map(c => c.make))].length;
+
+  const recent = cars.slice(0, 5);
+  document.getElementById('dsRecentList').innerHTML = recent.length === 0
+    ? '<p style="color:rgba(255,255,255,.3);font-size:.82rem;font-family:DM Sans,sans-serif;">No vehicles yet.</p>'
+    : recent.map(c => `
       <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);">
-        <img src="${(c.images&&c.images[0])||''}" style="width:48px;height:36px;border-radius:6px;object-fit:cover;background:#1a1a1a;flex-shrink:0;" onerror="this.style.background='#222';this.removeAttribute('src')"/>
+        <img src="${(c.images && c.images[0]) || ''}" style="width:48px;height:36px;border-radius:6px;object-fit:cover;background:#1a1a1a;flex-shrink:0;" onerror="this.style.background='#222';this.removeAttribute('src')"/>
         <div style="flex:1;min-width:0;">
           <div style="font-family:'Syne',sans-serif;font-size:.84rem;font-weight:700;color:#fff;">${c.make} ${c.model}</div>
-          <div style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.35);">${c.year} • ${c.condition||'Used'}</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.35);">${c.year} • ${c.condition || 'Used'}</div>
         </div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--red);">KES ${formatPrice(c.price)}</div>
       </div>`).join('');
 }
-function renderDashCars(){
-  const cars=getInventory();
-  const list=document.getElementById('dashCarList');
-  if(!cars.length){ list.innerHTML='<p style="color:rgba(255,255,255,.3);font-size:.85rem;font-family:DM Sans,sans-serif;text-align:center;padding:40px;">No vehicles added yet.</p>'; return; }
-  list.innerHTML=cars.map(c=>`
+
+function renderDashCars() {
+  const cars = getInventory();
+  const list = document.getElementById('dashCarList');
+  if (!cars.length) {
+    list.innerHTML = '<p style="color:rgba(255,255,255,.3);font-size:.85rem;font-family:DM Sans,sans-serif;text-align:center;padding:40px;">No vehicles added yet.</p>';
+    return;
+  }
+  list.innerHTML = cars.map(c => `
     <div class="dash-car-item">
-      <img class="dash-car-thumb" src="${(c.images&&c.images[0])||''}" onerror="this.style.background='#222';this.removeAttribute('src')"/>
+      <img class="dash-car-thumb" src="${(c.images && c.images[0]) || ''}" onerror="this.style.background='#222';this.removeAttribute('src')"/>
       <div class="dash-car-info">
         <div class="dash-car-name">${c.make} ${c.model} <span style="color:rgba(255,255,255,.35);font-weight:400;">${c.year}</span></div>
-        <div class="dash-car-meta">${c.condition||''} · ${c.availability||'Available'}${c.featured?' · <span style="color:var(--red);">Featured</span>':''}</div>
+        <div class="dash-car-meta">${c.condition || ''} · ${c.availability || 'Available'}${c.featured ? ' · <span style="color:var(--red);">Featured</span>' : ''}</div>
       </div>
       <div class="dash-car-price">KES ${formatPrice(c.price)}</div>
       <div class="dash-car-actions">
-        <button class="dash-action-btn dash-edit" onclick="editCar('${c.id}')"><i data-lucide="pencil" style="width:13px;height:13px;"></i></button>
+        <button class="dash-action-btn dash-edit"   onclick="editCar('${c.id}')"><i data-lucide="pencil"  style="width:13px;height:13px;"></i></button>
         <button class="dash-action-btn dash-delete" onclick="deleteCar('${c.id}')"><i data-lucide="trash-2" style="width:13px;height:13px;"></i></button>
       </div>
     </div>`).join('');
@@ -1710,129 +2022,45 @@ function renderDashCars(){
 // ============================================================
 // AUTOCOMPLETE
 // ============================================================
-const CAR_MAKES=['Toyota','Mercedes-Benz','BMW','Audi','Range Rover','Land Rover','Subaru','Honda','Nissan','Mazda','Mitsubishi','Volkswagen','Porsche','Lexus','Infiniti','Jeep','Ford','Volvo','Hyundai','Kia','Peugeot','Renault','Suzuki','Isuzu','Bentley','Tesla','Jaguar','Chevrolet','Dodge','Cadillac'];
-function autoMake(input){
-  const val=input.value.toLowerCase();
-  const list=document.getElementById('acMakeList');
-  if(!val){ list.style.display='none'; return; }
-  const matches=CAR_MAKES.filter(m=>m.toLowerCase().startsWith(val));
-  if(!matches.length){ list.style.display='none'; return; }
-  list.innerHTML=matches.map(m=>`<div class="autocomplete-item" onclick="selectMake('${m}')">${m}</div>`).join('');
-  list.style.display='block';
+const CAR_MAKES = ['Toyota','Mercedes-Benz','BMW','Audi','Range Rover','Land Rover','Subaru','Honda','Nissan','Mazda','Mitsubishi','Volkswagen','Porsche','Lexus','Infiniti','Jeep','Ford','Volvo','Hyundai','Kia','Peugeot','Renault','Suzuki','Isuzu','Bentley','Tesla','Jaguar','Chevrolet','Dodge','Cadillac'];
+function autoMake(input) {
+  const val  = input.value.toLowerCase();
+  const list = document.getElementById('acMakeList');
+  if (!val) { list.style.display = 'none'; return; }
+  const matches = CAR_MAKES.filter(m => m.toLowerCase().startsWith(val));
+  if (!matches.length) { list.style.display = 'none'; return; }
+  list.innerHTML = matches.map(m => `<div class="autocomplete-item" onclick="selectMake('${m}')">${m}</div>`).join('');
+  list.style.display = 'block';
 }
-function selectMake(val){ document.getElementById('acMake').value=val; document.getElementById('acMakeList').style.display='none'; }
-document.addEventListener('click',e=>{ if(!e.target.closest('.autocomplete-wrap')) document.getElementById('acMakeList').style.display='none'; });
+function selectMake(val) {
+  document.getElementById('ac_make').value = val;
+  document.getElementById('acMakeList').style.display = 'none';
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.autocomplete-wrap'))
+    document.getElementById('acMakeList').style.display = 'none';
+});
 
 // ============================================================
-// CRUD
+// ✅ INITIALISATION — fetches from Supabase on every page load
 // ============================================================
-async function saveCar(){
-  const make=document.getElementById('acMake').value.trim();
-  const model=document.getElementById('acModel').value.trim();
-  const year=document.getElementById('acYear').value;
-  const price=document.getElementById('acPrice').value;
-  if(!make||!model||!year||!price){ showToast('Make, Model, Year and Price are required.','error'); return; }
-  const urlRaw=document.getElementById('acImages').value.trim();
-  const urlImgs=urlRaw?urlRaw.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean):[];
-  const images=[...uploadedImagesBase64,...urlImgs];
-  const editId=document.getElementById('editCarId').value;
-  const carData={
-    make,model,year:parseInt(year),price:parseInt(price),
-    mileage:document.getElementById('acMileage').value.trim(),
-    transmission:document.getElementById('acTransmission').value,
-    fuelType:document.getElementById('acFuel').value,
-    engine:document.getElementById('acEngine').value.trim(),
-    drivetrain:document.getElementById('acDrivetrain').value,
-    condition:document.getElementById('acCondition').value,
-    availability:document.getElementById('acAvailability').value,
-    description:document.getElementById('acDesc').value.trim(),
-    featured:document.getElementById('acFeatured').checked,
-    images
-  };
-  const cars=getInventory();
-  if(editId){
-    const idx=cars.findIndex(c=>c.id===editId);
-    if(idx>-1) cars[idx]={...cars[idx],...carData};
-    saveInventory(cars);
-    if(supabaseConnected){ try{ await sbUpdateVehicle(cars[idx]); }catch(e){ showToast('Local saved. Supabase sync failed.','error'); } }
-    showToast('Vehicle updated.','success');
-  } else {
-    carData.id='car_'+Date.now();
-    cars.push(carData);
-    saveInventory(cars);
-    if(supabaseConnected){ try{ await sbInsertVehicle(carData); }catch(e){ showToast('Local saved. Supabase sync failed.','error'); } }
-    showToast('Vehicle added.','success');
-  }
-  resetCarForm();
-  renderDashCars(); refreshDashOverview();
-  dashTab('cars',document.querySelectorAll('.dash-nav-btn')[1]);
-}
-async function deleteCar(id){
-  const car=getInventory().find(c=>c.id===id);
-  if(!car) return;
-  if(!confirm(`Delete ${car.make} ${car.model}? This cannot be undone.`)) return;
-  const cars=getInventory().filter(c=>c.id!==id);
-  saveInventory(cars);
-  if(supabaseConnected){ try{ await sbDeleteVehicle(id); }catch(e){ showToast('Local deleted. Supabase sync failed.','error'); } }
-  renderDashCars(); refreshDashOverview();
-  showToast('Vehicle deleted.','info');
-}
-function editCar(id){
-  const car=getInventory().find(c=>c.id===id);
-  if(!car) return;
-  uploadedImagesBase64=[];
-  document.getElementById('editCarId').value=id;
-  document.getElementById('acMake').value=car.make||'';
-  document.getElementById('acModel').value=car.model||'';
-  document.getElementById('acYear').value=car.year||'';
-  document.getElementById('acPrice').value=car.price||'';
-  document.getElementById('acMileage').value=car.mileage||'';
-  document.getElementById('acTransmission').value=car.transmission||'';
-  document.getElementById('acFuel').value=car.fuelType||'';
-  document.getElementById('acEngine').value=car.engine||'';
-  document.getElementById('acDrivetrain').value=car.drivetrain||'';
-  document.getElementById('acCondition').value=car.condition||'';
-  document.getElementById('acAvailability').value=car.availability||'Available';
-  document.getElementById('acDesc').value=car.description||'';
-  document.getElementById('acFeatured').checked=!!car.featured;
-  const imgs=car.images||[];
-  uploadedImagesBase64=imgs.filter(i=>i.startsWith('data:'));
-  document.getElementById('acImages').value=imgs.filter(i=>!i.startsWith('data:')).join('\n');
-  renderImgPreviews();
-  document.getElementById('addCarFormTitle').textContent='Edit Vehicle';
-  document.getElementById('addCarBtn').textContent='Update Vehicle';
-  document.getElementById('cancelEditBtn').style.display='block';
-  dashTab('add',document.querySelectorAll('.dash-nav-btn')[2]);
-}
-function cancelEdit(){ resetCarForm(); }
-function resetCarForm(){
-  ['acMake','acModel','acYear','acPrice','acMileage','acEngine','acDesc','acImages'].forEach(id=>{ document.getElementById(id).value=''; });
-  ['acTransmission','acFuel','acDrivetrain','acCondition'].forEach(id=>{ document.getElementById(id).selectedIndex=0; });
-  document.getElementById('acAvailability').value='Available';
-  document.getElementById('acFeatured').checked=false;
-  document.getElementById('editCarId').value='';
-  document.getElementById('addCarFormTitle').textContent='Add New Vehicle';
-  document.getElementById('addCarBtn').textContent='Add Vehicle';
-  document.getElementById('cancelEditBtn').style.display='none';
-  uploadedImagesBase64=[]; renderImgPreviews();
-}
-
-// ============================================================
-// INIT
-// ============================================================
-(async function init(){
-  window._inventory = getLocalInventory();
+(async function init() {
+  setDbStatus('loading', 'Connecting...');
   showSkeletons();
   buildReels();
   buildReviews();
-  renderCars(getInventory());
+  lucide.createIcons();
+
+  // ✅ Fetch live inventory from Supabase `cars` table
+  const cars = await fetchInventory();
+  renderCars(cars);
   buildFilters();
   updateModelFilter();
   lucide.createIcons();
 })();
 
-document.getElementById('adminPass').addEventListener('keydown',e=>{ if(e.key==='Enter') doAdminLogin(); });
-document.getElementById('adminUser').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('adminPass').focus(); });
+document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') doAdminLogin(); });
+document.getElementById('adminUser').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('adminPass').focus(); });
 </script>
 </body>
 </html>
