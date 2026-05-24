@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-<!-- ✅ SUPABASE SDK — loaded via CDN, no npm required -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -39,7 +37,6 @@ img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
 button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
-/* ===== UTILITY ===== */
 .container{max-width:1280px;margin:0 auto;padding:0 32px;}
 .section-tag{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
 .section-tag::before{content:'';width:24px;height:2px;background:var(--red);}
@@ -51,7 +48,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:transparent;color:var(--black);font-family:'Syne',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;border:1.5px solid var(--black);transition:var(--transition);}
 .btn-outline:hover{background:var(--black);color:#fff;transform:translateY(-2px);}
 
-/* ===== SCROLL REVEAL ===== */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
 .reveal.visible{opacity:1;transform:none;}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
@@ -59,7 +55,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
 .reveal-right.visible{opacity:1;transform:none;}
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--red);padding:0;transition:box-shadow .4s ease;}
 #navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.25);}
 .nav-inner{display:flex;align-items:stretch;justify-content:space-between;height:64px;}
@@ -83,7 +79,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .mobile-menu .nav-link:hover{background:rgba(255,255,255,.08);}
 .mobile-menu .mob-wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 18px;border-radius:4px;margin:6px 16px 0;}
 
-/* ===== HERO ===== */
+/* HERO */
 #home{display:block;}
 #hero{width:100%;height:100vh;min-height:500px;position:relative;overflow:hidden;}
 .hero-img-desktop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
@@ -94,7 +90,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .hero-img-mobile{display:block;position:relative;width:100%;height:auto;object-fit:contain;object-position:center top;}
 }
 
-/* ===== STATS ===== */
+/* STATS */
 #stats{background:#fff;padding:40px 0 28px;}
 .stats-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:20px;}
 .stat-item{text-align:center;}
@@ -110,7 +106,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .stat-divider{display:block;width:1px;height:28px;background:var(--grey-light);}
 }
 
-/* ===== SOCIAL FOLLOW ===== */
+/* SOCIAL FOLLOW */
 #social-follow{background:#fff;padding:0 0 48px;}
 .social-follow-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
 .follow-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:var(--transition);}
@@ -120,10 +116,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .follow-btn-tt:hover{background:#111;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
 .follow-btn-wa{background:#25D366;color:#fff;}
 .follow-btn-wa:hover{background:#1ebe5b;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3);}
+.follow-btn-fb{background:#1877F2;color:#fff;}
+.follow-btn-fb:hover{background:#0d65d9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(24,119,242,.35);}
 .follow-btn svg{width:18px;height:18px;}
 .follow-divider{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--grey-mid);}
 
-/* ===== SEARCH ===== */
+/* SEARCH */
 #search{padding:60px 0;background:var(--off-white);position:relative;}
 #search::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--black));}
 .search-card{background:var(--white);border-radius:var(--radius);padding:36px 40px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
@@ -138,7 +136,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .search-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
 .search-results-count{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:600;color:var(--grey-dark);align-self:center;}
 
-/* ===== INVENTORY ===== */
+/* INVENTORY */
 #inventory{padding:80px 0;background:var(--white);}
 .inventory-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px;}
 .cars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
@@ -173,7 +171,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .empty-state h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;}
 .empty-state p{font-size:.9rem;color:var(--text-light);}
 
-/* ===== ABOUT ===== */
+/* ABOUT */
 #about{padding:36px 0;background:#2a2a2a;position:relative;overflow:hidden;}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
 .about-left .section-tag{color:var(--red);margin-bottom:8px;}
@@ -188,113 +186,34 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .about-feature span{font-family:'DM Sans',sans-serif;font-size:.8rem;}
 .about-bg-text{position:absolute;bottom:-10px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:14vw;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none;}
 
-/* ===== REELS — AUTO-SLIDING ANIMATION ===== */
+/* REELS — SINGLE ROW only */
 #reels{padding:60px 0;background:var(--off-white);overflow:hidden;}
 .reels-header{text-align:center;margin-bottom:40px;}
-
-/* Two-row marquee carousel */
 .reels-carousel{position:relative;}
-.reels-carousel::before,
-.reels-carousel::after{
-  content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
-}
+.reels-carousel::before,.reels-carousel::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
 .reels-carousel::before{left:0;background:linear-gradient(to right,var(--off-white) 0%,transparent 100%);}
 .reels-carousel::after{right:0;background:linear-gradient(to left,var(--off-white) 0%,transparent 100%);}
-
 .reels-track-outer{overflow:hidden;width:100%;}
-
-/* The continuous scroll belt — duplicated items for seamless loop */
-.reels-track{
-  display:flex;
-  gap:20px;
-  width:max-content;
-  animation:reelsSlide 28s linear infinite;
-  padding:8px 0 16px;
-}
+.reels-track{display:flex;gap:20px;width:max-content;animation:reelsSlide 28s linear infinite;padding:8px 0 16px;}
 .reels-track:hover{animation-play-state:paused;}
-
-@keyframes reelsSlide{
-  0%  { transform:translateX(0); }
-  100%{ transform:translateX(-50%); }
-}
-
-/* Reverse direction second row — hidden on mobile for perf */
-.reels-track.reverse{
-  animation-direction:reverse;
-  margin-top:16px;
-}
-
-/* Individual reel card */
-.reel-embed-card{
-  flex-shrink:0;
-  width:200px;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:var(--shadow-md);
-  background:#fff;
-  position:relative;
-  cursor:pointer;
-  transition:transform .3s, box-shadow .3s;
-  border:1px solid rgba(0,0,0,.08);
-  text-decoration:none;
-  display:block;
-}
-.reel-embed-card:hover{
-  transform:scale(1.05) translateY(-4px);
-  box-shadow:0 24px 48px rgba(0,0,0,.22);
-}
-.reel-thumb-wrap{
-  position:relative;
-  width:200px;
-  height:355px;
-  overflow:hidden;
-  background:#1a1a1a;
-}
-.reel-thumb-wrap img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.reel-thumb-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.08) 55%,transparent 100%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-end;
-  padding:14px;
-}
-.reel-play-btn{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-60%);
-  width:48px;height:48px;
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(8px);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .3s,transform .3s;
-  border:2px solid rgba(255,255,255,.35);
-}
-.reel-embed-card:hover .reel-play-btn{
-  background:rgba(193,18,31,.8);
-  transform:translate(-50%,-60%) scale(1.12);
-}
+@keyframes reelsSlide{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.reel-embed-card{flex-shrink:0;width:200px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md);background:#fff;position:relative;cursor:pointer;transition:transform .3s,box-shadow .3s;border:1px solid rgba(0,0,0,.08);text-decoration:none;display:block;}
+.reel-embed-card:hover{transform:scale(1.05) translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.22);}
+.reel-thumb-wrap{position:relative;width:200px;height:355px;overflow:hidden;background:#1a1a1a;}
+.reel-thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.reel-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.08) 55%,transparent 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:14px;}
+.reel-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:48px;height:48px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s;border:2px solid rgba(255,255,255,.35);}
+.reel-embed-card:hover .reel-play-btn{background:rgba(193,18,31,.8);transform:translate(-50%,-60%) scale(1.12);}
 .reel-play-btn svg{width:18px;height:18px;color:#fff;margin-left:3px;}
-.reel-ig-badge{
-  display:flex;align-items:center;gap:5px;
-  background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
-  color:#fff;
-  font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;
-  padding:4px 9px;border-radius:20px;
-  margin-bottom:5px;
-}
+.reel-ig-badge{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;padding:4px 9px;border-radius:20px;margin-bottom:5px;}
 .reel-label-text{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;color:#fff;letter-spacing:.06em;text-align:center;}
 .reel-handle-text{font-family:'DM Sans',sans-serif;font-size:.57rem;color:rgba(255,255,255,.65);text-align:center;margin-top:2px;}
+@media(max-width:768px){
+  .reel-embed-card{width:160px;}
+  .reel-thumb-wrap{width:160px;height:284px;}
+}
 
-/* ===== REVIEWS ===== */
+/* REVIEWS — fixed sizing */
 #reviews{padding:72px 0;background:var(--white);overflow:hidden;}
 .reviews-header{text-align:center;margin-bottom:40px;}
 .reviews-slider-wrap{overflow:hidden;position:relative;}
@@ -304,7 +223,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .reviews-track{display:flex;gap:14px;animation:reviewsScroll 22s linear infinite;width:max-content;}
 .reviews-track:hover{animation-play-state:paused;}
 @keyframes reviewsScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.review-card{flex-shrink:0;width:260px;background:var(--white);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow-md);border:1px solid var(--grey-light);position:relative;overflow:hidden;}
+.review-card{flex-shrink:0;width:280px;max-width:280px;background:var(--white);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow-md);border:1px solid var(--grey-light);position:relative;overflow:hidden;}
 .review-card::before{content:'\201C';font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--red);opacity:.08;position:absolute;top:-6px;left:12px;line-height:1;}
 .review-stars{display:flex;gap:2px;margin-bottom:10px;}
 .review-text{font-family:'DM Sans',sans-serif;font-size:.78rem;line-height:1.6;color:var(--grey-dark);margin-bottom:14px;font-style:italic;}
@@ -313,7 +232,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .review-name{font-family:'Syne',sans-serif;font-size:.76rem;font-weight:700;color:var(--black);}
 .review-date{font-family:'DM Sans',sans-serif;font-size:.62rem;color:var(--grey-dark);}
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 #contact{padding:80px 0;background:var(--off-white);}
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
 .contact-info{display:flex;flex-direction:column;gap:16px;margin-top:32px;}
@@ -338,7 +257,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .form-textarea{height:120px;}
 .form-submit{width:100%;margin-top:8px;}
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 #footer{background:var(--charcoal);color:#fff;padding:60px 0 0;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;}
 .footer-logo{margin-bottom:16px;}
@@ -355,7 +274,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .footer-copy{font-family:'DM Sans',sans-serif;font-size:.78rem;color:rgba(255,255,255,.35);}
 .footer-copy span{color:var(--red);}
 
-/* ===== TOAST ===== */
+/* TOAST */
 .toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;}
 .toast{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:10px;background:var(--black);color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;box-shadow:var(--shadow-lg);transform:translateX(120%);transition:transform .4s cubic-bezier(.4,0,.2,1);max-width:340px;}
 .toast.show{transform:none;}
@@ -363,7 +282,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .toast-error{border-left:3px solid var(--red);}
 .toast-info{border-left:3px solid #3b82f6;}
 
-/* ===== CAR DETAIL MODAL ===== */
+/* CAR DETAIL MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal{background:#fff;border-radius:20px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.95) translateY(20px);transition:transform .4s cubic-bezier(.4,0,.2,1);}
@@ -393,7 +312,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .db-dot.connected{background:#22c55e;}
 .db-dot.error{background:var(--red);}
 
-/* ===== ADMIN LOGIN ===== */
+/* ADMIN LOGIN */
 #admin-login{display:none;position:fixed;inset:0;background:var(--black);z-index:9999;align-items:center;justify-content:center;}
 #admin-login.visible{display:flex;}
 .admin-login-card{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;max-width:420px;width:100%;position:relative;}
@@ -414,7 +333,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .admin-login-btn:hover{background:var(--red-dark);}
 .admin-token-note{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.2);margin-top:10px;text-align:center;line-height:1.5;}
 
-/* ===== ADMIN DASHBOARD ===== */
+/* ADMIN DASHBOARD */
 #admin-dash{display:none;position:fixed;inset:0;background:#0d0d0d;z-index:9998;overflow-y:auto;}
 #admin-dash.visible{display:block;}
 .dash-header{background:#111;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10;}
@@ -437,7 +356,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .dash-car-list{display:flex;flex-direction:column;gap:10px;}
 .dash-car-item{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;transition:var(--transition);}
 .dash-car-item:hover{border-color:rgba(255,255,255,.12);}
-.dash-car-thumb{width:60px;height:44px;border-radius:6px;object-fit:cover;background:#1a1a1a;flex-shrink:0;}
 .dash-car-info{flex:1;min-width:0;}
 .dash-car-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:#fff;}
 .dash-car-meta{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.4);}
@@ -449,6 +367,17 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .dash-delete{background:rgba(193,18,31,.15);color:var(--red);}
 .dash-delete:hover{background:var(--red);color:#fff;}
 .dash-action-btn svg{width:13px;height:13px;}
+
+/* Mobile image carousel in dashboard */
+.dash-car-thumb-wrap{position:relative;flex-shrink:0;width:60px;height:44px;}
+.dash-car-thumb{width:60px;height:44px;border-radius:6px;object-fit:cover;background:#1a1a1a;flex-shrink:0;}
+.dash-car-thumb-carousel{width:60px;height:44px;border-radius:6px;overflow:hidden;position:relative;background:#1a1a1a;}
+.dash-car-thumb-carousel .thumb-slides{display:flex;height:100%;transition:transform .4s ease;}
+.dash-car-thumb-carousel .thumb-slide{flex-shrink:0;width:60px;height:44px;}
+.dash-car-thumb-carousel .thumb-slide img{width:60px;height:44px;object-fit:cover;border-radius:0;}
+.thumb-nav{position:absolute;bottom:2px;left:0;right:0;display:flex;justify-content:center;gap:3px;}
+.thumb-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;}
+.thumb-dot.active{background:#fff;}
 
 /* ADD CAR FORM */
 .add-car-form{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;}
@@ -476,6 +405,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .img-preview-item img{width:100%;height:100%;object-fit:cover;}
 .img-preview-remove{position:absolute;top:2px;right:2px;width:16px;height:16px;background:rgba(0,0,0,.8);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:9px;line-height:1;}
 
+/* Existing images section */
+.existing-imgs-section{grid-column:1/-1;margin-bottom:8px;}
+.existing-imgs-label{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;display:block;}
+.existing-imgs-list{display:flex;gap:8px;flex-wrap:wrap;}
+.existing-img-item{width:64px;height:48px;border-radius:6px;overflow:hidden;position:relative;border:2px solid rgba(37,211,102,.3);}
+.existing-img-item img{width:100%;height:100%;object-fit:cover;}
+.existing-img-remove{position:absolute;top:2px;right:2px;width:16px;height:16px;background:rgba(193,18,31,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:9px;line-height:1;}
+
 /* Upload progress */
 .upload-progress-wrap{grid-column:1/-1;display:none;}
 .upload-progress-bar-bg{width:100%;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-top:8px;}
@@ -498,7 +435,61 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .pw-submit{padding:12px 28px;background:var(--red);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
 .pw-submit:hover{background:var(--red-dark);}
 
-/* ===== RESPONSIVE ===== */
+/* ==========================================
+   AI CHATBOT WIDGET
+   ========================================== */
+.chat-fab{position:fixed;bottom:80px;right:24px;z-index:4000;width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(193,18,31,.5);cursor:pointer;transition:transform .3s,box-shadow .3s;border:none;}
+.chat-fab:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(193,18,31,.6);}
+.chat-fab svg{width:24px;height:24px;color:#fff;}
+.chat-fab .chat-badge{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:#22c55e;border-radius:50%;border:2px solid #fff;animation:pulse-badge 2s infinite;}
+@keyframes pulse-badge{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+
+.chat-window{position:fixed;bottom:150px;right:24px;z-index:4000;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden;transform:scale(0.8) translateY(20px);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s;transform-origin:bottom right;max-height:70vh;}
+.chat-window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
+
+.chat-header{background:var(--red);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.chat-header-avatar{width:36px;height:36px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.chat-header-avatar svg{width:18px;height:18px;color:#fff;}
+.chat-header-info{flex:1;}
+.chat-header-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:#fff;}
+.chat-header-status{font-family:'DM Sans',sans-serif;font-size:.7rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:5px;}
+.chat-status-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse-badge 2s infinite;}
+.chat-close-btn{background:rgba(255,255,255,.15);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s;color:#fff;}
+.chat-close-btn:hover{background:rgba(255,255,255,.25);}
+
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:200px;}
+.chat-messages::-webkit-scrollbar{width:4px;}
+.chat-messages::-webkit-scrollbar-track{background:transparent;}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--grey-light);border-radius:2px;}
+
+.chat-msg{display:flex;gap:8px;max-width:85%;}
+.chat-msg.user{align-self:flex-end;flex-direction:row-reverse;}
+.chat-msg.bot{align-self:flex-start;}
+.chat-msg-avatar{width:28px;height:28px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;}
+.chat-msg-avatar svg{width:13px;height:13px;color:#fff;}
+.chat-msg.user .chat-msg-avatar{background:var(--black);}
+.chat-msg-bubble{padding:10px 14px;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:.83rem;line-height:1.55;color:var(--text);}
+.chat-msg.bot .chat-msg-bubble{background:var(--off-white);border-radius:4px 14px 14px 14px;}
+.chat-msg.user .chat-msg-bubble{background:var(--red);color:#fff;border-radius:14px 4px 14px 14px;}
+
+.chat-typing{display:flex;gap:4px;align-items:center;padding:10px 14px;background:var(--off-white);border-radius:4px 14px 14px 14px;width:fit-content;}
+.chat-typing span{width:6px;height:6px;background:var(--grey-mid);border-radius:50%;animation:typing-dot 1.2s infinite;}
+.chat-typing span:nth-child(2){animation-delay:.2s;}
+.chat-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes typing-dot{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+
+.chat-quick-btns{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px;}
+.chat-quick-btn{padding:6px 12px;background:var(--off-white);border:1px solid var(--grey-light);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--text);cursor:pointer;transition:var(--transition);white-space:nowrap;}
+.chat-quick-btn:hover{background:var(--red);color:#fff;border-color:var(--red);}
+
+.chat-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--grey-light);flex-shrink:0;}
+.chat-input{flex:1;padding:10px 14px;border:1.5px solid var(--grey-light);border-radius:20px;font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;transition:var(--transition);resize:none;max-height:80px;}
+.chat-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(193,18,31,.08);}
+.chat-send-btn{width:38px;height:38px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);flex-shrink:0;border:none;}
+.chat-send-btn:hover{background:var(--red-dark);transform:scale(1.05);}
+.chat-send-btn svg{width:15px;height:15px;color:#fff;margin-left:2px;}
+
+/* RESPONSIVE */
 @media(max-width:1024px){
   .cars-grid{grid-template-columns:repeat(2,1fr);}
   .about-inner{grid-template-columns:1fr;gap:24px;}
@@ -529,7 +520,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .dash-body{padding:12px;}
   .dash-header{padding:10px 14px;}
   .dash-car-price{display:none;}
-  .review-card{width:230px;}
+  .review-card{width:230px;max-width:230px;}
   .follow-btn{padding:12px 18px;font-size:.72rem;}
   #about{padding:24px 0;}
   .about-features{gap:6px;}
@@ -540,10 +531,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .follow-divider{display:none;}
   .follow-btn{padding:9px 12px;font-size:.66rem;gap:6px;white-space:nowrap;flex-shrink:0;}
   .follow-btn svg,.follow-btn i{width:14px;height:14px;}
-  /* Reels mobile: single row, reduce card size */
-  .reel-embed-card{width:160px;}
-  .reel-thumb-wrap{width:160px;height:284px;}
-  .reels-track.reverse{display:none;}
+  .chat-window{width:calc(100vw - 32px);bottom:130px;right:16px;}
+  .chat-fab{right:16px;bottom:70px;}
 }
 @media(max-width:480px){
   .section-title{font-size:1.9rem;}
@@ -551,20 +540,18 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .dash-car-item{flex-wrap:wrap;}
   .add-car-grid{grid-column:1fr;}
   .nav-logo-text{display:none;}
-  .review-card{width:210px;}
+  .review-card{width:200px;max-width:200px;}
 }
 @keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-6px);}40%,80%{transform:translateX(6px);}}
 </style>
 </head>
 <body>
 
-<!-- DB STATUS INDICATOR -->
 <div class="db-status" id="dbStatus">
   <div class="db-dot" id="dbDot"></div>
   <span id="dbStatusText">Connecting...</span>
 </div>
 
-<!-- TOAST CONTAINER -->
 <div class="toast-container" id="toastContainer"></div>
 
 <!-- MOBILE MENU -->
@@ -612,7 +599,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   </div>
 </section>
 
-<!-- STATS STRIP -->
+<!-- STATS -->
 <section id="stats">
   <div class="container">
     <div class="stats-inner">
@@ -639,7 +626,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   </div>
 </section>
 
-<!-- SOCIAL FOLLOW -->
+<!-- SOCIAL FOLLOW — includes Facebook -->
 <section id="social-follow">
   <div class="container">
     <div class="social-follow-inner">
@@ -652,6 +639,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       <a href="https://www.tiktok.com/@rifasaventures" target="_blank" class="follow-btn follow-btn-tt">
         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.09a4.85 4.85 0 0 1-1-.4z"/></svg>
         TikTok
+      </a>
+      <div class="follow-divider">•</div>
+      <a href="https://web.facebook.com/Rifasamagari1/" target="_blank" class="follow-btn follow-btn-fb">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
       </a>
       <div class="follow-divider">•</div>
       <a href="https://wa.me/254727238801" target="_blank" class="follow-btn follow-btn-wa">
@@ -771,7 +763,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   <div class="about-bg-text">RIFASA</div>
 </section>
 
-<!-- REELS — Auto-sliding marquee carousel -->
+<!-- REELS — SINGLE ROW ONLY -->
 <section id="reels">
   <div class="reels-header container">
     <div class="section-tag reveal" style="justify-content:center;">Our Videos</div>
@@ -779,14 +771,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     <p style="text-align:center;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--text-light);margin-top:8px;" class="reveal">Tap any video to watch on Instagram</p>
   </div>
   <div class="reels-carousel">
-    <!-- Row 1: left-to-right -->
     <div class="reels-track-outer">
       <div class="reels-track" id="reelsTrack"></div>
     </div>
-    <!-- Row 2: right-to-left (decorative second row, same cards) -->
-    <div class="reels-track-outer" style="margin-top:16px;">
-      <div class="reels-track reverse" id="reelsTrack2"></div>
-    </div>
+    <!-- Second row REMOVED — single row only on desktop and mobile -->
   </div>
 </section>
 
@@ -815,7 +803,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             <div class="contact-item-icon"><i data-lucide="phone" style="width:17px;height:17px;color:#fff;"></i></div>
             <div>
               <div class="contact-item-label">Phone</div>
-              <div class="contact-item-value">+254 727 238 801</div>
+              <div class="contact-item-value">+254 727 238 801 | +254 736 836 611</div>
             </div>
           </div>
           <div class="contact-item">
@@ -883,6 +871,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
           <a href="https://www.tiktok.com/@rifasaventures" target="_blank" class="social-btn" title="TikTok">
             <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.01a8.16 8.16 0 0 0 4.77 1.52V7.09a4.85 4.85 0 0 1-1-.4z"/></svg>
           </a>
+          <a href="https://web.facebook.com/Rifasamagari1/" target="_blank" class="social-btn" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
           <a href="tel:+254727238801" class="social-btn" title="Call">
             <i data-lucide="phone" style="width:16px;height:16px;"></i>
           </a>
@@ -905,9 +896,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       <div>
         <div class="footer-col-title">Contact</div>
         <a href="tel:+254727238801" class="footer-link">+254 727 238 801</a>
+        <a href="tel:+254736836611" class="footer-link">+254 736 836 611</a>
         <a href="https://wa.me/254727238801" target="_blank" class="footer-link">WhatsApp Us</a>
         <a href="https://www.instagram.com/rifasa_magari/" target="_blank" class="footer-link">@rifasa_magari</a>
-        <a href="https://www.tiktok.com/@rifasaventures" target="_blank" class="footer-link">@rifasaventures</a>
+        <a href="https://web.facebook.com/Rifasamagari1/" target="_blank" class="footer-link">Facebook</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -939,6 +931,40 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- AI CHATBOT WIDGET -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Chat with Rifasa AI">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <div class="chat-badge"></div>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-header-avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Rifasa AI Assistant</div>
+      <div class="chat-header-status"><span class="chat-status-dot"></span> Online — Ask me anything</div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChat()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-quick-btns" id="chatQuickBtns">
+    <button class="chat-quick-btn" onclick="sendQuick('What cars do you have available?')">Available cars</button>
+    <button class="chat-quick-btn" onclick="sendQuick('What are your prices?')">Prices</button>
+    <button class="chat-quick-btn" onclick="sendQuick('How can I contact Rifasa?')">Contact info</button>
+    <button class="chat-quick-btn" onclick="sendQuick('Do you have any SUVs?')">SUVs</button>
+  </div>
+  <div class="chat-input-row">
+    <textarea class="chat-input" id="chatInput" placeholder="Ask about inventory, prices, contact..." rows="1" onkeydown="chatKeyDown(event)" oninput="autoResizeChat(this)"></textarea>
+    <button class="chat-send-btn" onclick="sendChatMessage()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
   </div>
 </div>
 
@@ -1014,7 +1040,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
         <input type="hidden" id="editCarId"/>
         <div class="add-car-grid">
 
-          <!-- make -->
           <div class="add-car-group">
             <div class="add-car-label">Make</div>
             <div class="autocomplete-wrap">
@@ -1023,31 +1048,26 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </div>
           </div>
 
-          <!-- model -->
           <div class="add-car-group">
             <div class="add-car-label">Model</div>
             <input type="text" class="add-car-input" id="ac_model" placeholder="e.g. Land Cruiser"/>
           </div>
 
-          <!-- year -->
           <div class="add-car-group">
             <div class="add-car-label">Year</div>
             <input type="number" class="add-car-input" id="ac_year" placeholder="2020" min="1990" max="2030"/>
           </div>
 
-          <!-- price -->
           <div class="add-car-group">
             <div class="add-car-label">Price (KES)</div>
             <input type="text" class="add-car-input" id="ac_price" placeholder="3,500,000"/>
           </div>
 
-          <!-- mileage -->
           <div class="add-car-group">
             <div class="add-car-label">Mileage (km)</div>
             <input type="text" class="add-car-input" id="ac_mileage" placeholder="45,000"/>
           </div>
 
-          <!-- transmission -->
           <div class="add-car-group">
             <div class="add-car-label">Transmission</div>
             <select class="add-car-select" id="ac_transmission">
@@ -1056,7 +1076,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </select>
           </div>
 
-          <!-- fuel_type -->
           <div class="add-car-group">
             <div class="add-car-label">Fuel Type</div>
             <select class="add-car-select" id="ac_fuel_type">
@@ -1065,13 +1084,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </select>
           </div>
 
-          <!-- engine -->
           <div class="add-car-group">
             <div class="add-car-label">Engine</div>
             <input type="text" class="add-car-input" id="ac_engine" placeholder="2.0L Turbo"/>
           </div>
 
-          <!-- drivetrain -->
           <div class="add-car-group">
             <div class="add-car-label">Drivetrain</div>
             <select class="add-car-select" id="ac_drivetrain">
@@ -1080,7 +1097,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </select>
           </div>
 
-          <!-- condition -->
           <div class="add-car-group">
             <div class="add-car-label">Condition</div>
             <select class="add-car-select" id="ac_condition">
@@ -1089,7 +1105,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </select>
           </div>
 
-          <!-- availability -->
           <div class="add-car-group">
             <div class="add-car-label">Availability</div>
             <select class="add-car-select" id="ac_availability">
@@ -1099,13 +1114,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </select>
           </div>
 
-          <!-- description -->
           <div class="add-car-group full">
             <div class="add-car-label">Description</div>
             <textarea class="add-car-textarea" id="ac_description" placeholder="Describe the vehicle..."></textarea>
           </div>
 
-          <!-- is_featured -->
           <div class="add-car-group full">
             <div class="checkbox-wrap">
               <input type="checkbox" id="ac_is_featured"/>
@@ -1113,13 +1126,15 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </div>
           </div>
 
-          <!-- images upload -->
+          <!-- ✅ EXISTING IMAGES — shown when editing, preserved on update -->
+          <div class="add-car-group full existing-imgs-section" id="existingImgsSection" style="display:none;">
+            <span class="existing-imgs-label">Current Images (tap × to remove)</span>
+            <div class="existing-imgs-list" id="existingImgsList"></div>
+          </div>
+
+          <!-- NEW IMAGES upload -->
           <div class="add-car-group full">
-            <div class="add-car-label">Images (select multiple files)</div>
-            <!--
-              ✅ Standard file input — id="carImages" — supports multiple PNG/JPG selection.
-              Files are uploaded to Supabase Storage bucket "car-images" on form submit.
-            -->
+            <div class="add-car-label">Add New Images</div>
             <div class="img-upload-zone" id="imgUploadZone"
               onclick="document.getElementById('carImages').click()"
               ondragover="handleDragOver(event)"
@@ -1128,12 +1143,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
               <div class="img-upload-text"><strong>Click to select images</strong> or drag &amp; drop here<br>JPG, PNG, WEBP supported • Multiple files allowed</div>
               <div class="img-preview-list" id="imgPreviewList"></div>
             </div>
-            <!--
-              ✅ FILE INPUT — id="carImages" — wired to Supabase Storage upload logic.
-              DO NOT rename this id without updating uploadImagesToSupabase() below.
-            -->
             <input type="file" id="carImages" accept="image/*" multiple style="display:none;" onchange="handleFileSelect(this)"/>
-            <!-- Upload progress bar -->
             <div class="upload-progress-wrap" id="uploadProgressWrap">
               <div class="upload-progress-label" id="uploadProgressLabel">Uploading images...</div>
               <div class="upload-progress-bar-bg">
@@ -1142,7 +1152,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
             </div>
           </div>
 
-        </div><!-- /add-car-grid -->
+        </div>
 
         <button class="add-car-submit" onclick="saveCar()" id="addCarBtn">Add Vehicle</button>
         <button id="cancelEditBtn" style="display:none;width:100%;margin-top:10px;padding:11px;background:transparent;border:1.5px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;cursor:pointer;" onclick="cancelEdit()">Cancel Edit</button>
@@ -1169,28 +1179,21 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       </div>
     </div>
 
-  </div><!-- /dash-body -->
-</div><!-- /admin-dash -->
-
+  </div>
+</div>
 
 <script>
 // ============================================================
-// ✅ SUPABASE INITIALISATION
-// SUPABASE_URL and SUPABASE_KEY are baked in here.
-// To update credentials, change these two constants only.
+// SUPABASE INIT
 // ============================================================
 const SUPABASE_URL = 'https://baxefjtopjuuuxrzvgbx.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJheGVmanRvcGp1dXV4cnp2Z2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkzNjY5MTQsImV4cCI6MjA5NDk0MjkxNH0.6TvS1KopPXlGMkLQPqv8bAkVjE6ZItM1vjBL55vohj4';
-const STORAGE_BUCKET = 'car-images'; // Must match your Supabase Storage bucket name exactly
-
-// supabase is the global object injected by the CDN script above
+const STORAGE_BUCKET = 'car-images';
 const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-// In-memory inventory cache — populated by fetchInventory()
 window._inventory = [];
 
 // ============================================================
-// ✅ DB STATUS INDICATOR
+// DB STATUS
 // ============================================================
 function setDbStatus(state, msg) {
   const dot = document.getElementById('dbDot');
@@ -1200,15 +1203,12 @@ function setDbStatus(state, msg) {
 }
 
 // ============================================================
-// ✅ FETCH INVENTORY FROM SUPABASE
-// Replaces the old localStorage.getItem() loop entirely.
-// Pulls live data from the `cars` table on every page load.
+// FETCH INVENTORY
 // ============================================================
 async function fetchInventory() {
   try {
     const { data, error } = await _sb.from('cars').select('*').order('created_at', { ascending: false });
     if (error) throw error;
-    // Normalize Supabase column names → internal field names used by the UI
     window._inventory = (data || []).map(normaliseRow);
     setDbStatus('connected');
     return window._inventory;
@@ -1220,7 +1220,6 @@ async function fetchInventory() {
   }
 }
 
-// Maps Supabase snake_case columns to the JS camelCase keys the UI already uses.
 function normaliseRow(row) {
   return {
     id: row.id,
@@ -1237,8 +1236,6 @@ function normaliseRow(row) {
     availability: row.availability || 'Available',
     description: row.description || '',
     featured: !!row.is_featured,
-    // ✅ images is a text[] array in Supabase.
-    // images[0] is used as the main card thumbnail throughout the UI.
     images: Array.isArray(row.images) ? row.images : (row.images ? [row.images] : []),
     _raw: row,
   };
@@ -1247,24 +1244,9 @@ function normaliseRow(row) {
 function getInventory() { return window._inventory; }
 
 // ============================================================
-// ✅ IMAGE UPLOAD: Client file → Supabase Storage → public URL
-//
-// How it works step-by-step:
-//  1. Admin selects files via <input type="file" id="carImages">
-//  2. On form submit, uploadImagesToSupabase() is called
-//  3. Each file is uploaded to the "car-images" bucket with a
-//     unique timestamped filename (timestamp_randomhex_original.ext)
-//     to guarantee no name collisions even if the same file is
-//     re-uploaded later.
-//  4. _sb.storage.from(bucket).upload() returns a path.
-//  5. _sb.storage.from(bucket).getPublicUrl(path) returns a
-//     permanent public HTTPS URL.
-//  6. All URLs are collected into an array and saved to the
-//     `images` (text[]) column in the `cars` table.
-//  7. That URL array is later fetched by fetchInventory() and
-//     images[0] is used as the card thumbnail everywhere.
+// IMAGE UPLOAD
 // ============================================================
-let _pendingFiles = []; // Files staged for upload before form submit
+let _pendingFiles = [];
 
 function handleFileSelect(input) {
   Array.from(input.files).forEach(file => {
@@ -1274,7 +1256,7 @@ function handleFileSelect(input) {
     reader.onload = e => addPreview(e.target.result, _pendingFiles.length - 1);
     reader.readAsDataURL(file);
   });
-  input.value = ''; // Reset so same file can be re-selected if needed
+  input.value = '';
 }
 
 function handleDragOver(e) {
@@ -1301,80 +1283,86 @@ function addPreview(src, idx) {
   list.appendChild(item);
 }
 function removePreview(idx) {
-  _pendingFiles[idx] = null; // Mark as removed (keep index intact for siblings)
+  _pendingFiles[idx] = null;
   const item = document.querySelector(`.img-preview-item[data-idx="${idx}"]`);
   if (item) item.remove();
 }
 
-// ✅ Core upload function — called during saveCar()
 async function uploadImagesToSupabase() {
   const filesToUpload = _pendingFiles.filter(f => f !== null);
   if (filesToUpload.length === 0) return [];
-
   const progressWrap = document.getElementById('uploadProgressWrap');
   const progressBar  = document.getElementById('uploadProgressBar');
   const progressLbl  = document.getElementById('uploadProgressLabel');
   progressWrap.style.display = 'block';
-
   const publicUrls = [];
   for (let i = 0; i < filesToUpload.length; i++) {
     const file = filesToUpload[i];
-    // Build a unique filename: timestamp_randomhex_originalname
-    const ext = file.name.split('.').pop().toLowerCase();
+    const ext  = file.name.split('.').pop().toLowerCase();
     const rand = Math.random().toString(16).slice(2, 10);
     const filename = `${Date.now()}_${rand}.${ext}`;
-
     progressLbl.textContent = `Uploading image ${i + 1} of ${filesToUpload.length}...`;
     progressBar.style.width = ((i / filesToUpload.length) * 100) + '%';
-
-    const { data, error } = await _sb.storage.from(STORAGE_BUCKET).upload(filename, file, {
-      cacheControl: '3600',
-      upsert: false,
-    });
-
-    if (error) {
-      console.error('Image upload error:', error);
-      showToast(`Image ${i + 1} failed to upload: ${error.message}`, 'error');
-      continue; // Skip failed image, continue with rest
-    }
-
-    // Get the permanent public URL for this uploaded file
+    const { data, error } = await _sb.storage.from(STORAGE_BUCKET).upload(filename, file, { cacheControl: '3600', upsert: false });
+    if (error) { console.error('Image upload error:', error); showToast(`Image ${i + 1} failed: ${error.message}`, 'error'); continue; }
     const { data: urlData } = _sb.storage.from(STORAGE_BUCKET).getPublicUrl(data.path);
     publicUrls.push(urlData.publicUrl);
   }
-
   progressBar.style.width = '100%';
   setTimeout(() => { progressWrap.style.display = 'none'; progressBar.style.width = '0%'; }, 800);
   return publicUrls;
 }
 
 // ============================================================
-// ✅ SAVE CAR — Insert or Update in Supabase `cars` table
+// ✅ EXISTING IMAGE MANAGEMENT (for edit mode)
+// _existingImages tracks which URLs from DB are still kept.
+// ============================================================
+let _existingImages = []; // URLs from DB that survive the edit
+
+function renderExistingImgs() {
+  const section = document.getElementById('existingImgsSection');
+  const list    = document.getElementById('existingImgsList');
+  if (!_existingImages.length) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+  list.innerHTML = _existingImages.map((url, i) =>
+    `<div class="existing-img-item" data-ei="${i}">
+       <img src="${url}" onerror="this.style.background='#333';this.removeAttribute('src')"/>
+       <div class="existing-img-remove" onclick="removeExistingImg(${i})" title="Remove this image">✕</div>
+     </div>`
+  ).join('');
+}
+function removeExistingImg(idx) {
+  _existingImages.splice(idx, 1);
+  renderExistingImgs();
+}
+
+// ============================================================
+// ✅ SAVE CAR — Preserves existing images when updating specs
+// FIX: when editing, we keep _existingImages + append new uploads
 // ============================================================
 async function saveCar() {
   const make  = document.getElementById('ac_make').value.trim();
   const model = document.getElementById('ac_model').value.trim();
   const year  = document.getElementById('ac_year').value;
   const price = document.getElementById('ac_price').value;
-
   if (!make || !model || !year || !price) {
     showToast('Make, Model, Year and Price are required.', 'error');
     return;
   }
-
   const btn = document.getElementById('addCarBtn');
   btn.disabled = true;
   btn.textContent = 'Saving...';
 
-  // ✅ Upload images first — get back array of public URLs
-  const imageUrls = await uploadImagesToSupabase();
+  // Upload any NEW images selected
+  const newImageUrls = await uploadImagesToSupabase();
 
-  // ✅ Parse price and mileage: strip commas, spaces, letters, keep integers only
+  // ✅ Combine: existing images kept + new uploads appended
+  const allImageUrls = [..._existingImages, ...newImageUrls];
+
   const priceInt   = parseInt(String(price).replace(/[^0-9]/g, ''), 10) || 0;
   const mileageRaw = document.getElementById('ac_mileage').value;
   const mileageInt = parseInt(String(mileageRaw).replace(/[^0-9]/g, ''), 10) || null;
 
-  // ✅ Build payload matching Supabase column names exactly
   const payload = {
     make:         make,
     model:        model,
@@ -1389,7 +1377,7 @@ async function saveCar() {
     availability: document.getElementById('ac_availability').value || 'Available',
     description:  document.getElementById('ac_description').value.trim() || null,
     is_featured:  document.getElementById('ac_is_featured').checked,
-    images:       imageUrls, // text[] array of public URLs
+    images:       allImageUrls,  // ✅ Always includes kept existing + new uploads
   };
 
   const editId = document.getElementById('editCarId').value;
@@ -1397,26 +1385,20 @@ async function saveCar() {
   try {
     let dbError;
     if (editId) {
-      // ✅ UPDATE existing row — match by primary key `id`
       const { error } = await _sb.from('cars').update(payload).eq('id', editId);
       dbError = error;
     } else {
-      // ✅ INSERT new row
       const { error } = await _sb.from('cars').insert([payload]);
       dbError = error;
     }
-
     if (dbError) throw dbError;
-
     showToast(editId ? 'Vehicle updated successfully.' : 'Vehicle added successfully.', 'success');
     resetCarForm();
-    // Re-fetch from Supabase so UI is always in sync with DB
     await fetchInventory();
     renderCars(getInventory());
     buildFilters();
     refreshDash();
     dashTab('cars', document.querySelectorAll('.dash-nav-btn')[1]);
-
   } catch (err) {
     console.error('Save error:', err);
     showToast('Database error: ' + (err.message || 'Unknown error'), 'error');
@@ -1427,18 +1409,14 @@ async function saveCar() {
 }
 
 // ============================================================
-// ✅ DELETE CAR from Supabase
+// DELETE CAR
 // ============================================================
 async function deleteCar(id) {
   const car = getInventory().find(c => String(c.id) === String(id));
   if (!car) return;
   if (!confirm(`Delete ${car.make} ${car.model}? This cannot be undone.`)) return;
-
   const { error } = await _sb.from('cars').delete().eq('id', id);
-  if (error) {
-    showToast('Delete failed: ' + error.message, 'error');
-    return;
-  }
+  if (error) { showToast('Delete failed: ' + error.message, 'error'); return; }
   showToast('Vehicle deleted.', 'info');
   await fetchInventory();
   renderCars(getInventory());
@@ -1448,35 +1426,32 @@ async function deleteCar(id) {
 }
 
 // ============================================================
-// EDIT CAR — fills form from local cache, no extra DB call
+// ✅ EDIT CAR — loads existing images into _existingImages
 // ============================================================
 function editCar(id) {
   const car = getInventory().find(c => String(c.id) === String(id));
   if (!car) return;
+
   _pendingFiles = [];
+  _existingImages = Array.isArray(car.images) ? [...car.images] : [];
+
   document.getElementById('editCarId').value = id;
-  document.getElementById('ac_make').value        = car.make || '';
-  document.getElementById('ac_model').value       = car.model || '';
-  document.getElementById('ac_year').value        = car.year || '';
-  document.getElementById('ac_price').value       = car.price || '';
-  document.getElementById('ac_mileage').value     = String(car.mileage || '').replace(/[^0-9]/g, '');
+  document.getElementById('ac_make').value         = car.make || '';
+  document.getElementById('ac_model').value        = car.model || '';
+  document.getElementById('ac_year').value         = car.year || '';
+  document.getElementById('ac_price').value        = car.price || '';
+  document.getElementById('ac_mileage').value      = String(car.mileage || '').replace(/[^0-9]/g, '');
   document.getElementById('ac_transmission').value = car.transmission || '';
-  document.getElementById('ac_fuel_type').value   = car.fuelType || '';
-  document.getElementById('ac_engine').value      = car.engine || '';
-  document.getElementById('ac_drivetrain').value  = car.drivetrain || '';
-  document.getElementById('ac_condition').value   = car.condition || '';
+  document.getElementById('ac_fuel_type').value    = car.fuelType || '';
+  document.getElementById('ac_engine').value       = car.engine || '';
+  document.getElementById('ac_drivetrain').value   = car.drivetrain || '';
+  document.getElementById('ac_condition').value    = car.condition || '';
   document.getElementById('ac_availability').value = car.availability || 'Available';
-  document.getElementById('ac_description').value = car.description || '';
+  document.getElementById('ac_description').value  = car.description || '';
   document.getElementById('ac_is_featured').checked = !!car.featured;
 
-  // Show existing image thumbnails (read-only previews from URLs already in DB)
-  const list = document.getElementById('imgPreviewList');
-  list.innerHTML = (car.images || []).map((url, i) =>
-    `<div class="img-preview-item" data-idx="existing-${i}">
-       <img src="${url}" onerror="this.style.background='#333';this.removeAttribute('src')"/>
-       <div class="img-preview-remove" title="Note: existing images cannot be removed here">—</div>
-     </div>`
-  ).join('');
+  document.getElementById('imgPreviewList').innerHTML = '';
+  renderExistingImgs();
 
   document.getElementById('addCarFormTitle').textContent = 'Edit Vehicle';
   document.getElementById('addCarBtn').textContent = 'Update Vehicle';
@@ -1501,7 +1476,10 @@ function resetCarForm() {
   document.getElementById('addCarBtn').disabled = false;
   document.getElementById('cancelEditBtn').style.display = 'none';
   _pendingFiles = [];
+  _existingImages = [];
   document.getElementById('imgPreviewList').innerHTML = '';
+  document.getElementById('existingImgsSection').style.display = 'none';
+  document.getElementById('existingImgsList').innerHTML = '';
 }
 
 // ============================================================
@@ -1509,7 +1487,7 @@ function resetCarForm() {
 // ============================================================
 async function hashPassword(pw) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 }
 const ADMIN_USERNAME = 'rifasa';
 const DEFAULT_PW = 'rifasa@2026';
@@ -1520,7 +1498,6 @@ async function getStoredPwHash() {
   return h;
 }
 
-// REMEMBER ME
 const REMEMBER_SALT   = 'rifasa_salt_2026_v1';
 const REMEMBER_KEY    = 'rifasa_session_token';
 const REMEMBER_EXPIRY = 'rifasa_session_expiry';
@@ -1563,7 +1540,6 @@ function updateActiveNavLink() {
     l.classList.toggle('active', l.getAttribute('href') === '#' + current));
 }
 
-// Logo triple-click → admin login
 let logoClicks = 0, logoTimer = null;
 document.getElementById('navLogo').addEventListener('click', () => {
   logoClicks++;
@@ -1625,11 +1601,7 @@ const counterObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
 
 // ============================================================
-// ✅ REELS — Auto-sliding two-row marquee carousel
-// Cards link directly to Instagram where the video plays.
-// Thumbnails are served from your local images/ folder.
-// The CSS keyframe `reelsSlide` drives the continuous scroll;
-// we simply duplicate the card list so it loops seamlessly.
+// REELS — SINGLE ROW
 // ============================================================
 const REELS = [
   { url:'https://www.instagram.com/p/DYliHC9I-aJ/', imgPath:'images/reel1.png', label:'Executive Fleet' },
@@ -1638,7 +1610,6 @@ const REELS = [
   { url:'https://www.instagram.com/p/DXLk8ekiIKR/', imgPath:'images/reel4.png', label:'Premium Ride' },
   { url:'https://www.instagram.com/p/DWgUxvAiDbr/', imgPath:'images/reel5.png', label:'Quality Cars' },
 ];
-
 const REEL_GRADIENTS = [
   'linear-gradient(160deg,#1a0a2e 0%,#3a1060 100%)',
   'linear-gradient(160deg,#0d1b2a 0%,#1a4060 100%)',
@@ -1646,47 +1617,42 @@ const REEL_GRADIENTS = [
   'linear-gradient(160deg,#0a1a0d 0%,#1a4020 100%)',
   'linear-gradient(160deg,#1a1400 0%,#504000 100%)',
 ];
-
 function reelCardHTML(r, i) {
-  return `
-    <a href="${r.url}" target="_blank" rel="noopener" class="reel-embed-card">
-      <div class="reel-thumb-wrap" style="background:${REEL_GRADIENTS[i % REEL_GRADIENTS.length]};">
-        <img src="${r.imgPath}" alt="${r.label}" loading="lazy"/>
-        <div class="reel-thumb-overlay">
-          <div class="reel-play-btn">
-            <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+  return `<a href="${r.url}" target="_blank" rel="noopener" class="reel-embed-card">
+    <div class="reel-thumb-wrap" style="background:${REEL_GRADIENTS[i % REEL_GRADIENTS.length]};">
+      <img src="${r.imgPath}" alt="${r.label}" loading="lazy"/>
+      <div class="reel-thumb-overlay">
+        <div class="reel-play-btn">
+          <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div>
+          <div class="reel-ig-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @rifasa_magari
           </div>
-          <div>
-            <div class="reel-ig-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="10" height="10"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              @rifasa_magari
-            </div>
-            <div class="reel-label-text">${r.label}</div>
-            <div class="reel-handle-text">Tap to watch on Instagram</div>
-          </div>
+          <div class="reel-label-text">${r.label}</div>
+          <div class="reel-handle-text">Tap to watch on Instagram</div>
         </div>
       </div>
-    </a>`;
+    </div>
+  </a>`;
 }
-
 function buildReels() {
-  // Duplicate the list to enable seamless CSS loop (CSS animation shifts by -50%)
+  // Only one row — doubled for seamless loop
   const singleRow = REELS.map((r, i) => reelCardHTML(r, i)).join('');
-  const doubledRow = singleRow + singleRow;
-
-  document.getElementById('reelsTrack').innerHTML  = doubledRow;
-  document.getElementById('reelsTrack2').innerHTML = doubledRow;
+  document.getElementById('reelsTrack').innerHTML = singleRow + singleRow;
 }
 
 // ============================================================
 // REVIEWS
 // ============================================================
 const REVIEWS_DATA = [
-  { initials:'HM', name:'Hassan M.', date:'Mombasa · March 2025', text:'"Bought my Toyota Prado from Rifasa and the experience was seamless. Clean car, honest pricing, and great service. I will definitely refer friends and family."' },
+  { initials:'HM', name:'Hassan M.', date:'Mombasa · March 2025', text:'"Bought my Toyota Prado from Rifasa and the experience was seamless. Clean car, honest pricing, and great service."' },
   { initials:'BK', name:'Brian K.',  date:'Nairobi · January 2025', text:'"Professional team, very transparent about the car history. Got my Mercedes-Benz C200 at a fair market price. Highly recommend Rifasa."' },
   { initials:'AS', name:'Ali S.',    date:'Mombasa · April 2025', text:'"Fast, reliable, and genuine. Rifasa delivered exactly what they promised. The Range Rover I got was in perfect condition."' },
+  { initials:'FN', name:'Fatuma N.', date:'Mombasa · Feb 2025', text:'"Excellent service from start to finish. The team was patient, honest and helped me find the perfect car within my budget."' },
+  { initials:'JM', name:'James M.',  date:'Nairobi · May 2025', text:'"Best car dealership in Mombasa! Great selection, competitive prices, and the after-sale support is outstanding."' },
 ];
-
 function buildReviews() {
   const track   = document.getElementById('reviewsTrack');
   const tripled = [...REVIEWS_DATA, ...REVIEWS_DATA, ...REVIEWS_DATA];
@@ -1703,7 +1669,7 @@ function buildReviews() {
 }
 
 // ============================================================
-// ✅ FILTERS — populated from live Supabase data
+// FILTERS
 // ============================================================
 function buildFilters() {
   const cars = getInventory();
@@ -1712,7 +1678,6 @@ function buildFilters() {
   populateSelect('filterTransmission', [...new Set(cars.map(c => c.transmission).filter(Boolean))].sort());
   populateSelect('filterFuel',         [...new Set(cars.map(c => c.fuelType).filter(Boolean))].sort());
 }
-
 function populateSelect(id, options) {
   const sel   = document.getElementById(id);
   const first = sel.options[0];
@@ -1758,7 +1723,7 @@ function clearFilters() {
 }
 
 // ============================================================
-// ✅ RENDER CARS — uses images[0] as thumbnail
+// RENDER CARS
 // ============================================================
 function renderCars(cars) {
   const grid = document.getElementById('carsGrid');
@@ -1772,7 +1737,6 @@ function renderCars(cars) {
   }
   const FALLBACK = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80';
   grid.innerHTML = cars.map((c, i) => {
-    // ✅ images[0] is the main thumbnail; images is the text[] array from Supabase
     const thumb = (c.images && c.images[0]) ? c.images[0] : FALLBACK;
     return `
       <div class="car-card reveal" style="transition-delay:${(i % 3) * 0.08}s;" onclick="openModal('${c.id}')">
@@ -1821,15 +1785,12 @@ function openModal(id) {
   if (!car) return;
   const FALLBACK = 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80';
   const imgs = (car.images && car.images.length > 0) ? car.images : [FALLBACK];
-
   document.getElementById('modalGallery').innerHTML = `
     <div class="modal-gallery-main"><img src="${imgs[0]}" alt="${car.make} ${car.model}" onerror="this.src='${FALLBACK}'"/></div>
     ${imgs[1] ? `<div class="modal-gallery-thumb"><img src="${imgs[1]}" onerror="this.src='${FALLBACK}'"/></div>` : ''}
     ${imgs[2] ? `<div class="modal-gallery-thumb"><img src="${imgs[2]}" onerror="this.src='${FALLBACK}'"/></div>` : ''}`;
-
   document.getElementById('modalTitle').textContent    = `${car.make} ${car.model}`;
   document.getElementById('modalSubtitle').textContent = `${car.year} • ${car.condition || 'Used'}`;
-
   const specs = [
     { label:'Year',         value: car.year },
     { label:'Mileage',      value: car.mileage || '—' },
@@ -1843,13 +1804,10 @@ function openModal(id) {
   document.getElementById('modalSpecs').innerHTML = specs.map(s =>
     `<div class="modal-spec"><div class="modal-spec-label">${s.label}</div><div class="modal-spec-value">${s.value}</div></div>`
   ).join('');
-
   document.getElementById('modalDesc').textContent  = car.description || 'Contact us for more details.';
   document.getElementById('modalPrice').textContent = `KES ${formatPrice(car.price)}`;
-
   const msg = encodeURIComponent(`Hello Rifasa, I'm interested in the ${car.year} ${car.make} ${car.model} listed for KES ${formatPrice(car.price)}. Please provide more details.`);
   document.getElementById('modalWa').href = `https://wa.me/254727238801?text=${msg}`;
-
   document.getElementById('carModal').classList.add('open');
   document.body.style.overflow = 'hidden';
   lucide.createIcons();
@@ -1891,7 +1849,7 @@ function showToast(msg, type = 'info') {
 }
 
 // ============================================================
-// ADMIN LOGIN / SESSION
+// ADMIN LOGIN
 // ============================================================
 async function openAdminLogin() {
   if (await isSessionValid()) { openDash(); showToast('Welcome back, Admin.', 'success'); return; }
@@ -1953,7 +1911,7 @@ async function changePassword() {
 async function openDash() {
   document.getElementById('admin-dash').style.display = 'block';
   document.body.style.overflow = 'hidden';
-  await fetchInventory(); // Always fresh from Supabase when opening dashboard
+  await fetchInventory();
   refreshDash();
   lucide.createIcons();
 }
@@ -1981,7 +1939,6 @@ function refreshDashOverview() {
   document.getElementById('dsFeatured').textContent  = cars.filter(c => c.featured).length;
   document.getElementById('dsAvailable').textContent = cars.filter(c => c.availability === 'Available').length;
   document.getElementById('dsMakes').textContent     = [...new Set(cars.map(c => c.make))].length;
-
   const recent = cars.slice(0, 5);
   document.getElementById('dsRecentList').innerHTML = recent.length === 0
     ? '<p style="color:rgba(255,255,255,.3);font-size:.82rem;font-family:DM Sans,sans-serif;">No vehicles yet.</p>'
@@ -1996,6 +1953,7 @@ function refreshDashOverview() {
       </div>`).join('');
 }
 
+// ✅ Dashboard car list — with multi-image carousel on mobile
 function renderDashCars() {
   const cars = getInventory();
   const list = document.getElementById('dashCarList');
@@ -2003,9 +1961,23 @@ function renderDashCars() {
     list.innerHTML = '<p style="color:rgba(255,255,255,.3);font-size:.85rem;font-family:DM Sans,sans-serif;text-align:center;padding:40px;">No vehicles added yet.</p>';
     return;
   }
-  list.innerHTML = cars.map(c => `
-    <div class="dash-car-item">
-      <img class="dash-car-thumb" src="${(c.images && c.images[0]) || ''}" onerror="this.style.background='#222';this.removeAttribute('src')"/>
+  list.innerHTML = cars.map(c => {
+    const imgs = c.images && c.images.length > 0 ? c.images : [];
+    let thumbHtml = '';
+    if (imgs.length <= 1) {
+      const src = imgs[0] || '';
+      thumbHtml = `<img class="dash-car-thumb" src="${src}" onerror="this.style.background='#222';this.removeAttribute('src')"/>`;
+    } else {
+      // Multi-image carousel
+      const slides = imgs.map(url => `<div class="thumb-slide"><img src="${url}" onerror="this.style.background='#333';this.removeAttribute('src')"/></div>`).join('');
+      const dots   = imgs.map((_, i) => `<div class="thumb-dot${i===0?' active':''}" onclick="thumbGo(this,${i})"></div>`).join('');
+      thumbHtml = `<div class="dash-car-thumb-carousel" id="tc_${c.id}">
+        <div class="thumb-slides" id="ts_${c.id}">${slides}</div>
+        <div class="thumb-nav">${dots}</div>
+      </div>`;
+    }
+    return `<div class="dash-car-item">
+      <div class="dash-car-thumb-wrap">${thumbHtml}</div>
       <div class="dash-car-info">
         <div class="dash-car-name">${c.make} ${c.model} <span style="color:rgba(255,255,255,.35);font-weight:400;">${c.year}</span></div>
         <div class="dash-car-meta">${c.condition || ''} · ${c.availability || 'Available'}${c.featured ? ' · <span style="color:var(--red);">Featured</span>' : ''}</div>
@@ -2015,8 +1987,33 @@ function renderDashCars() {
         <button class="dash-action-btn dash-edit"   onclick="editCar('${c.id}')"><i data-lucide="pencil"  style="width:13px;height:13px;"></i></button>
         <button class="dash-action-btn dash-delete" onclick="deleteCar('${c.id}')"><i data-lucide="trash-2" style="width:13px;height:13px;"></i></button>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
   lucide.createIcons();
+  // Auto-rotate carousels
+  cars.forEach(c => {
+    if (c.images && c.images.length > 1) {
+      let cur = 0;
+      setInterval(() => {
+        cur = (cur + 1) % c.images.length;
+        thumbGotoById(c.id, cur);
+      }, 2200);
+    }
+  });
+}
+
+function thumbGo(dotEl, idx) {
+  const carousel = dotEl.closest('.dash-car-thumb-carousel');
+  if (!carousel) return;
+  const id = carousel.id.replace('tc_', '');
+  thumbGotoById(id, idx);
+}
+function thumbGotoById(id, idx) {
+  const slides = document.getElementById('ts_' + id);
+  const carousel = document.getElementById('tc_' + id);
+  if (!slides || !carousel) return;
+  slides.style.transform = `translateX(${-idx * 60}px)`;
+  carousel.querySelectorAll('.thumb-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
 }
 
 // ============================================================
@@ -2042,7 +2039,178 @@ document.addEventListener('click', e => {
 });
 
 // ============================================================
-// ✅ INITIALISATION — fetches from Supabase on every page load
+// ✅ AI CHATBOT — powered by Anthropic API
+// The chatbot is injected with live inventory context so it
+// knows exactly what cars Rifasa has in stock.
+// ============================================================
+let _chatOpen = false;
+let _chatHistory = [];
+let _chatInitialized = false;
+
+function toggleChat() {
+  _chatOpen = !_chatOpen;
+  document.getElementById('chatWindow').classList.toggle('open', _chatOpen);
+  if (_chatOpen && !_chatInitialized) {
+    _chatInitialized = true;
+    addBotMessage("👋 Hi! I'm the Rifasa AI assistant. I know our entire car inventory and can help you find your perfect vehicle.\n\nAsk me about available cars, prices, specs, or anything else!");
+  }
+  if (_chatOpen) {
+    setTimeout(() => document.getElementById('chatInput').focus(), 300);
+  }
+}
+
+function buildInventoryContext() {
+  const cars = getInventory();
+  if (!cars.length) return 'No cars currently in inventory.';
+  return cars.map(c =>
+    `- ${c.year} ${c.make} ${c.model} | Price: KES ${formatPrice(c.price)} | Mileage: ${c.mileage || 'N/A'} | Transmission: ${c.transmission || 'N/A'} | Fuel: ${c.fuelType || 'N/A'} | Engine: ${c.engine || 'N/A'} | Drivetrain: ${c.drivetrain || 'N/A'} | Condition: ${c.condition || 'N/A'} | Status: ${c.availability || 'Available'}${c.description ? ' | Notes: ' + c.description.substring(0,120) : ''}`
+  ).join('\n');
+}
+
+function buildSystemPrompt() {
+  const inv = buildInventoryContext();
+  return `You are the friendly and knowledgeable AI sales assistant for Rifasa Executive Auto Ventures Limited, a premier car dealership based in Mombasa, Kenya.
+
+Your personality: warm, professional, helpful, honest. You speak naturally and confidently like an expert car salesman who genuinely wants to help customers find the right car.
+
+DEALERSHIP INFO:
+- Name: Rifasa Executive Auto Ventures Limited
+- Location: Mombasa, Kenya
+- Phone 1: 0727 238 801 (+254 727 238 801)
+- Phone 2: 0736 836 611 (+254 736 836 611)
+- WhatsApp: https://wa.me/254727238801
+- Instagram: @rifasa_magari
+- TikTok: @rifasaventures
+- Facebook: https://web.facebook.com/Rifasamagari1/
+- Hours: Monday to Saturday, 8:00 AM – 6:00 PM
+
+CURRENT INVENTORY (live data):
+${inv}
+
+YOUR RULES:
+1. Only recommend cars that are in the inventory above with status "Available". If a car is Sold or Reserved, say so.
+2. When recommending cars, mention price in KES, year, key specs.
+3. Always encourage customers to contact Rifasa via WhatsApp (0727 238 801) or call for test drives and deals.
+4. Be concise — responses under 200 words unless asked for detail.
+5. If asked about a car not in inventory, say you don't currently have it but invite them to check back or contact the team.
+6. Never make up specs or prices — only use data from the inventory above.
+7. You can help with: finding cars by budget/type/brand, comparing cars, financing questions (say to ask the team), and general car advice.
+8. Respond in the same language the customer uses (English or Swahili).`;
+}
+
+async function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  autoResizeChat(input);
+
+  addUserMessage(msg);
+  _chatHistory.push({ role: 'user', content: msg });
+
+  // Hide quick buttons after first message
+  document.getElementById('chatQuickBtns').style.display = 'none';
+
+  showTypingIndicator();
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: buildSystemPrompt(),
+        messages: _chatHistory,
+      })
+    });
+
+    const data = await response.json();
+    removeTypingIndicator();
+
+    if (data.error) {
+      addBotMessage("Sorry, I'm having trouble connecting right now. Please contact us directly on WhatsApp: 0727 238 801 or call 0736 836 611.");
+      return;
+    }
+
+    const reply = data.content && data.content[0] ? data.content[0].text : "I'm not sure how to answer that. Please call us on 0727 238 801.";
+    _chatHistory.push({ role: 'assistant', content: reply });
+    addBotMessage(reply);
+
+  } catch (err) {
+    removeTypingIndicator();
+    addBotMessage("Connection issue. Please reach us on WhatsApp at 0727 238 801 or call 0736 836 611.");
+  }
+}
+
+function sendQuick(msg) {
+  document.getElementById('chatInput').value = msg;
+  sendChatMessage();
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById('chatMessages');
+  const el = document.createElement('div');
+  el.className = 'chat-msg user';
+  el.innerHTML = `
+    <div class="chat-msg-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+    <div class="chat-msg-bubble">${escapeHtml(text)}</div>`;
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addBotMessage(text) {
+  const msgs = document.getElementById('chatMessages');
+  const el = document.createElement('div');
+  el.className = 'chat-msg bot';
+  // Format: convert newlines to <br> and **bold** to <strong>
+  const formatted = escapeHtml(text)
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>');
+  el.innerHTML = `
+    <div class="chat-msg-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+    <div class="chat-msg-bubble">${formatted}</div>`;
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTypingIndicator() {
+  const msgs = document.getElementById('chatMessages');
+  const el = document.createElement('div');
+  el.className = 'chat-msg bot';
+  el.id = 'chatTyping';
+  el.innerHTML = `
+    <div class="chat-msg-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+    <div class="chat-typing"><span></span><span></span><span></span></div>`;
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  const el = document.getElementById('chatTyping');
+  if (el) el.remove();
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+function chatKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendChatMessage();
+  }
+}
+
+function autoResizeChat(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+}
+
+// ============================================================
+// INIT
 // ============================================================
 (async function init() {
   setDbStatus('loading', 'Connecting...');
@@ -2051,7 +2219,6 @@ document.addEventListener('click', e => {
   buildReviews();
   lucide.createIcons();
 
-  // ✅ Fetch live inventory from Supabase `cars` table
   const cars = await fetchInventory();
   renderCars(cars);
   buildFilters();
